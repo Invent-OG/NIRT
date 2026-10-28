@@ -1,0 +1,349 @@
+---
+---
+
+<div
+	id="site-preloader"
+	class="preloader"
+	data-preloader
+	role="status"
+	aria-live="polite"
+	aria-label="Loading NIRT Renewable Energy"
+>
+	<div class="preloader__aura" aria-hidden="true"></div>
+	<div class="preloader__grid" aria-hidden="true"></div>
+
+	<div class="preloader__inner">
+		<div class="preloader__mark" aria-hidden="true">
+			<span class="preloader__frame preloader__frame--outer"></span>
+			<span class="preloader__frame preloader__frame--inner"></span>
+			<span class="preloader__spark preloader__spark--orange"></span>
+			<span class="preloader__spark preloader__spark--green"></span>
+			<span class="preloader__logo-card">
+				<img
+					src="/images/nirt-logo.webp"
+					alt=""
+					width="480"
+					height="439"
+					fetchpriority="high"
+					decoding="async"
+				/>
+			</span>
+		</div>
+
+		<p class="preloader__eyebrow">NIRT Renewable Energy</p>
+		<p class="preloader__title">The sun is <span>coming up.</span></p>
+		<p class="preloader__sub">Preparing your solar experience</p>
+
+		<div class="preloader__bar" aria-hidden="true"><span></span></div>
+		<p class="preloader__meta">Salem, Tamil Nadu · Since 2017</p>
+	</div>
+</div>
+
+<noscript>
+	<style is:inline>
+		#site-preloader {
+			display: none !important;
+		}
+	</style>
+</noscript>
+
+<style>
+	.preloader {
+		position: fixed;
+		inset: 0;
+		z-index: 100;
+		display: grid;
+		place-items: center;
+		overflow: hidden;
+		background: #071b3c;
+		color: #fff;
+		isolation: isolate;
+		transition:
+			opacity 520ms ease,
+			visibility 0s linear 520ms;
+		animation: preloader-failsafe 600ms ease 6000ms forwards;
+	}
+
+	.preloader.is-hiding {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	.preloader__aura {
+		position: absolute;
+		inset: -25%;
+		background:
+			radial-gradient(38% 44% at 22% 72%, rgba(14, 135, 67, 0.3), transparent 66%),
+			radial-gradient(42% 46% at 80% 24%, rgba(240, 95, 35, 0.2), transparent 64%),
+			radial-gradient(50% 50% at 50% 50%, rgba(21, 71, 131, 0.42), transparent 70%);
+		filter: blur(60px);
+		opacity: 0.9;
+	}
+
+	.preloader__grid {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(to right, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+			linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+		background-size: 56px 56px;
+		-webkit-mask-image: radial-gradient(circle at 50% 42%, #000 0%, transparent 72%);
+		mask-image: radial-gradient(circle at 50% 42%, #000 0%, transparent 72%);
+	}
+
+	.preloader__inner {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 2rem;
+		text-align: center;
+	}
+
+	.preloader__mark {
+		position: relative;
+		display: grid;
+		place-items: center;
+		width: 8.75rem;
+		height: 8.75rem;
+		margin-bottom: 1.7rem;
+	}
+
+	.preloader__mark::before {
+		content: "";
+		position: absolute;
+		inset: -2rem;
+		border-radius: 0;
+		background: radial-gradient(circle, rgba(255, 167, 125, 0.18), transparent 64%);
+		filter: blur(22px);
+	}
+
+	.preloader__frame {
+		position: absolute;
+		inset: 0;
+		border: 1px solid rgba(255, 255, 255, 0.16);
+	}
+
+	.preloader__frame--outer {
+		inset: -13px;
+		border-style: dashed;
+		border-color: rgba(255, 255, 255, 0.12);
+	}
+
+	.preloader__frame--inner::before,
+	.preloader__frame--inner::after {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 32%;
+	}
+
+	.preloader__frame--inner::before {
+		left: -1px;
+		top: -1px;
+		background: #f05f23;
+	}
+
+	.preloader__frame--inner::after {
+		right: -1px;
+		bottom: -1px;
+		background: #0e8743;
+	}
+
+	.preloader__logo-card {
+		position: relative;
+		z-index: 2;
+		display: grid;
+		place-items: center;
+		width: 6.4rem;
+		height: 6.4rem;
+		padding: 0.55rem;
+		border-radius: 0;
+		background: #fff;
+		box-shadow:
+			0 28px 60px -28px rgba(0, 0, 0, 0.7),
+			0 0 0 1px rgba(255, 255, 255, 0.22);
+		animation: preloader-float 3.6s ease-in-out infinite;
+	}
+
+	.preloader__logo-card img {
+		display: block;
+		height: 3.9rem;
+		width: auto;
+	}
+
+	.preloader__spark {
+		position: absolute;
+		z-index: 3;
+		border-radius: 0;
+	}
+
+	.preloader__spark--orange {
+		top: 5%;
+		right: 8%;
+		width: 7px;
+		height: 7px;
+		background: #f05f23;
+		box-shadow: 0 0 18px 5px rgba(240, 95, 35, 0.55);
+		animation: preloader-pulse 1.8s ease-in-out infinite;
+	}
+
+	.preloader__spark--green {
+		bottom: 2%;
+		left: 6%;
+		width: 5px;
+		height: 5px;
+		background: #0e8743;
+		box-shadow: 0 0 16px 4px rgba(14, 135, 67, 0.6);
+		animation: preloader-pulse 2.4s ease-in-out 0.35s infinite;
+	}
+
+	.preloader__eyebrow {
+		font-size: 0.55rem;
+		font-weight: 600;
+		letter-spacing: 0.24em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.42);
+	}
+
+	.preloader__title {
+		margin-top: 0.7rem;
+		font-family: var(--font-display);
+		font-size: clamp(1.55rem, 5vw, 2.05rem);
+		font-weight: 600;
+		line-height: 1.1;
+		letter-spacing: -0.045em;
+		color: #fff;
+	}
+
+	.preloader__title span {
+		color: #bfe4ce;
+	}
+
+	.preloader__sub {
+		margin-top: 0.55rem;
+		font-size: 0.53rem;
+		font-weight: 500;
+		letter-spacing: 0.17em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.34);
+	}
+
+	.preloader__bar {
+		width: min(15rem, 62vw);
+		height: 4px;
+		margin-top: 1.65rem;
+		overflow: hidden;
+		border-radius: 0;
+		background: rgba(255, 255, 255, 0.16);
+	}
+
+	.preloader__bar span {
+		display: block;
+		width: 100%;
+		height: 100%;
+		transform: scaleX(0);
+		transform-origin: left;
+		border-radius: 0;
+		background: linear-gradient(90deg, #f05f23 0%, #ffa77d 46%, #0e8743 100%);
+		box-shadow: 0 0 12px rgba(240, 95, 35, 0.45);
+		animation: preloader-fill 1.15s cubic-bezier(0.22, 1, 0.36, 1) 0.05s forwards;
+	}
+
+	.preloader__meta {
+		margin-top: 0.9rem;
+		font-size: 0.48rem;
+		font-weight: 500;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.25);
+	}
+
+	@keyframes preloader-float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-5px);
+		}
+	}
+
+	@keyframes preloader-pulse {
+		0%,
+		100% {
+			opacity: 0.35;
+			transform: scale(0.8);
+		}
+		50% {
+			opacity: 1;
+			transform: scale(1.15);
+		}
+	}
+
+	@keyframes preloader-fill {
+		to {
+			transform: scaleX(1);
+		}
+	}
+
+	@keyframes preloader-failsafe {
+		to {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.preloader__logo-card,
+		.preloader__spark,
+		.preloader__bar span {
+			animation: none !important;
+		}
+
+		.preloader__bar span {
+			transform: scaleX(1);
+		}
+	}
+</style>
+
+<script>
+	const preloader = document.querySelector<HTMLElement>("[data-preloader]");
+
+	if (preloader) {
+		const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		const minimum = reduce ? 160 : 1300;
+		const started = performance.now();
+		let finished = false;
+
+		const hide = () => {
+			if (finished) return;
+			finished = true;
+
+			const remaining = Math.max(0, minimum - (performance.now() - started));
+			window.setTimeout(() => {
+				preloader.classList.add("is-hiding");
+				preloader.setAttribute("aria-hidden", "true");
+				preloader.removeAttribute("role");
+				window.setTimeout(() => preloader.remove(), 700);
+			}, remaining);
+		};
+
+		if (reduce) {
+			hide();
+		} else if (document.readyState === "loading") {
+			document.addEventListener("DOMContentLoaded", hide, { once: true });
+		} else {
+			hide();
+		}
+
+		/* Fail-safe: never trap the page behind the overlay. */
+		window.setTimeout(hide, 5500);
+		window.addEventListener("pageshow", (event) => {
+			if (event.persisted) hide();
+		});
+	}
+</script>

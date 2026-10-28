@@ -1,5 +1,5 @@
 ---
-import Icon from "./Icon.astro";
+import HugeIcon from "./HugeIcon.astro";
 
 const tiers = [
 	{
@@ -29,27 +29,34 @@ const tiers = [
 ];
 ---
 
-<section id="subsidy" class="relative overflow-hidden bg-paper py-18 sm:py-22 lg:py-28">
-	<div class="pointer-events-none absolute -right-48 top-0 h-[600px] w-[600px] rounded-full bg-solar/[0.09] blur-3xl"></div>
-	<div class="solar-grid pointer-events-none absolute right-0 top-0 h-[50%] w-[36%] opacity-30 [mask-image:linear-gradient(270deg,black,transparent)]"></div>
+<section
+	id="subsidy"
+	class="relative overflow-hidden bg-[linear-gradient(180deg,#f6fbf7_0%,#edf8f1_100%)] py-18 sm:py-22 lg:py-28"
+>
+	<div
+		class="solar-grid pointer-events-none absolute right-0 top-0 h-[55%] w-[38%] opacity-25 [mask-image:linear-gradient(270deg,black,transparent)]"
+	></div>
+	<div class="pointer-events-none absolute -left-40 bottom-0 h-[460px] w-[460px] rounded-none bg-green/[0.1] blur-3xl"></div>
+	<div class="pointer-events-none absolute -right-32 top-20 h-[260px] w-[260px] rounded-none border border-green/15"></div>
 
 	<div class="container-page relative">
-		<div class="grid gap-8 lg:grid-cols-[1.08fr_0.72fr] lg:items-end lg:gap-20">
+		<div class="grid gap-8 lg:grid-cols-[1.1fr_0.7fr] lg:items-end lg:gap-20">
 			<div class="reveal">
-				<p class="eyebrow text-forest">Central government support</p>
-				<h2 class="display mt-5 max-w-[720px] text-[2.6rem] text-ink sm:text-[3.2rem] lg:text-[3.7rem]">
-					Get up to <span class="font-sans font-semibold tracking-[-0.06em] text-forest">₹78,000</span> back on your rooftop.
+				<p class="eyebrow text-green">Central government support</p>
+				<h2 class="display mt-5 max-w-[760px] text-[2.5rem] text-navy sm:text-[3.2rem] lg:text-[3.75rem]">
+					Get up to <span class="font-sans font-semibold tracking-[-0.06em] text-green">₹78,000</span>{" "}
+					back on your rooftop.
 				</h2>
 			</div>
 
 			<div class="reveal" style="transition-delay:80ms">
 				<p class="max-w-[430px] text-[12.5px] leading-[1.9] text-body sm:text-[13.5px]">
 					Rooftop solar becomes more affordable with financial assistance under the PM Surya
-					Ghar: Muft Bijli Yojana. Eligible residential households receive central support
-					based on installed capacity.
+					Ghar: Muft Bijli Yojana. Eligible households receive support based on installed
+					capacity.
 				</p>
-				<div class="mt-5 inline-flex items-center gap-2 rounded-full border border-forest/15 bg-mint px-3 py-1.5 text-[8.5px] font-semibold uppercase tracking-[0.11em] text-forest">
-					<Icon name="building" class="h-3 w-3" />
+				<div class="mt-5 inline-flex items-center gap-2 rounded-none border border-green/20 bg-white/70 px-3 py-1.5 text-[8.5px] font-semibold uppercase tracking-[0.11em] text-green-deep">
+					<HugeIcon name="building" class="h-3 w-3" />
 					PM Surya Ghar: Muft Bijli Yojana
 				</div>
 			</div>
@@ -60,76 +67,114 @@ const tiers = [
 				tiers.map((tier, index) => (
 					<article
 						class:list={[
-							"grain reveal group relative flex flex-col overflow-hidden rounded-[26px] p-6 transition duration-300 hover:-translate-y-1 sm:p-7",
+							"reveal group relative flex flex-col overflow-hidden rounded-none p-6 transition duration-300 hover:-translate-y-1 sm:p-7",
 							tier.featured
-								? "edge-gold-dark grain-dark bg-ink text-paper shadow-[0_40px_90px_-40px_rgba(8,31,27,0.75)] hover:shadow-[0_50px_110px_-40px_rgba(8,31,27,0.8)]"
-								: "premium-card text-ink hover:border-ink/15 hover:shadow-[0_32px_70px_-46px_rgba(8,31,27,0.5)]",
+								? "grain grain-dark bg-navy text-white shadow-[0_40px_90px_-42px_rgba(7,27,60,0.75)] hover:shadow-[0_50px_110px_-42px_rgba(7,27,60,0.8)]"
+								: "premium-card text-navy hover:border-green/25 hover:shadow-[0_32px_70px_-46px_rgba(11,31,58,0.4)]",
 						]}
 						style={`transition-delay:${index * 70}ms`}
 					>
 						{tier.featured && (
 							<>
-								<div class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-solar/[0.14] blur-3xl"></div>
-								<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-30"></div>
-								<div class="pointer-events-none absolute -bottom-20 -right-12 h-52 w-52 rounded-full border border-solar/20"></div>
+								<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-20"></div>
+								<div class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-none bg-orange/[0.18] blur-3xl"></div>
+								<div class="pointer-events-none absolute -bottom-20 -right-14 h-52 w-52 rounded-none border border-orange/25"></div>
 							</>
 						)}
 
 						<div class="relative z-[2] flex items-start justify-between gap-4">
-							<span class:list={["text-[8px] font-semibold uppercase tracking-[0.18em]", tier.featured ? "text-white/35" : "text-moss/60"]}>
+							<span
+								class:list={[
+									"text-[8px] font-semibold uppercase tracking-[0.18em]",
+									tier.featured ? "text-white/40" : "text-moss/70",
+								]}
+							>
 								{tier.tier}
 							</span>
 							{tier.featured ? (
-								<span class="inline-flex items-center gap-1 rounded-full bg-solar px-2.5 py-1 text-[7.5px] font-semibold uppercase tracking-[0.1em] text-ink">
-									<span class="text-[8px]" aria-hidden="true">✦</span>
+								<span class="inline-flex items-center gap-1 rounded-none bg-orange-deep px-2.5 py-1 text-[7.5px] font-semibold uppercase tracking-[0.1em] text-white">
+									<HugeIcon name="sparkles" class="h-2.5 w-2.5" />
 									Maximum
 								</span>
 							) : (
-								<span class="flex h-8 w-8 items-center justify-center rounded-full border border-ink/10 bg-white/50 text-forest">
-									<Icon name="sun" class="h-3.5 w-3.5" />
+								<span class="flex h-9 w-9 items-center justify-center rounded-none border border-green/15 bg-green-soft text-green">
+									<HugeIcon name="sun" class="h-4 w-4" />
 								</span>
 							)}
 						</div>
 
 						<div class="relative z-[2] mt-10">
-							<p class:list={["text-[8px] font-semibold uppercase tracking-[0.16em]", tier.featured ? "text-solar" : "text-forest"]}>
+							<p
+								class:list={[
+									"text-[8px] font-semibold uppercase tracking-[0.16em]",
+									tier.featured ? "text-orange-light" : "text-green",
+								]}
+							>
 								Indicative central subsidy
 							</p>
 							<p
 								class:list={[
 									"mt-2.5 font-sans font-semibold leading-none tracking-[-0.055em] tabular-nums",
-									tier.featured ? "text-[2.5rem] text-solar sm:text-[2.8rem]" : "text-[2.7rem] sm:text-[3rem]",
+									tier.featured ? "text-[2.4rem] text-white sm:text-[2.7rem]" : "text-[2.6rem] sm:text-[2.9rem]",
 								]}
 							>
 								{tier.amount}
 							</p>
-							<p class:list={["mt-3 text-[9px] leading-4", tier.featured ? "text-white/35" : "text-moss/70"]}>
+							<p
+								class:list={[
+									"mt-3 text-[9px] leading-4",
+									tier.featured ? "text-white/40" : "text-moss/80",
+								]}
+							>
 								{tier.featured ? "For eligible residential installations" : "Subject to scheme eligibility"}
 							</p>
 						</div>
 
-						<div class:list={["relative z-[2] mt-8 border-t pt-5", tier.featured ? "border-white/10" : "border-ink/10"]}>
+						<div
+							class:list={[
+								"relative z-[2] mt-8 border-t pt-5",
+								tier.featured ? "border-white/12" : "border-line",
+							]}
+						>
 							<div class="flex items-baseline justify-between gap-3">
-								<p class:list={["text-[12px] font-semibold", tier.featured ? "text-white/85" : "text-ink"]}>
+								<p class:list={["text-[12.5px] font-semibold", tier.featured ? "text-white/90" : "text-navy"]}>
 									{tier.capacity}
 								</p>
-								<span class:list={["text-[8px] uppercase tracking-[0.12em]", tier.featured ? "text-white/30" : "text-moss/60"]}>
+								<span
+									class:list={[
+										"text-[8px] uppercase tracking-[0.12em]",
+										tier.featured ? "text-white/35" : "text-moss/70",
+									]}
+								>
 									System
 								</span>
 							</div>
-							<p class:list={["mt-2 text-[10px] leading-[1.7]", tier.featured ? "text-white/45" : "text-body"]}>
+							<p class:list={["mt-2 text-[10px] leading-[1.7]", tier.featured ? "text-white/50" : "text-body"]}>
 								{tier.copy}
 							</p>
 						</div>
 
 						<div class="relative z-[2] mt-auto pt-7">
-							<div class:list={["h-[3px] w-full overflow-hidden rounded-full", tier.featured ? "bg-white/10" : "bg-ink/10"]}>
+							<div
+								class:list={[
+									"h-[3px] w-full overflow-hidden rounded-none",
+									tier.featured ? "bg-white/12" : "bg-navy/8",
+								]}
+							>
 								<div
-									class:list={["h-full rounded-full transition-all duration-700", tier.featured ? "bg-solar" : "bg-forest/50 group-hover:bg-forest"]}
+									class:list={[
+										"h-full rounded-none transition-all duration-700",
+										tier.featured ? "bg-orange" : "bg-green/40 group-hover:bg-green",
+									]}
 									style={`width:${tier.width}`}
 								></div>
 							</div>
-							<div class:list={["mt-2 flex justify-between text-[7.5px] uppercase tracking-[0.1em]", tier.featured ? "text-white/25" : "text-moss/50"]}>
+							<div
+								class:list={[
+									"mt-2 flex justify-between text-[7.5px] uppercase tracking-[0.1em]",
+									tier.featured ? "text-white/30" : "text-moss/60",
+								]}
+							>
 								<span>0</span>
 								<span>78,000</span>
 							</div>
@@ -139,36 +184,34 @@ const tiers = [
 			}
 		</div>
 
-		<div class="edge-gold relative mt-5 overflow-hidden rounded-[24px] p-[1px]">
-			<div class="grain relative flex flex-col gap-5 bg-[#f7edda] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-				<div class="relative z-[2] flex items-start gap-3.5">
-					<span class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/10 bg-white/60 text-forest">
-						<Icon name="shield" class="h-4 w-4" />
-					</span>
-					<div>
-						<p class="text-[11.5px] font-semibold text-ink">
-							Maximum central subsidy for eligible residential installations
-						</p>
-						<p class="mt-1 max-w-[590px] text-[9.5px] leading-[1.65] text-moss">
-							NIRT guides you through eligibility, application and documentation. Subsidy is
-							subject to approval and current scheme guidelines; amounts are indicative.
-						</p>
-					</div>
+		<div
+			class="premium-card reveal mt-5 flex flex-col gap-5 overflow-hidden p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6"
+		>
+			<div class="relative z-[2] flex items-start gap-3.5">
+				<span class="icon-tile icon-tile-green h-11 w-11 shrink-0 rounded-none">
+					<HugeIcon name="shield" class="h-5 w-5" />
+				</span>
+				<div>
+					<p class="text-[11.5px] font-semibold text-navy">
+						Maximum central subsidy for eligible residential installations
+					</p>
+					<p class="mt-1 max-w-[590px] text-[9.5px] leading-[1.65] text-body">
+						NIRT guides you through eligibility, application and documentation. Subsidy is
+						subject to approval and current scheme guidelines; amounts are indicative.
+					</p>
 				</div>
-				<button
-					type="button"
-					class="btn-ink relative z-[2] shrink-0 self-start !min-h-10 !px-5 !text-[10px] sm:self-auto"
-					data-open-lead-dialog
-				>
-					Check My Eligibility
-					<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-						<path d="M2.5 8h10M8.5 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
-					</svg>
-				</button>
 			</div>
+			<button
+				type="button"
+				class="btn-primary relative z-[2] shrink-0 self-start !min-h-10 !px-5 !text-[10px] sm:self-auto"
+				data-open-lead-dialog
+			>
+				Check my eligibility
+				<HugeIcon name="arrowRight" class="h-3.5 w-3.5" />
+			</button>
 		</div>
 
-		<p class="mt-4 text-[9px] leading-4 text-moss/70">
+		<p class="mt-4 text-[9px] leading-4 text-moss">
 			*Subsidy is subject to eligibility, approval and applicable scheme guidelines. Figures are
 			indicative and may change.
 		</p>

@@ -1,6 +1,7 @@
 ---
 import LeadForm from "./LeadForm.astro";
-import Icon from "./Icon.astro";
+import HugeIcon from "./HugeIcon.astro";
+import Logo from "./Logo.astro";
 ---
 
 <dialog
@@ -8,30 +9,48 @@ import Icon from "./Icon.astro";
 	class="lead-dialog"
 	aria-label="Want to know what solar could mean for your home?"
 >
-	<div class="grid lg:grid-cols-[0.9fr_1.1fr]">
-		<div class="grain grain-dark relative hidden flex-col justify-between overflow-hidden bg-ink p-8 text-paper lg:flex xl:p-10">
-			<div class="aurora opacity-40"></div>
-			<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-35"></div>
-			<div class="pointer-events-none absolute -bottom-20 -right-16 h-64 w-64 rounded-full border border-solar/20"></div>
-			<div class="pointer-events-none absolute -bottom-10 -right-8 h-44 w-44 rounded-full bg-solar/10 blur-2xl"></div>
+	<div class="grid lg:grid-cols-[0.92fr_1.08fr]">
+		<div class="grain grain-dark relative hidden flex-col justify-between overflow-hidden bg-navy p-8 text-white lg:flex xl:p-10">
+			<div class="aurora opacity-45"></div>
+			<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-25"></div>
+			<div class="pointer-events-none absolute -bottom-20 -right-16 h-64 w-64 rounded-none border border-orange/25"></div>
+			<div class="pointer-events-none absolute -bottom-10 -right-8 h-44 w-44 rounded-none bg-orange/15 blur-2xl"></div>
 
 			<div class="relative z-[2]">
-				<p class="eyebrow text-solar">Your solar potential</p>
-				<h2 class="display mt-6 text-[2.2rem] leading-[0.98] text-paper xl:text-[2.5rem]">
-					What could solar mean for your <em class="text-solar">home?</em>
+				<div class="inline-flex rounded-none bg-white px-3 py-2 shadow-lg">
+					<Logo size="sm" />
+				</div>
+				<p class="eyebrow mt-8 text-orange-light">Your solar potential</p>
+				<h2 class="display mt-5 text-[2.2rem] leading-[1] text-white xl:text-[2.45rem]">
+					What could solar mean for your <span class="text-green-mid">home?</span>
 				</h2>
-				<p class="mt-4 max-w-[310px] text-[11.5px] leading-[1.8] text-white/55">
+				<p class="mt-4 max-w-[310px] text-[11.5px] leading-[1.8] text-white/60">
 					Share your monthly electricity bill and location to start a solar assessment with
 					NIRT.
 				</p>
+
+				<ul class="mt-7 grid gap-2.5">
+					{
+						["Roof suitability & shading review", "Subsidy eligibility guidance", "A clear, no-obligation proposal"].map(
+							(item) => (
+								<li class="flex items-center gap-2.5 text-[10px] text-white/70">
+									<span class="flex h-4 w-4 items-center justify-center rounded-none bg-green/20 text-green-mid">
+										<HugeIcon name="tick" class="h-2.5 w-2.5" />
+									</span>
+									{item}
+								</li>
+							),
+						)
+					}
+				</ul>
 			</div>
 
-			<div class="relative z-[2] mt-12 rounded-2xl border border-white/10 bg-white/[0.05] p-4 backdrop-blur-md">
+			<div class="relative z-[2] mt-12 rounded-none border border-white/12 bg-white/[0.06] p-4 backdrop-blur-md">
 				<div class="flex gap-3">
-					<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-solar/20 bg-solar/10 text-solar">
-						<Icon name="sun" class="h-4 w-4" />
+					<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-none border border-orange/25 bg-orange/15 text-orange">
+						<HugeIcon name="solarPanel" class="h-4 w-4" />
 					</span>
-					<p class="text-[10px] leading-[1.75] text-white/55">
+					<p class="text-[10px] leading-[1.75] text-white/60">
 						We look at roof suitability, shading, consumption and subsidy eligibility — not
 						just panel count.
 					</p>
@@ -39,22 +58,20 @@ import Icon from "./Icon.astro";
 			</div>
 		</div>
 
-		<div class="relative bg-paper p-5 sm:p-7 lg:p-8 xl:p-10">
+		<div class="relative bg-white p-5 sm:p-7 lg:p-8 xl:p-10">
 			<button
 				type="button"
-				class="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-white/60 text-ink transition-colors hover:bg-cream"
+				class="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-none border border-navy/15 bg-cloud text-navy transition-colors hover:bg-navy-tint"
 				aria-label="Close enquiry form"
 				data-close-lead-dialog
 			>
-				<svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-					<path d="m5 5 10 10M15 5 5 15" stroke-linecap="round" />
-				</svg>
+				<HugeIcon name="close" class="h-4 w-4" />
 			</button>
 
 			<div class="pr-10 lg:hidden">
-				<p class="eyebrow text-forest">Your solar potential</p>
-				<h2 class="display mt-3 text-[1.7rem] leading-[1.02] text-ink">
-					What could solar mean for your <em class="text-forest">home?</em>
+				<p class="eyebrow text-green">Your solar potential</p>
+				<h2 class="display mt-3 text-[1.7rem] leading-[1.02] text-navy">
+					What could solar mean for your <span class="text-green">home?</span>
 				</h2>
 				<p class="mt-2 max-w-[300px] text-[10.5px] leading-[1.7] text-body">
 					Share your monthly electricity bill and location to start a solar assessment with
@@ -63,11 +80,11 @@ import Icon from "./Icon.astro";
 			</div>
 
 			<div class="mt-6 lg:mt-1">
-				<p class="hidden text-[8px] font-semibold uppercase tracking-[0.18em] text-forest lg:block">
+				<p class="hidden text-[8px] font-semibold uppercase tracking-[0.18em] text-green lg:block">
 					Start an assessment
 				</p>
-				<h3 class="display hidden text-[2rem] leading-[1.02] text-ink lg:block">
-					Tell us about your <em class="text-forest">home.</em>
+				<h3 class="display hidden text-[2rem] leading-[1.02] text-navy lg:block">
+					Tell us about your <span class="text-green">home.</span>
 				</h3>
 				<p class="mt-1 hidden text-[10.5px] text-body lg:block">
 					No obligation. Just a clearer starting point.

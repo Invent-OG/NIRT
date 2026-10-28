@@ -2,10 +2,18 @@
 interface Props {
 	variant?: "dark" | "light";
 	class?: string;
+	size?: "sm" | "md" | "lg";
 }
 
-const { variant = "dark", class: className = "" } = Astro.props;
-const isLight = variant === "light";
+const { class: className = "", size = "md" } = Astro.props;
+
+const sizes = {
+	sm: "h-10 w-auto",
+	md: "h-[52px] w-auto sm:h-[64px]",
+	lg: "h-20 w-auto sm:h-24",
+};
+
+const sizeClass = sizes[size];
 ---
 
 <a
@@ -14,13 +22,10 @@ const isLight = variant === "light";
 	aria-label="NIRT Renewable Energy Pvt Ltd — home"
 >
 	<img
-		src="/images/nirt-logo.png"
+		src="/images/nirt-logo.webp"
 		alt="NIRT Renewable Energy Pvt Ltd"
-		width="456"
-		height="90"
-		class:list={[
-			"h-[34px] w-auto transition-opacity duration-200 group-hover:opacity-85 sm:h-[39px]",
-			isLight && "brightness-0 invert",
-		]}
+		width="480"
+		height="439"
+		class:list={[sizeClass, "transition-opacity duration-200 group-hover:opacity-85"]}
 	/>
 </a>

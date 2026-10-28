@@ -1,5 +1,6 @@
 ---
 import Logo from "./Logo.astro";
+import HugeIcon from "./HugeIcon.astro";
 
 const navItems = [
 	{ label: "Why Solar", href: "#why-solar", number: "01" },
@@ -11,18 +12,27 @@ const navItems = [
 ];
 ---
 
-<div class="relative z-50 bg-ink text-[#fbf8f1]">
-	<div class="container-page flex h-8 items-center justify-between gap-6 text-[8.5px] font-medium uppercase tracking-[0.18em] text-white/55 sm:text-[9px]">
-		<p class="flex min-w-0 items-center gap-2">
-			<span class="text-solar" aria-hidden="true">✦</span>
-			<span class="truncate">Solar, made simple. Since 2017.</span>
+<div class="relative z-50 bg-navy-dark text-white">
+	<div
+		class="container-page flex h-9 items-center justify-between gap-6 text-[8.5px] font-medium tracking-[0.12em] text-white/60 sm:text-[9px]"
+	>
+		<p class="flex min-w-0 items-center gap-2.5">
+			<span class="relative flex h-1.5 w-1.5 shrink-0">
+				<span class="absolute inline-flex h-full w-full animate-ping rounded-none bg-green opacity-70"></span>
+				<span class="relative inline-flex h-1.5 w-1.5 rounded-none bg-green"></span>
+			</span>
+			<span class="truncate uppercase">Powering Tamil Nadu with sunshine · Since 2017</span>
 		</p>
 		<div class="flex shrink-0 items-center gap-5">
-			<span class="hidden text-white/35 md:inline">MNRE / TEDA experience</span>
+			<span class="hidden items-center gap-1.5 text-white/45 md:inline-flex">
+				<HugeIcon name="shieldCheck" class="h-3 w-3 text-green" />
+				MNRE / TEDA experience
+			</span>
 			<a
 				href="tel:+919655046464"
-				class="normal-case tracking-[0.06em] text-white/75 transition-colors hover:text-solar"
+				class="inline-flex items-center gap-1.5 normal-case tracking-[0.04em] text-white/80 transition-colors hover:text-orange"
 			>
+				<HugeIcon name="phone" class="h-3 w-3 text-orange" />
 				+91 96550 46464
 			</a>
 		</div>
@@ -30,22 +40,22 @@ const navItems = [
 </div>
 
 <header
-	class="sticky top-0 z-50 border-b border-ink/10 bg-paper/85 backdrop-blur-xl transition-shadow duration-300"
+	class="sticky top-0 z-50 border-b border-line/80 bg-white/90 backdrop-blur-xl transition-shadow duration-300"
 	data-site-header
 >
-	<div class="container-page flex h-[76px] items-center justify-between gap-4">
+	<div class="container-page flex h-[78px] items-center justify-between gap-4">
 		<Logo class="shrink-0" />
 
-		<nav class="hidden items-center gap-6 xl:flex 2xl:gap-8" aria-label="Main navigation">
+		<nav class="hidden items-center gap-6 xl:flex 2xl:gap-7" aria-label="Main navigation">
 			{
 				navItems.map((item) => (
 					<a
 						href={item.href}
-						class="group relative py-2 text-[11.5px] font-medium text-body transition-colors hover:text-ink"
+						class="group relative py-2 text-[11px] font-medium text-body transition-colors hover:text-navy"
 					>
 						{item.label}
 						<span
-							class="absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-solar opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+							class="absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-none bg-orange opacity-0 transition-opacity duration-200 group-hover:opacity-100"
 							aria-hidden="true"
 						></span>
 					</a>
@@ -56,70 +66,80 @@ const navItems = [
 		<div class="flex items-center gap-2.5">
 			<a
 				href="tel:+919655046464"
-				class="hidden items-center gap-1.5 text-[10.5px] font-medium text-body transition-colors hover:text-ink 2xl:inline-flex"
+				class="hidden items-center gap-2.5 pr-1 2xl:inline-flex"
 			>
-				<span class="h-1.5 w-1.5 rounded-full bg-forest" aria-hidden="true"></span>
-				Talk to us
+				<span class="icon-tile icon-tile-green h-8 w-8 rounded-none">
+					<HugeIcon name="phone" class="h-3.5 w-3.5" />
+				</span>
+				<span class="leading-tight">
+					<span class="block text-[7px] font-semibold uppercase tracking-[0.16em] text-moss">Talk to us</span>
+					<span class="block text-[10.5px] font-semibold text-navy">+91 96550 46464</span>
+				</span>
 			</a>
-			<a
-				href="#estimate"
-				class="btn-solar hidden !min-h-[2.65rem] !px-5 !text-[10.5px] sm:inline-flex"
-			>
-				Get My Estimate
-				<span class="text-[12px] leading-none opacity-75" aria-hidden="true">✦</span>
+			<a href="#estimate" class="btn-primary hidden !min-h-[2.7rem] !px-4 !text-[10.5px] sm:inline-flex">
+				Get Free Estimate
+				<HugeIcon name="arrowUpRight" class="h-3.5 w-3.5" />
 			</a>
 
 			<button
 				type="button"
-				class="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 bg-white/40 text-ink transition-colors hover:bg-cream xl:hidden"
+				class="flex h-10 w-10 items-center justify-center rounded-none border border-navy/15 bg-cloud text-navy transition-colors hover:bg-navy-tint xl:hidden"
 				aria-label="Open menu"
 				aria-expanded="false"
 				aria-controls="mobile-menu"
 				data-menu-toggle
 			>
-				<svg class="h-5 w-5" data-menu-icon-open viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-					<path d="M4 8h16M4 16h16" stroke-linecap="round" />
-				</svg>
-				<svg class="hidden h-5 w-5" data-menu-icon-close viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-					<path d="m6 6 12 12M18 6 6 18" stroke-linecap="round" />
-				</svg>
+				<span data-menu-icon-open>
+					<HugeIcon name="menu" class="h-5 w-5" />
+				</span>
+				<span class="hidden" data-menu-icon-close>
+					<HugeIcon name="close" class="h-5 w-5" />
+				</span>
 			</button>
 		</div>
 	</div>
 
-	<div id="mobile-menu" class="hidden border-t border-ink/10 bg-paper/97 backdrop-blur-2xl xl:hidden" data-mobile-menu>
+	<div id="mobile-menu" class="hidden border-t border-line bg-white xl:hidden" data-mobile-menu>
 		<nav class="container-page py-6 sm:py-8" aria-label="Mobile navigation">
-			<p class="eyebrow text-forest">Explore NIRT</p>
-			<ul class="mt-4 divide-y divide-ink/10 border-y border-ink/10">
+			<div class="flex items-center justify-between gap-4">
+				<p class="eyebrow text-green">Explore NIRT</p>
+				<a href="tel:+919655046464" class="inline-flex items-center gap-1.5 text-[9px] font-semibold text-navy">
+					<HugeIcon name="phone" class="h-3 w-3 text-green" />
+					Call our Salem team
+				</a>
+			</div>
+			<ul class="mt-4 divide-y divide-line border-y border-line">
 				{
 					navItems.map((item) => (
 						<li>
 							<a
 								href={item.href}
-								class="group flex items-center justify-between gap-4 py-3.5 text-[15px] font-medium text-ink transition-colors hover:text-forest"
+								class="group flex items-center justify-between gap-4 py-4 text-[17px] font-medium text-navy transition-colors hover:text-green"
 							>
 								<span class="flex items-baseline gap-3">
-									<span class="text-[8.5px] font-semibold tracking-[0.16em] text-solar-deep">{item.number}</span>
+									<span class="text-[8px] font-semibold tracking-[0.16em] text-green">{item.number}</span>
 									{item.label}
 								</span>
-								<svg class="h-4 w-4 text-moss transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-									<path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
+								<span class="flex h-8 w-8 items-center justify-center rounded-none border border-line bg-cloud text-navy transition-all duration-300 group-hover:border-green/30 group-hover:bg-green-soft group-hover:text-green">
+									<HugeIcon name="arrowUpRight" class="h-3.5 w-3.5" />
+								</span>
 							</a>
 						</li>
 					))
 				}
 			</ul>
 			<div class="mt-5 grid gap-2 sm:grid-cols-2">
-				<a href="#estimate" class="btn-solar w-full">
-					Get My Solar Estimate
-					<span class="text-[12px] leading-none opacity-75" aria-hidden="true">✦</span>
+				<a href="#estimate" class="btn-primary w-full">
+					Get My Free Estimate
+					<HugeIcon name="arrowRight" class="h-4 w-4" />
 				</a>
-				<a href="tel:+919655046464" class="btn-outline w-full">
-					Call +91 96550 46464
+				<a href="https://wa.me/919655046464" class="btn-outline w-full">
+					<HugeIcon name="whatsapp" class="h-4 w-4 text-green" />
+					WhatsApp us
 				</a>
 			</div>
-			<p class="mt-4 text-[9px] uppercase tracking-[0.16em] text-moss">
+			<p class="mt-4 flex items-center gap-1.5 text-[9px] text-moss">
+				<HugeIcon name="mapPin" class="h-3 w-3 text-green" />
 				Salem, Tamil Nadu · Serving homes and businesses across the state
 			</p>
 		</nav>
@@ -130,12 +150,12 @@ const navItems = [
 	const header = document.querySelector<HTMLElement>("[data-site-header]");
 	const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
 	const menu = document.querySelector<HTMLElement>("[data-mobile-menu]");
-	const iconOpen = document.querySelector<SVGElement>("[data-menu-icon-open]");
-	const iconClose = document.querySelector<SVGElement>("[data-menu-icon-close]");
+	const iconOpen = document.querySelector<HTMLElement>("[data-menu-icon-open]");
+	const iconClose = document.querySelector<HTMLElement>("[data-menu-icon-close]");
 
 	if (header) {
 		const updateHeader = () => {
-			header.classList.toggle("shadow-[0_18px_50px_-30px_rgba(8,31,27,0.45)]", window.scrollY > 10);
+			header.classList.toggle("shadow-[0_18px_50px_-34px_rgba(11,31,58,0.32)]", window.scrollY > 10);
 		};
 		updateHeader();
 		window.addEventListener("scroll", updateHeader, { passive: true });

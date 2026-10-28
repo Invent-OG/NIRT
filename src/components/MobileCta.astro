@@ -1,8 +1,9 @@
 ---
+import HugeIcon from "./HugeIcon.astro";
 ---
 
 <div
-	class="fixed inset-x-0 bottom-0 z-40 hidden border-t border-ink/10 bg-paper/90 px-3 pt-2.5 shadow-[0_-18px_40px_-30px_rgba(8,31,27,0.55)] backdrop-blur-xl sm:hidden"
+	class="fixed inset-x-0 bottom-0 z-40 hidden border-t border-navy/10 bg-white/92 px-3 pt-2.5 shadow-[0_-18px_40px_-30px_rgba(11,31,58,0.4)] backdrop-blur-xl sm:hidden"
 	style="padding-bottom: max(0.7rem, env(safe-area-inset-bottom));"
 	data-mobile-cta
 >
@@ -10,35 +11,51 @@
 		<a
 			href="tel:+919655046464"
 			aria-label="Call NIRT Renewable Energy"
-			class="flex h-11 w-12 shrink-0 items-center justify-center rounded-full border border-ink/15 bg-white/55 text-ink transition-colors hover:bg-cream"
+			class="flex h-11 w-12 shrink-0 items-center justify-center rounded-none border border-navy/12 bg-cloud text-navy transition-colors hover:bg-navy-tint"
 		>
-			<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-				<path d="M6.2 3.5h2.5l1.2 3.3-1.5 1.2a11 11 0 0 0 6.6 6.6l1.2-1.5 3.3 1.2v2.5c0 .9-.7 1.7-1.7 1.7A16 16 0 0 1 4.5 5.2c0-.9.8-1.7 1.7-1.7Z" stroke-linejoin="round" />
-			</svg>
+			<HugeIcon name="phone" class="h-4 w-4" />
 		</a>
-		<a href="#estimate" class="btn-solar h-11 flex-1 !min-h-11 !px-4 text-[10.5px]">
-			<span class="text-[11px] leading-none opacity-70" aria-hidden="true">✦</span>
+		<a href="#estimate" class="btn-primary h-11 flex-1 !min-h-11 !px-4 text-[10.5px]">
+			<HugeIcon name="sun" class="h-3.5 w-3.5" />
 			Get My Solar Estimate
-			<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-				<path d="M2.5 8h10M8.5 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
-			</svg>
+			<HugeIcon name="arrowRight" class="h-3.5 w-3.5" />
 		</a>
 	</div>
 </div>
 
 <script>
 	const bar = document.querySelector<HTMLElement>("[data-mobile-cta]");
+	const hero = document.querySelector<HTMLElement>("#home");
 	const estimate = document.querySelector<HTMLElement>("#estimate");
 
-	if (bar && estimate) {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				const entry = entries[0];
-				if (!entry) return;
-				bar.classList.toggle("hidden", entry.isIntersecting);
-			},
-			{ threshold: 0.02, rootMargin: "0px 0px -40px 0px" },
-		);
-		observer.observe(estimate);
+	if (bar) {
+		let heroVisible = true;
+		let estimateVisible = false;
+
+		const updateBar = () => {
+			bar.classList.toggle("hidden", heroVisible || estimateVisible);
+		};
+
+		if (hero) {
+			const heroObserver = new IntersectionObserver(
+				(entries) => {
+					heroVisible = entries[0]?.isIntersecting ?? false;
+					updateBar();
+				},
+				{ threshold: 0 },
+			);
+			heroObserver.observe(hero);
+		}
+
+		if (estimate) {
+			const estimateObserver = new IntersectionObserver(
+				(entries) => {
+					estimateVisible = entries[0]?.isIntersecting ?? false;
+					updateBar();
+				},
+				{ threshold: 0.02, rootMargin: "0px 0px -40px 0px" },
+			);
+			estimateObserver.observe(estimate);
+		}
 	}
 </script>

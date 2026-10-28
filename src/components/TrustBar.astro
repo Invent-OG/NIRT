@@ -1,26 +1,36 @@
 ---
-const facts = [
-	{ label: "Established", value: "2017" },
-	{ label: "Solar portfolio", value: "35+ MW" },
-	{ label: "Head office", value: "Salem, Tamil Nadu" },
-	{ label: "Coverage", value: "Across Tamil Nadu" },
-	{ label: "Work", value: "Residential · Commercial · Utility" },
-	{ label: "Guidance", value: "PM Surya Ghar" },
-	{ label: "Experience", value: "MNRE / TEDA" },
+import HugeIcon from "./HugeIcon.astro";
+import type { IconName } from "../icons";
+
+const facts: { label: string; value: string; icon: IconName }[] = [
+	{ label: "Established", value: "2017", icon: "award" },
+	{ label: "Solar portfolio", value: "35+ MW", icon: "solarPanel" },
+	{ label: "Head office", value: "Salem, Tamil Nadu", icon: "mapPin" },
+	{ label: "Coverage", value: "Across Tamil Nadu", icon: "route" },
+	{ label: "Work", value: "Residential · Commercial · Utility", icon: "building" },
+	{ label: "Guidance", value: "PM Surya Ghar", icon: "sun" },
+	{ label: "Experience", value: "MNRE / TEDA", icon: "badgeCheck" },
 ];
 ---
 
-<section class="relative overflow-hidden border-y border-white/10 bg-ink text-paper" aria-label="NIRT at a glance">
+<section
+	class="relative overflow-hidden border-y border-white/10 bg-[linear-gradient(90deg,#071b3c_0%,#0b2a5e_50%,#071b3c_100%)] text-white"
+	aria-label="NIRT at a glance"
+>
+	<div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green/50 to-transparent"></div>
 	<div class="marquee-wrap relative py-3.5">
 		<div class="marquee">
 			<div class="marquee-track">
 				{
 					facts.map((fact) => (
 						<div class="marquee-item">
-							<span class="text-[8px] font-semibold uppercase tracking-[0.18em] text-white/35">
+							<span class="flex h-6 w-6 items-center justify-center rounded-none border border-white/10 bg-white/[0.06] text-green-mid">
+								<HugeIcon name={fact.icon} class="h-3 w-3" />
+							</span>
+							<span class="text-[7.5px] font-semibold uppercase tracking-[0.18em] text-white/35">
 								{fact.label}
 							</span>
-							<span class="text-[10.5px] font-medium text-white/75">{fact.value}</span>
+							<span class="text-[10.5px] font-medium text-white/80">{fact.value}</span>
 						</div>
 					))
 				}
@@ -29,10 +39,13 @@ const facts = [
 				{
 					facts.map((fact) => (
 						<div class="marquee-item">
-							<span class="text-[8px] font-semibold uppercase tracking-[0.18em] text-white/35">
+							<span class="flex h-6 w-6 items-center justify-center rounded-none border border-white/10 bg-white/[0.06] text-green-mid">
+								<HugeIcon name={fact.icon} class="h-3 w-3" />
+							</span>
+							<span class="text-[7.5px] font-semibold uppercase tracking-[0.18em] text-white/35">
 								{fact.label}
 							</span>
-							<span class="text-[10.5px] font-medium text-white/75">{fact.value}</span>
+							<span class="text-[10.5px] font-medium text-white/80">{fact.value}</span>
 						</div>
 					))
 				}

@@ -1,145 +1,204 @@
 ---
 import LeadForm from "./LeadForm.astro";
+import HugeIcon from "./HugeIcon.astro";
 
-const benefits = ["Loan assistance", "End-to-end project support", "PM Surya Ghar guidance"];
+const benefits = [
+	{ label: "Loan assistance", icon: "handCoins" as const },
+	{ label: "End-to-end support", icon: "taskDone" as const },
+	{ label: "Subsidy guidance", icon: "badgeCheck" as const },
+];
 ---
 
-<section id="home" class="relative isolate overflow-hidden bg-ink text-paper" aria-labelledby="hero-heading">
-	<img
-		src="/images/hero-homes.webp"
-		alt=""
-		width="2000"
-		height="1200"
-		fetchpriority="high"
-		decoding="async"
-		class="absolute inset-0 -z-30 h-full w-full object-cover object-[68%_58%] opacity-80"
-	/>
-	<div class="absolute inset-0 -z-20 bg-[linear-gradient(90deg,#061a15_0%,rgba(6,26,21,0.94)_30%,rgba(6,26,21,0.62)_58%,rgba(6,26,21,0.2)_100%)]"></div>
-	<div class="absolute inset-0 -z-20 bg-[linear-gradient(0deg,rgba(6,26,21,0.9)_0%,rgba(6,26,21,0)_45%)]"></div>
-	<div class="aurora -z-10 opacity-45"></div>
-	<div class="solar-grid-light pointer-events-none absolute inset-0 -z-10 opacity-25 [mask-image:linear-gradient(90deg,black,transparent_72%)]"></div>
-	<div class="pointer-events-none absolute inset-y-0 left-[6%] -z-10 w-px bg-white/[0.06]"></div>
-	<div class="pointer-events-none absolute inset-y-0 right-[6%] -z-10 w-px bg-white/[0.04]"></div>
+<section
+	id="home"
+	class="relative isolate overflow-hidden bg-[linear-gradient(180deg,#f7fbff_0%,#f2f8f6_100%)]"
+	aria-labelledby="hero-heading"
+>
+	<div class="pointer-events-none absolute inset-0 -z-20 overflow-hidden">
+		<div class="absolute -left-40 -top-48 h-[560px] w-[560px] rounded-none bg-green/[0.09] blur-3xl"></div>
+		<div class="absolute -right-40 top-10 h-[520px] w-[520px] rounded-none bg-orange/[0.1] blur-3xl"></div>
+		<div class="absolute bottom-0 left-1/3 h-[360px] w-[520px] rounded-none bg-navy/[0.07] blur-3xl"></div>
+	</div>
+	<div
+		class="solar-grid pointer-events-none absolute inset-y-0 left-0 -z-10 w-[62%] opacity-60 [mask-image:linear-gradient(90deg,black,transparent_88%)]"
+	></div>
+	<div
+		class="pointer-events-none absolute -right-24 top-24 -z-10 hidden h-[430px] w-[430px] rounded-none border border-navy/10 lg:block"
+	></div>
+	<div
+		class="pointer-events-none absolute right-10 top-52 -z-10 hidden h-[250px] w-[250px] rounded-none border border-dashed border-green/20 lg:block"
+	></div>
 
-	<div class="container-page relative py-12 sm:py-14 lg:py-16 xl:py-20">
-		<div class="grid items-center gap-12 lg:grid-cols-[1.06fr_0.94fr] lg:gap-10 xl:gap-16">
-			<div class="max-w-[650px]">
-				<p class="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.055] px-3.5 py-2 text-[9px] font-medium uppercase tracking-[0.17em] text-white/70 backdrop-blur-md sm:text-[9.5px]">
-					<span class="relative flex h-1.5 w-1.5">
-						<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-solar opacity-60"></span>
-						<span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-solar"></span>
+	<div class="container-page relative py-10 sm:py-12 lg:py-14 xl:py-16">
+		<div class="grid items-center gap-10 lg:grid-cols-[1.04fr_0.96fr] lg:gap-10 xl:gap-16">
+			<div class="max-w-[640px]">
+				<a
+					href="#subsidy"
+					class="group inline-flex items-center gap-2.5 rounded-none border border-navy/10 bg-white/90 py-1.5 pl-2.5 pr-3.5 text-[8.5px] font-semibold uppercase tracking-[0.13em] text-navy shadow-[0_10px_26px_-20px_rgba(11,31,58,0.5)] backdrop-blur transition-colors hover:border-green/30 sm:text-[9px]"
+				>
+					<span class="flex h-5 w-5 items-center justify-center rounded-none bg-green-soft text-green">
+						<HugeIcon name="sun" class="h-3 w-3" />
 					</span>
 					PM Surya Ghar · Residential solar
-					<span class="ml-1 text-[10px] text-solar" aria-hidden="true">✦</span>
-				</p>
+					<HugeIcon
+						name="arrowUpRight"
+						class="h-3 w-3 text-moss transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-green"
+					/>
+				</a>
 
 				<h1
 					id="hero-heading"
-					class="display mt-7 text-[3.6rem] leading-[0.92] text-paper sm:text-[4.5rem] lg:text-[5.1rem] xl:text-[5.9rem]"
+					class="display mt-6 text-[3.35rem] leading-[0.94] text-navy sm:text-[4.4rem] lg:text-[4.9rem] xl:text-[5.5rem]"
 				>
 					The sun
-					<span class="block">pays <em class="text-solar">back.</em></span>
+					<span class="relative mt-1 block w-fit text-green">
+						pays back.
+						<svg
+							class="absolute -bottom-2 left-0 h-3 w-full text-orange sm:-bottom-3"
+							viewBox="0 0 320 18"
+							fill="none"
+							preserveAspectRatio="none"
+							aria-hidden="true"
+						>
+							<path
+								d="M3 13.5C74 5.5 198 3.5 317 8.5"
+								stroke="currentColor"
+								stroke-width="5"
+								stroke-linecap="round"
+							></path>
+						</svg>
+					</span>
 				</h1>
 
-				<div class="mt-5 flex items-end gap-3.5 sm:gap-4">
-					<span class="font-sans text-[2.35rem] font-semibold leading-none tracking-[-0.055em] text-[#f8dda8] tabular-nums sm:text-[2.8rem]">
-						₹78,000
-					</span>
-					<p class="mb-1 max-w-[145px] text-[8px] font-semibold uppercase leading-[1.55] tracking-[0.15em] text-white/50 sm:text-[8.5px]">
-						Up to central subsidy for eligible homes*
-					</p>
-				</div>
-
-				<p class="mt-6 max-w-[490px] text-[13.5px] leading-[1.9] text-white/65 sm:text-[14.5px]">
+				<p class="mt-7 max-w-[500px] text-[13px] leading-[1.85] text-body sm:text-[14.5px]">
 					Rooftop solar for Tamil Nadu homes — designed around your roof, your bill and your
 					budget. We handle the paperwork, the subsidy and the installation.
 				</p>
 
-				<ul class="mt-7 flex flex-wrap gap-2">
+				<div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+					<div class="flex items-baseline gap-2.5">
+						<span class="stat-number font-sans text-[1.9rem] text-navy">₹78,000</span>
+						<span class="max-w-[95px] text-[8px] font-semibold uppercase leading-[1.45] tracking-[0.11em] text-moss">
+							Up to central subsidy*
+						</span>
+					</div>
+					<span class="hidden h-8 w-px bg-navy/12 sm:block"></span>
+					<div class="flex items-baseline gap-2.5">
+						<span class="stat-number text-[1.5rem] text-green">35+ MW</span>
+						<span class="max-w-[85px] text-[8px] font-semibold uppercase leading-[1.45] tracking-[0.11em] text-moss">
+							Solar portfolio
+						</span>
+					</div>
+				</div>
+
+				<div class="mt-7 flex flex-wrap items-center gap-3">
+					<a href="#estimate" class="btn-primary">
+						Get my free estimate
+						<HugeIcon name="arrowRight" class="h-4 w-4" />
+					</a>
+					<a href="#why-solar" class="btn-outline group">
+						<span class="flex h-5 w-5 items-center justify-center rounded-none bg-navy-tint text-navy">
+							<HugeIcon name="play" class="h-2.5 w-2.5" />
+						</span>
+						See how solar works
+					</a>
+				</div>
+
+				<ul class="mt-7 flex flex-wrap gap-x-5 gap-y-2.5">
 					{
 						benefits.map((benefit) => (
-							<li class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.055] px-3 py-1.5 text-[10px] font-medium text-white/75 backdrop-blur-md">
-								<svg class="h-3 w-3 text-solar" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-									<path d="m2.5 6 2.2 2.2L9.5 3.5" stroke-linecap="round" stroke-linejoin="round" />
-								</svg>
-								{benefit}
+							<li class="flex items-center gap-1.5 text-[9.5px] font-medium text-body">
+								<span class="flex h-4 w-4 items-center justify-center rounded-none bg-green-soft text-green">
+									<HugeIcon name={benefit.icon} class="h-2.5 w-2.5" />
+								</span>
+								{benefit.label}
 							</li>
 						))
 					}
 				</ul>
 
-				<div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-					<a href="#estimate" class="btn-solar">
-						Plan my rooftop
-						<span class="text-[12px] leading-none opacity-75" aria-hidden="true">✦</span>
-					</a>
-					<a
-						href="#why-solar"
-						class="group inline-flex items-center gap-2 text-[10.5px] font-medium text-white/60 transition-colors hover:text-white"
-					>
-						See the numbers first
-						<svg class="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-y-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-							<path d="M8 3v10M4.5 9.5 8 13l3.5-3.5" stroke-linecap="round" stroke-linejoin="round" />
-						</svg>
-					</a>
-				</div>
-
-				<div class="mt-9 flex flex-wrap items-center gap-x-5 gap-y-2 text-[9px] uppercase tracking-[0.14em] text-white/35">
-					<span class="flex items-center gap-2">
-						<span class="h-1 w-1 rounded-full bg-solar" aria-hidden="true"></span>
-						35+ MW portfolio
+				<div class="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-navy/10 pt-4 text-[8px] font-semibold uppercase tracking-[0.14em] text-moss">
+					<span class="flex items-center gap-1.5">
+						<HugeIcon name="shieldCheck" class="h-3 w-3 text-green" />
+						MNRE / TEDA experience
 					</span>
-					<span class="flex items-center gap-2">
-						<span class="h-1 w-1 rounded-full bg-solar" aria-hidden="true"></span>
-						Since 2017
-					</span>
-					<span class="flex items-center gap-2">
-						<span class="h-1 w-1 rounded-full bg-solar" aria-hidden="true"></span>
+					<span class="flex items-center gap-1.5">
+						<HugeIcon name="mapPin" class="h-3 w-3 text-orange" />
 						Salem, Tamil Nadu
+					</span>
+					<span class="flex items-center gap-1.5">
+						<HugeIcon name="clock" class="h-3 w-3 text-navy" />
+						Since 2017
 					</span>
 				</div>
 			</div>
 
-			<div id="estimate" class="w-full lg:justify-self-end">
-				<div class="edge-gold relative w-full max-w-[470px] rounded-[30px] p-[5px] shadow-[0_40px_100px_-30px_rgba(0,0,0,0.65)] sm:p-[6px] lg:ml-auto">
-					<div class="grain relative overflow-hidden rounded-[25px] bg-paper p-5 text-ink sm:p-6">
-						<div class="pointer-events-none absolute -right-16 -top-20 h-40 w-40 rounded-full bg-solar/20 blur-3xl"></div>
-						<div class="relative z-[2]">
-							<div class="flex items-start justify-between gap-3">
-								<span class="inline-flex items-center gap-1.5 rounded-full border border-forest/15 bg-mint px-2.5 py-1 text-[8px] font-semibold uppercase tracking-[0.14em] text-forest">
-									<span class="h-1 w-1 rounded-full bg-forest" aria-hidden="true"></span>
-									Complimentary
-								</span>
-								<span class="flex items-center gap-1.5 text-[9px] text-moss">
-									<svg class="h-3 w-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-										<circle cx="8" cy="8" r="6" />
-										<path d="M8 4.5V8l2.2 1.4" stroke-linecap="round" />
-									</svg>
-									Under a minute
-								</span>
+			<div id="estimate" class="relative w-full max-w-[480px] justify-self-center lg:justify-self-end">
+				<div class="pointer-events-none absolute -right-6 -top-8 hidden h-24 w-24 rounded-none border border-dashed border-orange/30 sm:block"></div>
+
+				<div
+					class="relative overflow-hidden rounded-none border border-white bg-white p-2 shadow-[0_44px_100px_-44px_rgba(11,31,58,0.48)]"
+				>
+					<div class="relative h-[144px] overflow-hidden rounded-none sm:h-[158px]">
+						<img
+							src="/images/hero-homes.webp"
+							alt="Homes with rooftop solar panels in Tamil Nadu"
+							width="2000"
+							height="1200"
+							fetchpriority="high"
+							decoding="async"
+							class="h-full w-full object-cover object-[62%_62%]"
+						/>
+						<div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,27,60,0.55)_0%,rgba(7,27,60,0.06)_42%,rgba(7,27,60,0.78)_100%)]"></div>
+						<div
+							class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-none border border-white/25 bg-white/15 px-2.5 py-1.5 text-[7.5px] font-semibold uppercase tracking-[0.12em] text-white backdrop-blur-md"
+						>
+							<HugeIcon name="mapPin" class="h-2.5 w-2.5 text-green-mid" />
+							Salem · Tamil Nadu
+						</div>
+						<div class="absolute inset-x-3 bottom-3 flex items-end justify-between gap-3">
+							<div>
+								<p class="text-[7.5px] font-semibold uppercase tracking-[0.16em] text-green-mid">
+									Your rooftop, reimagined
+								</p>
+								<p class="display mt-1 text-[1.25rem] leading-[1.05] text-white">
+									Clean power. Clear numbers.
+								</p>
 							</div>
+							<span class="hidden shrink-0 items-center gap-1 rounded-none border border-white/20 bg-white/15 px-2.5 py-1.5 text-[7px] font-semibold uppercase tracking-[0.1em] text-white backdrop-blur-md sm:inline-flex">
+								<HugeIcon name="solarPanel" class="h-3 w-3 text-orange" />
+								25-year life
+							</span>
+						</div>
+					</div>
 
-							<h2 class="display mt-4 text-[1.75rem] leading-[1.02] text-ink sm:text-[1.95rem]">
-								Tell us about your <em class="text-forest">roof.</em>
-							</h2>
-							<p class="mt-2 max-w-[330px] text-[11px] leading-[1.7] text-body">
-								A specialist from our Salem team will call you with a clear next step — no
-								obligation.
-							</p>
-
-							<div class="my-4 flex items-center gap-3">
-								<div class="h-px flex-1 bg-ink/10"></div>
-								<span class="text-[8px] uppercase tracking-[0.18em] text-moss/70">Free assessment</span>
-								<div class="h-px flex-1 bg-ink/10"></div>
+					<div class="px-4 pb-4 pt-5 sm:px-5">
+						<div class="flex items-start justify-between gap-3">
+							<div>
+								<p class="eyebrow text-green">Free assessment</p>
+								<h2 class="display mt-2 text-[1.5rem] leading-[1.02] text-navy sm:text-[1.65rem]">
+									Get your solar estimate.
+								</h2>
 							</div>
+							<span class="chip chip-green shrink-0 whitespace-nowrap">
+								<HugeIcon name="clock" class="h-2.5 w-2.5" />
+								1 min
+							</span>
+						</div>
+						<p class="mt-2 max-w-[340px] text-[10.5px] leading-[1.65] text-body">
+							Four quick details and a Salem specialist will call you with a clear next
+							step.
+						</p>
 
+						<div class="mt-4">
 							<LeadForm idPrefix="hero" source="hero" buttonLabel="Get My Solar Estimate" />
 						</div>
 					</div>
 				</div>
 
-				<p class="mt-3 text-center text-[8.5px] leading-4 text-white/35 lg:text-right">
-					*Central subsidy subject to eligibility and current scheme guidelines.
+				<p class="mt-3 flex items-center justify-center gap-1.5 text-[8px] text-moss lg:justify-end">
+					<HugeIcon name="shieldCheck" class="h-2.5 w-2.5 text-green" />
+					No obligation. Your details stay private.
 				</p>
 			</div>
 		</div>

@@ -1,4 +1,6 @@
 ---
+import HugeIcon from "./HugeIcon.astro";
+
 const projects = [
 	{
 		number: "01",
@@ -43,15 +45,16 @@ const projects = [
 ];
 ---
 
-<section id="projects" class="relative overflow-hidden bg-cream py-18 sm:py-22 lg:py-28">
-	<div class="pointer-events-none absolute -left-40 top-24 h-[420px] w-[420px] rounded-full border border-ink/[0.04]"></div>
+<section id="projects" class="relative overflow-hidden bg-paper py-18 sm:py-22 lg:py-28">
+	<div class="pointer-events-none absolute -left-40 top-24 h-[420px] w-[420px] rounded-none border border-navy/[0.05]"></div>
+	<div class="pointer-events-none absolute -right-32 bottom-0 h-[360px] w-[360px] rounded-none bg-green/[0.06] blur-3xl"></div>
 
 	<div class="container-page relative">
 		<div class="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
-			<div class="reveal max-w-[640px]">
-				<p class="eyebrow text-forest">Selected work</p>
-				<h2 class="display mt-5 text-[2.5rem] text-ink sm:text-[3.1rem] lg:text-[3.5rem]">
-					Real projects. Measurable capacity. <em class="text-forest">Local experience.</em>
+			<div class="reveal max-w-[680px]">
+				<p class="eyebrow text-green">Selected work</p>
+				<h2 class="display mt-5 text-[2.5rem] text-navy sm:text-[3.1rem] lg:text-[3.5rem]">
+					Real projects. Measurable capacity. <span class="text-green">Local experience.</span>
 				</h2>
 			</div>
 			<div class="reveal flex max-w-[320px] flex-col gap-4 lg:items-end lg:text-right" style="transition-delay:80ms">
@@ -59,11 +62,9 @@ const projects = [
 					From industrial rooftops to a 15 MW solar park — a look at how NIRT builds across
 					Tamil Nadu.
 				</p>
-				<a href="#estimate" class="link-arrow group">
+				<a href="#estimate" class="link-arrow group text-green">
 					Start with your property
-					<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-						<path d="M2.5 8h10M8.5 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
-					</svg>
+					<HugeIcon name="arrowUpRight" class="h-3.5 w-3.5" />
 				</a>
 			</div>
 		</div>
@@ -72,7 +73,7 @@ const projects = [
 			<div class="lg:col-span-7">
 				{
 					projects.slice(0, 1).map((project) => (
-						<article class="grain grain-dark group relative isolate flex min-h-[440px] flex-col justify-end overflow-hidden rounded-[30px] bg-ink p-6 text-paper sm:min-h-[520px] sm:p-8 lg:min-h-[580px]">
+						<article class="grain grain-dark group relative isolate flex min-h-[440px] flex-col justify-end overflow-hidden rounded-none bg-navy p-6 text-white sm:min-h-[520px] sm:p-8 lg:min-h-[580px]">
 							<img
 								src={project.image}
 								alt={project.alt}
@@ -80,48 +81,45 @@ const projects = [
 								height={project.height}
 								loading="lazy"
 								decoding="async"
-								class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
+								class="absolute inset-0 z-0 h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
 							/>
-							<div class="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(4,19,15,0.95)_0%,rgba(4,19,15,0.48)_42%,rgba(4,19,15,0.08)_75%,rgba(4,19,15,0.25)_100%)]"></div>
+							<div class="absolute inset-0 z-[1] bg-[linear-gradient(0deg,rgba(7,27,60,0.96)_0%,rgba(7,27,60,0.46)_42%,rgba(7,27,60,0.05)_74%,rgba(7,27,60,0.3)_100%)]"></div>
 
-							<div class="absolute left-5 top-5 flex flex-wrap items-center gap-2 sm:left-7 sm:top-7">
-								<span class="rounded-full border border-white/15 bg-black/20 px-2.5 py-1.5 text-[7.5px] font-semibold uppercase tracking-[0.13em] text-white/75 backdrop-blur-md">
+							<div class="absolute left-5 top-5 z-[2] flex flex-wrap items-center gap-2 sm:left-7 sm:top-7">
+								<span class="rounded-none border border-white/20 bg-white/10 px-2.5 py-1.5 text-[7.5px] font-semibold uppercase tracking-[0.13em] text-white/80 backdrop-blur-md">
 									Project {project.number}
 								</span>
-								<span class="rounded-full border border-white/10 bg-white/10 px-2.5 py-1.5 text-[7.5px] font-semibold uppercase tracking-[0.13em] text-white/65 backdrop-blur-md">
+								<span class="rounded-none border border-green/30 bg-green/20 px-2.5 py-1.5 text-[7.5px] font-semibold uppercase tracking-[0.13em] text-white backdrop-blur-md">
 									{project.tag}
 								</span>
 							</div>
 
 							<div class="relative z-[2] max-w-[520px]">
-								<p class="text-[8px] font-semibold uppercase tracking-[0.18em] text-solar">
+								<p class="text-[8px] font-semibold uppercase tracking-[0.18em] text-green-mid">
 									Flagship installation
 								</p>
-								<h3 class="display mt-3 text-[2.35rem] leading-[0.98] text-paper sm:text-[2.9rem]">
+								<h3 class="display mt-3 text-[2.3rem] leading-[0.98] text-white sm:text-[2.9rem]">
 									{project.title}
 								</h3>
-								<p class="mt-3 max-w-[430px] text-[10.5px] leading-[1.8] text-white/60">
+								<p class="mt-3 max-w-[430px] text-[10.5px] leading-[1.8] text-white/65">
 									{project.copy}
 								</p>
 
 								<dl class="mt-6 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/15 pt-4">
 									<div>
-										<dt class="text-[7px] font-semibold uppercase tracking-[0.16em] text-white/35">Location</dt>
-										<dd class="mt-1 text-[10px] font-medium text-white/75">{project.location}</dd>
+										<dt class="text-[7px] font-semibold uppercase tracking-[0.16em] text-white/40">Location</dt>
+										<dd class="mt-1 text-[10px] font-medium text-white/80">{project.location}</dd>
 									</div>
 									<div>
-										<dt class="text-[7px] font-semibold uppercase tracking-[0.16em] text-white/35">{project.capacityLabel}</dt>
-										<dd class="mt-1 text-[10px] font-medium text-white/75">{project.capacity}</dd>
+										<dt class="text-[7px] font-semibold uppercase tracking-[0.16em] text-white/40">{project.capacityLabel}</dt>
+										<dd class="mt-1 text-[10px] font-medium text-white/80">{project.capacity}</dd>
 									</div>
 								</dl>
 							</div>
 
-							<div class="pointer-events-none absolute bottom-8 right-8 hidden h-14 w-14 items-center justify-center rounded-full border border-white/15 text-solar/50 sm:flex">
-								<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
-									<circle cx="12" cy="12" r="4" />
-									<path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke-linecap="round" />
-								</svg>
-							</div>
+							<span class="pointer-events-none absolute bottom-8 right-8 z-[2] hidden h-12 w-12 items-center justify-center rounded-none border border-white/20 bg-white/10 text-orange backdrop-blur-md transition-transform duration-300 group-hover:rotate-45 sm:flex">
+								<HugeIcon name="arrowUpRight" class="h-5 w-5" />
+							</span>
 						</article>
 					))
 				}
@@ -130,7 +128,7 @@ const projects = [
 			<div class="grid gap-4 lg:col-span-5">
 				{
 					projects.slice(1).map((project) => (
-						<article class="grain grain-dark group relative isolate flex min-h-[270px] flex-col justify-end overflow-hidden rounded-[26px] bg-ink p-5 text-paper sm:min-h-[290px] sm:p-6 lg:min-h-0">
+						<article class="grain grain-dark group relative isolate flex min-h-[270px] flex-col justify-end overflow-hidden rounded-none bg-navy p-5 text-white sm:min-h-[290px] sm:p-6 lg:min-h-0">
 							<img
 								src={project.image}
 								alt={project.alt}
@@ -138,16 +136,16 @@ const projects = [
 								height={project.height}
 								loading="lazy"
 								decoding="async"
-								class="absolute inset-0 -z-20 h-full w-full object-cover transition duration-[1100ms] ease-out group-hover:scale-[1.05]"
+								class="absolute inset-0 z-0 h-full w-full object-cover transition duration-[1100ms] ease-out group-hover:scale-[1.05]"
 							/>
-							<div class="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(4,19,15,0.96)_0%,rgba(4,19,15,0.55)_38%,rgba(4,19,15,0.08)_78%)]"></div>
+							<div class="absolute inset-0 z-[1] bg-[linear-gradient(0deg,rgba(7,27,60,0.96)_0%,rgba(7,27,60,0.5)_40%,rgba(7,27,60,0.05)_80%)]"></div>
 
-							<div class="absolute left-4 top-4 flex flex-wrap items-center gap-2 sm:left-5 sm:top-5">
-								<span class="rounded-full border border-white/15 bg-black/20 px-2 py-1 text-[7px] font-semibold uppercase tracking-[0.12em] text-white/70 backdrop-blur-md">
+							<div class="absolute left-4 top-4 z-[2] flex flex-wrap items-center gap-2 sm:left-5 sm:top-5">
+								<span class="rounded-none border border-white/20 bg-white/10 px-2 py-1 text-[7px] font-semibold uppercase tracking-[0.12em] text-white/80 backdrop-blur-md">
 									{project.tag}
 								</span>
 								{project.representative && (
-									<span class="rounded-full border border-white/10 bg-black/20 px-2 py-1 text-[6.5px] font-medium uppercase tracking-[0.1em] text-white/50 backdrop-blur-md">
+									<span class="rounded-none border border-white/15 bg-white/10 px-2 py-1 text-[6.5px] font-medium uppercase tracking-[0.1em] text-white/55 backdrop-blur-md">
 										Representative image
 									</span>
 								)}
@@ -155,16 +153,16 @@ const projects = [
 
 							<div class="relative z-[2]">
 								<div class="flex items-end justify-between gap-4">
-									<h3 class="display text-[1.65rem] leading-[1.02] text-paper sm:text-[1.85rem]">
+									<h3 class="display text-[1.6rem] leading-[1.02] text-white sm:text-[1.8rem]">
 										{project.title}
 									</h3>
-									<span class="mb-1 shrink-0 text-[8px] font-semibold uppercase tracking-[0.14em] text-solar/80">
+									<span class="mb-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-none border border-white/20 bg-white/10 text-[7.5px] font-semibold text-white/70 backdrop-blur-md">
 										{project.number}
 									</span>
 								</div>
 								<div class="mt-3 flex items-center justify-between gap-4 border-t border-white/15 pt-3">
-									<p class="text-[8.5px] font-medium text-white/55">{project.location}</p>
-									<p class="text-[8.5px] font-semibold text-white/80">{project.capacity}</p>
+									<p class="text-[8.5px] font-medium text-white/60">{project.location}</p>
+									<p class="text-[8.5px] font-semibold text-white/85">{project.capacity}</p>
 								</div>
 							</div>
 						</article>
@@ -172,32 +170,39 @@ const projects = [
 				}
 			</div>
 
-			<div class="edge-gold-dark grain grain-dark relative overflow-hidden rounded-[28px] bg-ink px-6 py-7 text-paper sm:px-8 lg:col-span-12 lg:px-10 lg:py-8">
-				<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-25"></div>
-				<div class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-solar/[0.12] blur-3xl"></div>
+			<div class="edge-brand-dark grain grain-dark relative overflow-hidden rounded-none bg-navy p-6 text-white sm:p-8 lg:col-span-12 lg:px-10 lg:py-8">
+				<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-20"></div>
+				<div class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-none bg-orange/[0.16] blur-3xl"></div>
 
 				<div class="relative z-[2] flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-					<div class="max-w-[540px]">
-						<p class="eyebrow text-solar">Your project next</p>
-						<h3 class="display mt-3 text-[1.8rem] leading-[1.02] text-paper sm:text-[2.15rem]">
-							Every roof has a different energy story.
-						</h3>
+					<div class="flex items-start gap-4">
+						<span class="icon-tile icon-tile-navy hidden h-12 w-12 shrink-0 rounded-none text-orange sm:flex">
+							<HugeIcon name="homeSolar" class="h-6 w-6" />
+						</span>
+						<div class="max-w-[540px]">
+							<p class="eyebrow text-orange-light">Your project next</p>
+							<h3 class="display mt-3 text-[1.8rem] leading-[1.02] text-white sm:text-[2.15rem]">
+								Every roof has a different energy story.
+							</h3>
+							<p class="mt-3 max-w-[440px] text-[10.5px] leading-[1.8] text-white/55 md:hidden">
+								Share your location and consumption. We'll assess the site, size the system
+								and explain the numbers before you commit.
+							</p>
+						</div>
 					</div>
-					<p class="hidden max-w-[300px] text-[10.5px] leading-[1.8] text-white/45 md:block">
+					<p class="hidden max-w-[300px] text-[10.5px] leading-[1.8] text-white/50 md:block">
 						Share your location and consumption. We'll assess the site, size the system and
 						explain the numbers before you commit.
 					</p>
-					<a href="#estimate" class="btn-solar shrink-0 self-start lg:self-auto">
-						Discuss Your Project
-						<svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-							<path d="M2.5 8h10M8.5 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
-						</svg>
+					<a href="#estimate" class="btn-primary shrink-0 self-start lg:self-auto">
+						Discuss your project
+						<HugeIcon name="arrowRight" class="h-4 w-4" />
 					</a>
 				</div>
 			</div>
 		</div>
 
-		<p class="mt-4 text-[9px] leading-4 text-moss/70">
+		<p class="mt-4 text-[9px] leading-4 text-moss">
 			Project photography from NIRT installations. The residential image is representative.
 		</p>
 	</div>

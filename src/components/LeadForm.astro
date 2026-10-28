@@ -1,11 +1,13 @@
 ---
+import HugeIcon from "./HugeIcon.astro";
+
 interface Props {
 	idPrefix: string;
 	buttonLabel?: string;
 	source?: string;
 }
 
-const { idPrefix, buttonLabel = "Get My Solar Estimate", source = "hero" } = Astro.props;
+const { idPrefix, buttonLabel = "Get My Free Estimate", source = "hero" } = Astro.props;
 
 const districts = [
 	"Ariyalur",
@@ -64,7 +66,7 @@ const billOptions = [
 		<div class="grid gap-3.5 sm:grid-cols-2">
 			<div>
 				<label for={`${idPrefix}-name`} class="field-label">
-					Name <span class="text-solar-deep">*</span>
+					Full name <span class="text-orange-deep">*</span>
 				</label>
 				<input
 					id={`${idPrefix}-name`}
@@ -73,14 +75,33 @@ const billOptions = [
 					required
 					maxlength="80"
 					autocomplete="name"
-					placeholder="Your full name"
+					placeholder="Your name"
+					class="field-control"
+				/>
+			</div>
+
+			<div>
+				<label for={`${idPrefix}-contact`} class="field-label">
+					Mobile number <span class="text-orange-deep">*</span>
+				</label>
+				<input
+					id={`${idPrefix}-contact`}
+					name="contact"
+					type="tel"
+					required
+					inputmode="numeric"
+					pattern="[6-9][0-9]{9}"
+					maxlength="10"
+					autocomplete="tel-national"
+					title="Enter a 10-digit Indian mobile number"
+					placeholder="10-digit number"
 					class="field-control"
 				/>
 			</div>
 
 			<div>
 				<label for={`${idPrefix}-district`} class="field-label">
-					District <span class="text-solar-deep">*</span>
+					District <span class="text-orange-deep">*</span>
 				</label>
 				<div class="relative">
 					<select
@@ -93,41 +114,16 @@ const billOptions = [
 						<option value="" selected disabled>Select district</option>
 						{districts.map((district) => <option value={district}>{district}</option>)}
 					</select>
-					<svg
+					<HugeIcon
+						name="arrowDown"
 						class="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-moss"
-						viewBox="0 0 16 16"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						aria-hidden="true"
-					>
-						<path d="m4 6 4 4 4-4" stroke-linecap="round" stroke-linejoin="round" />
-					</svg>
+					/>
 				</div>
 			</div>
 
 			<div>
-				<label for={`${idPrefix}-contact`} class="field-label">
-					Contact number <span class="text-solar-deep">*</span>
-				</label>
-				<input
-					id={`${idPrefix}-contact`}
-					name="contact"
-					type="tel"
-					required
-					inputmode="numeric"
-					pattern="[6-9][0-9]{9}"
-					maxlength="10"
-					autocomplete="tel-national"
-					title="Enter a 10-digit Indian mobile number"
-					placeholder="10-digit mobile number"
-					class="field-control"
-				/>
-			</div>
-
-			<div>
 				<label for={`${idPrefix}-bill`} class="field-label">
-					Bi-monthly bill <span class="text-solar-deep">*</span>
+					Bi-monthly bill <span class="text-orange-deep">*</span>
 				</label>
 				<div class="relative">
 					<select
@@ -139,48 +135,38 @@ const billOptions = [
 						<option value="" selected disabled>Select bill range</option>
 						{billOptions.map((option) => <option value={option}>{option}</option>)}
 					</select>
-					<svg
+					<HugeIcon
+						name="arrowDown"
 						class="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-moss"
-						viewBox="0 0 16 16"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						aria-hidden="true"
-					>
-						<path d="m4 6 4 4 4-4" stroke-linecap="round" stroke-linejoin="round" />
-					</svg>
+					/>
 				</div>
 			</div>
 
 			<div class="sm:col-span-2">
-				<input type="hidden" name="source" value={source} />					<button type="submit" class="btn-solar w-full">
-						<span class="text-[12px] leading-none opacity-70" aria-hidden="true">✦</span>
-						{buttonLabel}
-						<svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-							<path d="M2.5 8h10M8.5 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
-						</svg>
-					</button>
+				<input type="hidden" name="source" value={source} />
+				<button type="submit" class="btn-primary w-full">
+					<HugeIcon name="sun" class="h-4 w-4" />
+					{buttonLabel}
+					<HugeIcon name="arrowRight" class="h-4 w-4" />
+				</button>
 			</div>
 		</div>
 
-		<p class="mt-3 flex items-start gap-1.5 text-[9px] leading-4 text-moss">
-			<svg class="mt-0.5 h-3 w-3 shrink-0 text-forest/70" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-				<rect x="3" y="7" width="10" height="7" rx="1.8" />
-				<path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke-linecap="round" />
-			</svg>
-			Your details stay private. By submitting, you agree to be contacted by NIRT about your
-			solar assessment.
-		</p>
+		<div class="mt-3 flex items-start gap-1.5 text-[9px] leading-4 text-moss">
+			<HugeIcon name="shieldCheck" class="mt-0.5 h-3 w-3 shrink-0 text-green" />
+			<p>
+				Your details stay private. By submitting, you agree to be contacted by NIRT about your
+				solar assessment. No spam, no obligation.
+			</p>
+		</div>
 	</form>
 
 	<div class="hidden py-6 text-center" data-lead-success>
-		<div class="relative mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-solar/40 bg-solar/15 text-forest">
-			<span class="absolute inset-[-6px] rounded-full border border-solar/15" aria-hidden="true"></span>
-			<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-				<path d="m5 12.5 4.5 4.5L19 7.5" stroke-linecap="round" stroke-linejoin="round" />
-			</svg>
+		<div class="relative mx-auto flex h-14 w-14 items-center justify-center rounded-none border border-green/25 bg-green-soft text-green">
+			<span class="absolute inset-[-6px] rounded-none border border-green/15" aria-hidden="true"></span>
+			<HugeIcon name="checkCircle" class="h-7 w-7" />
 		</div>
-		<h3 class="display mt-5 text-[1.65rem] text-ink" tabindex="-1">Request received.</h3>
+		<h3 class="display mt-5 text-[1.6rem] text-navy" tabindex="-1">Request received.</h3>
 		<p class="mx-auto mt-2 max-w-[290px] text-[11.5px] leading-5 text-body" data-success-copy>
 			Thank you. Our team will contact you shortly about your solar assessment.
 		</p>
