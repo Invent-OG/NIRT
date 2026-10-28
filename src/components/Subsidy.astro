@@ -1,0 +1,176 @@
+---
+import Icon from "./Icon.astro";
+
+const tiers = [
+	{
+		capacity: "1 kW",
+		amount: "₹30,000",
+		tier: "Tier 01",
+		copy: "A compact starting point for smaller homes and modest electricity use.",
+		width: "36%",
+		featured: false,
+	},
+	{
+		capacity: "2 kW",
+		amount: "₹60,000",
+		tier: "Tier 02",
+		copy: "A mid-sized system for everyday household loads and family routines.",
+		width: "72%",
+		featured: false,
+	},
+	{
+		capacity: "3 kW & above",
+		amount: "Up to ₹78,000",
+		tier: "Tier 03",
+		copy: "The maximum central support band for eligible residential installations.",
+		width: "100%",
+		featured: true,
+	},
+];
+---
+
+<section id="subsidy" class="relative overflow-hidden bg-paper py-18 sm:py-22 lg:py-28">
+	<div class="pointer-events-none absolute -right-48 top-0 h-[600px] w-[600px] rounded-full bg-solar/[0.09] blur-3xl"></div>
+	<div class="solar-grid pointer-events-none absolute right-0 top-0 h-[50%] w-[36%] opacity-30 [mask-image:linear-gradient(270deg,black,transparent)]"></div>
+
+	<div class="container-page relative">
+		<div class="grid gap-8 lg:grid-cols-[1.08fr_0.72fr] lg:items-end lg:gap-20">
+			<div class="reveal">
+				<p class="eyebrow text-forest">Central government support</p>
+				<h2 class="display mt-5 max-w-[720px] text-[2.6rem] text-ink sm:text-[3.2rem] lg:text-[3.7rem]">
+					Get up to <span class="font-sans font-semibold tracking-[-0.06em] text-forest">₹78,000</span> back on your rooftop.
+				</h2>
+			</div>
+
+			<div class="reveal" style="transition-delay:80ms">
+				<p class="max-w-[430px] text-[12.5px] leading-[1.9] text-body sm:text-[13.5px]">
+					Rooftop solar becomes more affordable with financial assistance under the PM Surya
+					Ghar: Muft Bijli Yojana. Eligible residential households receive central support
+					based on installed capacity.
+				</p>
+				<div class="mt-5 inline-flex items-center gap-2 rounded-full border border-forest/15 bg-mint px-3 py-1.5 text-[8.5px] font-semibold uppercase tracking-[0.11em] text-forest">
+					<Icon name="building" class="h-3 w-3" />
+					PM Surya Ghar: Muft Bijli Yojana
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-12 grid gap-4 md:grid-cols-3 lg:mt-14">
+			{
+				tiers.map((tier, index) => (
+					<article
+						class:list={[
+							"grain reveal group relative flex flex-col overflow-hidden rounded-[26px] p-6 transition duration-300 hover:-translate-y-1 sm:p-7",
+							tier.featured
+								? "edge-gold-dark grain-dark bg-ink text-paper shadow-[0_40px_90px_-40px_rgba(8,31,27,0.75)] hover:shadow-[0_50px_110px_-40px_rgba(8,31,27,0.8)]"
+								: "premium-card text-ink hover:border-ink/15 hover:shadow-[0_32px_70px_-46px_rgba(8,31,27,0.5)]",
+						]}
+						style={`transition-delay:${index * 70}ms`}
+					>
+						{tier.featured && (
+							<>
+								<div class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-solar/[0.14] blur-3xl"></div>
+								<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-30"></div>
+								<div class="pointer-events-none absolute -bottom-20 -right-12 h-52 w-52 rounded-full border border-solar/20"></div>
+							</>
+						)}
+
+						<div class="relative z-[2] flex items-start justify-between gap-4">
+							<span class:list={["text-[8px] font-semibold uppercase tracking-[0.18em]", tier.featured ? "text-white/35" : "text-moss/60"]}>
+								{tier.tier}
+							</span>
+							{tier.featured ? (
+								<span class="inline-flex items-center gap-1 rounded-full bg-solar px-2.5 py-1 text-[7.5px] font-semibold uppercase tracking-[0.1em] text-ink">
+									<span class="text-[8px]" aria-hidden="true">✦</span>
+									Maximum
+								</span>
+							) : (
+								<span class="flex h-8 w-8 items-center justify-center rounded-full border border-ink/10 bg-white/50 text-forest">
+									<Icon name="sun" class="h-3.5 w-3.5" />
+								</span>
+							)}
+						</div>
+
+						<div class="relative z-[2] mt-10">
+							<p class:list={["text-[8px] font-semibold uppercase tracking-[0.16em]", tier.featured ? "text-solar" : "text-forest"]}>
+								Indicative central subsidy
+							</p>
+							<p
+								class:list={[
+									"mt-2.5 font-sans font-semibold leading-none tracking-[-0.055em] tabular-nums",
+									tier.featured ? "text-[2.5rem] text-solar sm:text-[2.8rem]" : "text-[2.7rem] sm:text-[3rem]",
+								]}
+							>
+								{tier.amount}
+							</p>
+							<p class:list={["mt-3 text-[9px] leading-4", tier.featured ? "text-white/35" : "text-moss/70"]}>
+								{tier.featured ? "For eligible residential installations" : "Subject to scheme eligibility"}
+							</p>
+						</div>
+
+						<div class:list={["relative z-[2] mt-8 border-t pt-5", tier.featured ? "border-white/10" : "border-ink/10"]}>
+							<div class="flex items-baseline justify-between gap-3">
+								<p class:list={["text-[12px] font-semibold", tier.featured ? "text-white/85" : "text-ink"]}>
+									{tier.capacity}
+								</p>
+								<span class:list={["text-[8px] uppercase tracking-[0.12em]", tier.featured ? "text-white/30" : "text-moss/60"]}>
+									System
+								</span>
+							</div>
+							<p class:list={["mt-2 text-[10px] leading-[1.7]", tier.featured ? "text-white/45" : "text-body"]}>
+								{tier.copy}
+							</p>
+						</div>
+
+						<div class="relative z-[2] mt-auto pt-7">
+							<div class:list={["h-[3px] w-full overflow-hidden rounded-full", tier.featured ? "bg-white/10" : "bg-ink/10"]}>
+								<div
+									class:list={["h-full rounded-full transition-all duration-700", tier.featured ? "bg-solar" : "bg-forest/50 group-hover:bg-forest"]}
+									style={`width:${tier.width}`}
+								></div>
+							</div>
+							<div class:list={["mt-2 flex justify-between text-[7.5px] uppercase tracking-[0.1em]", tier.featured ? "text-white/25" : "text-moss/50"]}>
+								<span>0</span>
+								<span>78,000</span>
+							</div>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="edge-gold relative mt-5 overflow-hidden rounded-[24px] p-[1px]">
+			<div class="grain relative flex flex-col gap-5 bg-[#f7edda] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+				<div class="relative z-[2] flex items-start gap-3.5">
+					<span class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/10 bg-white/60 text-forest">
+						<Icon name="shield" class="h-4 w-4" />
+					</span>
+					<div>
+						<p class="text-[11.5px] font-semibold text-ink">
+							Maximum central subsidy for eligible residential installations
+						</p>
+						<p class="mt-1 max-w-[590px] text-[9.5px] leading-[1.65] text-moss">
+							NIRT guides you through eligibility, application and documentation. Subsidy is
+							subject to approval and current scheme guidelines; amounts are indicative.
+						</p>
+					</div>
+				</div>
+				<button
+					type="button"
+					class="btn-ink relative z-[2] shrink-0 self-start !min-h-10 !px-5 !text-[10px] sm:self-auto"
+					data-open-lead-dialog
+				>
+					Check My Eligibility
+					<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+						<path d="M2.5 8h10M8.5 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+				</button>
+			</div>
+		</div>
+
+		<p class="mt-4 text-[9px] leading-4 text-moss/70">
+			*Subsidy is subject to eligibility, approval and applicable scheme guidelines. Figures are
+			indicative and may change.
+		</p>
+	</div>
+</section>

@@ -1,0 +1,158 @@
+---
+import LeadForm from "./LeadForm.astro";
+import Icon from "./Icon.astro";
+---
+
+<dialog
+	id="lead-dialog"
+	class="lead-dialog"
+	aria-label="Want to know what solar could mean for your home?"
+>
+	<div class="grid lg:grid-cols-[0.9fr_1.1fr]">
+		<div class="grain grain-dark relative hidden flex-col justify-between overflow-hidden bg-ink p-8 text-paper lg:flex xl:p-10">
+			<div class="aurora opacity-40"></div>
+			<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-35"></div>
+			<div class="pointer-events-none absolute -bottom-20 -right-16 h-64 w-64 rounded-full border border-solar/20"></div>
+			<div class="pointer-events-none absolute -bottom-10 -right-8 h-44 w-44 rounded-full bg-solar/10 blur-2xl"></div>
+
+			<div class="relative z-[2]">
+				<p class="eyebrow text-solar">Your solar potential</p>
+				<h2 class="display mt-6 text-[2.2rem] leading-[0.98] text-paper xl:text-[2.5rem]">
+					What could solar mean for your <em class="text-solar">home?</em>
+				</h2>
+				<p class="mt-4 max-w-[310px] text-[11.5px] leading-[1.8] text-white/55">
+					Share your monthly electricity bill and location to start a solar assessment with
+					NIRT.
+				</p>
+			</div>
+
+			<div class="relative z-[2] mt-12 rounded-2xl border border-white/10 bg-white/[0.05] p-4 backdrop-blur-md">
+				<div class="flex gap-3">
+					<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-solar/20 bg-solar/10 text-solar">
+						<Icon name="sun" class="h-4 w-4" />
+					</span>
+					<p class="text-[10px] leading-[1.75] text-white/55">
+						We look at roof suitability, shading, consumption and subsidy eligibility — not
+						just panel count.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="relative bg-paper p-5 sm:p-7 lg:p-8 xl:p-10">
+			<button
+				type="button"
+				class="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-white/60 text-ink transition-colors hover:bg-cream"
+				aria-label="Close enquiry form"
+				data-close-lead-dialog
+			>
+				<svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+					<path d="m5 5 10 10M15 5 5 15" stroke-linecap="round" />
+				</svg>
+			</button>
+
+			<div class="pr-10 lg:hidden">
+				<p class="eyebrow text-forest">Your solar potential</p>
+				<h2 class="display mt-3 text-[1.7rem] leading-[1.02] text-ink">
+					What could solar mean for your <em class="text-forest">home?</em>
+				</h2>
+				<p class="mt-2 max-w-[300px] text-[10.5px] leading-[1.7] text-body">
+					Share your monthly electricity bill and location to start a solar assessment with
+					NIRT.
+				</p>
+			</div>
+
+			<div class="mt-6 lg:mt-1">
+				<p class="hidden text-[8px] font-semibold uppercase tracking-[0.18em] text-forest lg:block">
+					Start an assessment
+				</p>
+				<h3 class="display hidden text-[2rem] leading-[1.02] text-ink lg:block">
+					Tell us about your <em class="text-forest">home.</em>
+				</h3>
+				<p class="mt-1 hidden text-[10.5px] text-body lg:block">
+					No obligation. Just a clearer starting point.
+				</p>
+
+				<div class="mt-5 lg:mt-6">
+					<LeadForm
+						idPrefix="dialog"
+						source="mid-page-popup"
+						buttonLabel="Explore My Solar Potential"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</dialog>
+
+<script>
+	const dialog = document.querySelector<HTMLDialogElement>("#lead-dialog");
+	const openButtons = document.querySelectorAll<HTMLElement>("[data-open-lead-dialog]");
+	const closeButtons = document.querySelectorAll<HTMLElement>("[data-close-lead-dialog]");
+	const trigger = document.querySelector<HTMLElement>("[data-popup-trigger]");
+	const storageKey = "nirt-solar-popup-seen";
+
+	const hasSeen = () => {
+		try {
+			return sessionStorage.getItem(storageKey) === "1";
+		} catch {
+			return false;
+		}
+	};
+
+	const markSeen = () => {
+		try {
+			sessionStorage.setItem(storageKey, "1");
+		} catch {
+			/* Storage can be unavailable in private contexts. */
+		}
+	};
+
+	const openDialog = () => {
+		if (!dialog || dialog.open) return;
+
+		const success = dialog.querySelector<HTMLElement>("[data-lead-success]:not(.hidden)");
+		success?.querySelector<HTMLButtonElement>("[data-lead-reset]")?.click();
+
+		dialog.showModal();
+		document.documentElement.classList.add("overflow-hidden");
+		markSeen();
+		window.setTimeout(() => {
+			dialog.querySelector<HTMLInputElement>('input[name="name"]')?.focus();
+		}, 80);
+	};
+
+	const closeDialog = () => {
+		if (dialog?.open) dialog.close();
+	};
+
+	openButtons.forEach((button) => button.addEventListener("click", openDialog));
+	closeButtons.forEach((button) => button.addEventListener("click", closeDialog));
+
+	dialog?.addEventListener("click", (event) => {
+		if (event.target === dialog) closeDialog();
+	});
+
+	dialog?.addEventListener("close", () => {
+		document.documentElement.classList.remove("overflow-hidden");
+	});
+
+	if (dialog && trigger && !hasSeen()) {
+		let timer: number | undefined;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (!entries.some((entry) => entry.isIntersecting)) return;
+				observer.disconnect();
+				timer = window.setTimeout(() => {
+					if (!dialog.open && !hasSeen()) openDialog();
+				}, 2200);
+			},
+			{ threshold: 0.6 },
+		);
+		observer.observe(trigger);
+
+		window.addEventListener("pagehide", () => {
+			if (timer) window.clearTimeout(timer);
+		});
+	}
+</script>

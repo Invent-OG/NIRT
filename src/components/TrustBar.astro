@@ -1,0 +1,42 @@
+---
+const facts = [
+	{ label: "Established", value: "2017" },
+	{ label: "Solar portfolio", value: "35+ MW" },
+	{ label: "Head office", value: "Salem, Tamil Nadu" },
+	{ label: "Coverage", value: "Across Tamil Nadu" },
+	{ label: "Work", value: "Residential · Commercial · Utility" },
+	{ label: "Guidance", value: "PM Surya Ghar" },
+	{ label: "Experience", value: "MNRE / TEDA" },
+];
+---
+
+<section class="relative overflow-hidden border-y border-white/10 bg-ink text-paper" aria-label="NIRT at a glance">
+	<div class="marquee-wrap relative py-3.5">
+		<div class="marquee">
+			<div class="marquee-track">
+				{
+					facts.map((fact) => (
+						<div class="marquee-item">
+							<span class="text-[8px] font-semibold uppercase tracking-[0.18em] text-white/35">
+								{fact.label}
+							</span>
+							<span class="text-[10.5px] font-medium text-white/75">{fact.value}</span>
+						</div>
+					))
+				}
+			</div>
+			<div class="marquee-track" aria-hidden="true">
+				{
+					facts.map((fact) => (
+						<div class="marquee-item">
+							<span class="text-[8px] font-semibold uppercase tracking-[0.18em] text-white/35">
+								{fact.label}
+							</span>
+							<span class="text-[10.5px] font-medium text-white/75">{fact.value}</span>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>

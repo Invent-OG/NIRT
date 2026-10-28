@@ -1,0 +1,118 @@
+---
+const reviews = [
+	{
+		quote: "Their services are beyond words! Never seen someone so quick, efficient and perfect.",
+		name: "Ashok Verma",
+	},
+	{
+		quote: "Excellent organization. Have been trusting them for a while now. Very impressed.",
+		name: "Neha Mishra",
+	},
+	{
+		quote:
+			"Working with NIRT Renewable Energy Private Limited has been a great experience. Their commitment to providing efficient and economical renewable energy solutions is unparalleled.",
+		name: "Nirmal",
+	},
+];
+---
+
+<section id="reviews" class="relative overflow-hidden bg-cream py-18 sm:py-22 lg:py-28">
+	<div class="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-full bg-solar/10 blur-3xl"></div>
+	<div class="pointer-events-none absolute -left-40 bottom-0 h-[360px] w-[360px] rounded-full border border-ink/[0.04]"></div>
+
+	<div class="container-page relative">
+		<div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+			<div class="reveal max-w-[640px]">
+				<p class="eyebrow text-forest">Client stories</p>
+				<h2 class="display mt-5 text-[2.6rem] text-ink sm:text-[3.2rem] lg:text-[3.5rem]">
+					Trusted by the people <em class="text-forest">we build for.</em>
+				</h2>
+				<p class="mt-4 max-w-[470px] text-[12.5px] leading-[1.9] text-body">
+					From the first site visit to the final handover, here is what working with NIRT
+					feels like.
+				</p>
+			</div>
+
+			<a
+				href="https://www.google.com/maps/search/?api=1&query=NIRT+Renewable+Energy+Private+Limited+Salem+Tamil+Nadu"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="premium-card group flex items-center gap-3.5 p-3.5 pr-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_50px_-32px_rgba(8,31,27,0.45)] lg:mb-1"
+			>
+				<svg class="h-7 w-7 shrink-0" viewBox="0 0 48 48" aria-hidden="true">
+					<path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.2-.1-2.3-.4-3.5Z" />
+					<path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 18.9 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7Z" />
+					<path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.6 39.6 16.2 44 24 44Z" />
+					<path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.2-.1-2.3-.4-3.5Z" />
+				</svg>
+				<div>
+					<p class="text-[10.5px] font-semibold text-ink">Find us on Google</p>
+					<p class="mt-0.5 text-[8.5px] text-moss">Read reviews & directions</p>
+				</div>
+				<svg class="ml-2 h-3.5 w-3.5 text-moss transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+					<path d="M4 12 12 4M5 4h7v7" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</a>
+		</div>
+	</div>
+
+	<div class="marquee-wrap relative mt-10 [mask-image:linear-gradient(90deg,transparent,black_5%,black_95%,transparent)] lg:mt-12">
+		<div class="marquee py-3">
+			<div class="marquee-track items-stretch gap-4 pr-4">
+				{
+					reviews.map((review) => (
+						<figure class="grain relative flex w-[320px] shrink-0 flex-col rounded-[24px] border border-ink/10 bg-white/70 p-5 sm:w-[380px] sm:p-6">
+							<div class="relative z-[2] flex items-start justify-between gap-4">
+								<span class="display text-[3.2rem] leading-[0.55] text-solar" aria-hidden="true">“</span>
+								<span class="rounded-full border border-ink/10 bg-white/60 px-2 py-1 text-[7px] font-semibold uppercase tracking-[0.13em] text-moss">
+									Client feedback
+								</span>
+							</div>
+							<blockquote class="display relative z-[2] mt-4 flex-1 text-[1.18rem] leading-[1.45] text-ink sm:text-[1.28rem]">
+								{review.quote}
+							</blockquote>
+							<figcaption class="relative z-[2] mt-6 flex items-center justify-between gap-4 border-t border-ink/10 pt-3.5">
+								<div>
+									<p class="text-[10.5px] font-semibold text-ink">{review.name}</p>
+									<p class="mt-0.5 text-[8.5px] text-moss">NIRT Renewable Energy client</p>
+								</div>
+								<span class="flex h-6 w-6 items-center justify-center rounded-full border border-solar/30 text-[8px] text-solar-deep" aria-hidden="true">✦</span>
+							</figcaption>
+						</figure>
+					))
+				}
+			</div>
+			<div class="marquee-track items-stretch gap-4 pr-4" aria-hidden="true">
+				{
+					reviews.map((review) => (
+						<figure class="grain relative flex w-[320px] shrink-0 flex-col rounded-[24px] border border-ink/10 bg-white/70 p-5 sm:w-[380px] sm:p-6">
+							<div class="relative z-[2] flex items-start justify-between gap-4">
+								<span class="display text-[3.2rem] leading-[0.55] text-solar" aria-hidden="true">“</span>
+								<span class="rounded-full border border-ink/10 bg-white/60 px-2 py-1 text-[7px] font-semibold uppercase tracking-[0.13em] text-moss">
+									Client feedback
+								</span>
+							</div>
+							<blockquote class="display relative z-[2] mt-4 flex-1 text-[1.18rem] leading-[1.45] text-ink sm:text-[1.28rem]">
+								{review.quote}
+							</blockquote>
+							<figcaption class="relative z-[2] mt-6 flex items-center justify-between gap-4 border-t border-ink/10 pt-3.5">
+								<div>
+									<p class="text-[10.5px] font-semibold text-ink">{review.name}</p>
+									<p class="mt-0.5 text-[8.5px] text-moss">NIRT Renewable Energy client</p>
+								</div>
+								<span class="flex h-6 w-6 items-center justify-center rounded-full border border-solar/30 text-[8px] text-solar-deep" aria-hidden="true">✦</span>
+							</figcaption>
+						</figure>
+					))
+				}
+			</div>
+		</div>
+	</div>
+
+	<div class="container-page relative">
+		<div class="mt-3 flex flex-col gap-2 border-t border-ink/10 pt-3 text-[8.5px] leading-4 text-moss/70 sm:flex-row sm:items-center sm:justify-between">
+			<p>Selected client feedback, as published by NIRT.</p>
+			<p class="uppercase tracking-[0.14em]">Hover to pause</p>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,149 @@
+---
+import Icon from "./Icon.astro";
+
+const steps = [
+	{
+		number: "01",
+		title: "Understand Your Requirements",
+		icon: "chart" as const,
+		copy: "Review your electricity consumption, property details, objectives and budget.",
+	},
+	{
+		number: "02",
+		title: "Assess the Site",
+		icon: "map-pin" as const,
+		copy: "Evaluate roof suitability, available space, shading and relevant technical requirements.",
+	},
+	{
+		number: "03",
+		title: "Design the Right Solution",
+		icon: "sun" as const,
+		copy: "Determine the proposed capacity, system configuration, equipment and generation assumptions.",
+	},
+	{
+		number: "04",
+		title: "Clarify the Investment",
+		icon: "wallet" as const,
+		copy: "Present the quotation, scope, applicable subsidy information, payment terms and exclusions.",
+	},
+	{
+		number: "05",
+		title: "Install and Commission",
+		icon: "bolt" as const,
+		copy: "Carry out the agreed installation, electrical checks and applicable utility or net-metering procedures.",
+	},
+	{
+		number: "06",
+		title: "Handover and Support",
+		icon: "shield" as const,
+		copy: "Explain system operation, relevant warranties, documentation and the support available after installation.",
+	},
+];
+---
+
+<section id="process" class="relative overflow-hidden bg-paper py-18 sm:py-22 lg:py-28">
+	<div class="pointer-events-none absolute -left-40 top-16 h-[430px] w-[430px] rounded-full bg-mint/80 blur-3xl"></div>
+	<div class="solar-grid pointer-events-none absolute inset-y-0 right-0 w-[32%] opacity-30 [mask-image:linear-gradient(270deg,black,transparent)]"></div>
+
+	<div class="container-page relative">
+		<div class="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16 xl:gap-20">
+			<div class="reveal lg:sticky lg:top-32">
+				<p class="eyebrow text-forest">The NIRT approach · 06 steps</p>
+				<h2 class="display mt-5 max-w-[440px] text-[2.6rem] text-ink sm:text-[3.2rem]">
+					Six steps. <em class="text-forest">No surprises.</em>
+				</h2>
+				<p class="mt-5 max-w-[400px] text-[12.5px] leading-[1.9] text-body sm:text-[13.5px]">
+					From the first assessment to installation and handover, understand the steps,
+					decisions and deliverables involved in your solar project.
+				</p>
+
+				<div class="mt-9 hidden items-start gap-3 border-t border-ink/10 pt-5 lg:flex">
+					<span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/10 bg-white/55 text-forest">
+						<Icon name="leaf" class="h-4 w-4" />
+					</span>
+					<p class="max-w-[270px] text-[10px] leading-[1.7] text-moss">
+						One team, from the first call to handover — and after.
+					</p>
+				</div>
+
+				<a href="#estimate" class="btn-outline mt-8 hidden sm:inline-flex">
+					Start With a Solar Assessment
+					<svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+						<path d="M2.5 8h10M8.5 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+				</a>
+			</div>
+
+			<div class="reveal relative">
+				<div class="pointer-events-none absolute bottom-8 left-[19px] top-3 w-px bg-ink/10">
+					<div class="process-line-fill h-full w-full bg-solar/70"></div>
+				</div>
+
+				<ol class="relative">
+					{
+						steps.map((step, index) => (
+							<li class="group relative grid grid-cols-[40px_1fr] gap-4 sm:gap-5" style={`transition-delay:${index * 50}ms`}>
+								<div class="relative z-[2] flex justify-center pt-1">
+									<span class="flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 bg-paper text-[8.5px] font-semibold tracking-[0.08em] text-forest shadow-[0_4px_14px_-8px_rgba(8,31,27,0.35)] transition-colors duration-300 group-hover:border-forest/30 group-hover:bg-ink group-hover:text-solar">
+										{step.number}
+									</span>
+								</div>
+
+								<div class="border-b border-ink/10 pb-7 pt-1.5 transition-colors duration-300 group-last:border-0 sm:pb-8">
+									<div class="flex items-start justify-between gap-4">
+										<h3 class="display text-[1.35rem] leading-[1.1] text-ink transition-colors duration-300 group-hover:text-forest sm:text-[1.5rem]">
+											{step.title}
+										</h3>
+										<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ink/10 bg-white/50 text-forest transition-colors duration-300 group-hover:border-solar/40 group-hover:bg-solar/10">
+											<Icon name={step.icon} class="h-3.5 w-3.5" />
+										</span>
+									</div>
+									<p class="mt-2.5 max-w-[440px] text-[10.5px] leading-[1.85] text-body">
+										{step.copy}
+									</p>
+								</div>
+							</li>
+						))
+					}
+				</ol>
+			</div>
+		</div>
+
+		<div class="edge-gold relative mt-12 overflow-hidden rounded-[24px] p-[1px] lg:mt-16">
+			<div class="grain relative flex flex-col gap-5 bg-[#f7edda] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+				<div class="relative z-[2] flex items-center gap-3">
+					<span class="flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 bg-white/60 text-forest">
+						<Icon name="leaf" class="h-4 w-4" />
+					</span>
+					<p class="max-w-[430px] text-[11px] leading-[1.7] text-body">
+						A structured journey from the first conversation to post-installation support.
+					</p>
+				</div>
+				<a href="#estimate" class="btn-ink relative z-[2] shrink-0 self-start !min-h-10 !px-5 !text-[10px] sm:self-auto">
+					Start With a Solar Assessment
+					<svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+						<path d="M2.5 8h10M8.5 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.process-line-fill {
+		transform: scaleY(0);
+		transform-origin: top;
+		transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+	}
+
+	.reveal.is-visible .process-line-fill {
+		transform: scaleY(1);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.process-line-fill {
+			transform: none;
+		}
+	}
+</style>

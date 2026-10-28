@@ -1,0 +1,26 @@
+---
+interface Props {
+	variant?: "dark" | "light";
+	class?: string;
+}
+
+const { variant = "dark", class: className = "" } = Astro.props;
+const isLight = variant === "light";
+---
+
+<a
+	href="#home"
+	class:list={["group inline-flex shrink-0 items-center", className]}
+	aria-label="NIRT Renewable Energy Pvt Ltd — home"
+>
+	<img
+		src="/images/nirt-logo.png"
+		alt="NIRT Renewable Energy Pvt Ltd"
+		width="456"
+		height="90"
+		class:list={[
+			"h-[34px] w-auto transition-opacity duration-200 group-hover:opacity-85 sm:h-[39px]",
+			isLight && "brightness-0 invert",
+		]}
+	/>
+</a>
