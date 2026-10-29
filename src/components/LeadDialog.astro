@@ -3,148 +3,211 @@ import LeadForm from "./LeadForm.astro";
 import HugeIcon from "./HugeIcon.astro";
 ---
 
-<dialog id="lead-dialog" class="lead-dialog" aria-label="Want to know what solar could mean for your home?">
+<dialog
+	id="lead-dialog"
+	class="lead-dialog"
+	aria-label="Want to know what solar could mean for your home?"
+>
 	<div class="grid lg:grid-cols-[0.9fr_1.1fr]">
-		<div class="grain grain-dark relative hidden flex-col justify-between overflow-hidden bg-navy p-8 text-white lg:flex xl:p-10">
-			<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-20"></div>
-			<div class="pointer-events-none absolute -bottom-20 -right-16 h-64 w-64 rounded-full border border-yellow/25"></div>
+		<div
+			class="grain grain-dark relative hidden flex-col justify-between overflow-hidden bg-navy p-8 text-white lg:flex xl:p-10"
+		>
+			<div
+				class="solar-grid-light pointer-events-none absolute inset-0 opacity-20"
+			>
+			</div>
+			<div
+				class="pointer-events-none absolute -bottom-20 -right-16 h-64 w-64 rounded-full border border-yellow/25"
+			>
+			</div>
 
 			<div class="relative z-[2]">
-				<div class="flex items-center gap-2.5">
-					<span class="grid h-8 w-8 place-items-center rounded-full bg-yellow text-ink">
-						<HugeIcon name="sun" class="h-4 w-4" />
-					</span>
-					<span>
-						<span class="block font-display text-[18px] font-semibold leading-none tracking-[-0.04em]">NIRT</span>
-						<span class="mt-1 block text-[6px] uppercase tracking-[0.22em] text-white/45">Renewable Energy</span>
-					</span>
-				</div>
+					<div class="flex items-center">
+						<img
+							src="/images/nirt-logo.webp"
+							alt="NIRT Renewable Energy"
+							width="180"
+							height="54"
+							class="h-12 w-auto object-contain"
+						/>
+					</div>
 
-				<p class="meta mt-8 text-yellow">Your solar potential</p>
-				<h2 class="display mt-4 max-w-[320px] text-[2.2rem] leading-[1.02] text-white xl:text-[2.5rem]">
-					What could solar mean for your home?
-				</h2>
-				<p class="mt-4 max-w-[310px] text-[12.5px] leading-[1.8] text-white/55">
-					Share your monthly electricity bill and location to start a solar assessment with
-					NIRT.
-				</p>
+					<p class="meta mt-8 text-yellow">Your solar potential</p>
+					<h2
+						class="display mt-4 max-w-[320px] text-[2.2rem] leading-[1.02] text-white xl:text-[2.5rem]"
+					>
+						What could solar mean for your home?
+					</h2>
+					<p
+						class="mt-4 max-w-[310px] text-[12.5px] leading-[1.8] text-white/55"
+					>
+						Share your monthly electricity bill and location to
+						start a solar assessment with NIRT.
+					</p>
 
-				<ul class="mt-7 grid gap-2.5">
-					{
-						["Roof suitability & shading review", "Subsidy eligibility guidance", "A clear, no-obligation proposal"].map(
-							(item) => (
+					<ul class="mt-7 grid gap-2.5">
+						{
+							[
+								"Roof suitability & shading review",
+								"Subsidy eligibility guidance",
+								"A clear, no-obligation proposal",
+							].map((item) => (
 								<li class="flex items-center gap-2.5 text-[12px] text-white/65">
 									<span class="grid h-4 w-4 place-items-center bg-yellow text-ink">
-										<HugeIcon name="tick" class="h-2.5 w-2.5" />
+										<HugeIcon
+											name="tick"
+											class="h-2.5 w-2.5"
+										/>
 									</span>
 									{item}
 								</li>
-							),
-						)
-					}
-				</ul>
-			</div>
-
-			<div class="relative z-[2] mt-10 border border-white/15 bg-white/[0.05] p-4">
-				<div class="flex gap-3">
-					<img
-						src="/images/project-rooftop.webp"
-						alt="NIRT rooftop solar installation"
-						width="1400"
-						height="875"
-						loading="lazy"
-						class="h-[62px] w-[78px] shrink-0 object-cover opacity-80"
-					/>
-					<p class="text-[11.5px] leading-[1.7] text-white/55">
-						We look at roof suitability, shading, consumption and subsidy eligibility — not
-						just panel count.
-					</p>
+							))
+						}
+					</ul>
 				</div>
-			</div>
-		</div>
 
-		<div class="relative flex flex-col bg-paper p-5 sm:p-7 lg:p-8 xl:p-10">
-			<button
-				type="button"
-				class="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white"
-				aria-label="Close enquiry form"
-				data-close-lead-dialog
-			>
-				<HugeIcon name="close" class="h-4 w-4" />
-			</button>
-
-			<div class="pr-10 lg:hidden">
-				<p class="meta text-yellow-deep">Your solar potential</p>
-				<h2 class="display mt-3 text-[1.8rem] leading-[1.02] text-ink">
-					What could solar mean for your home?
-				</h2>
-				<p class="mt-2 max-w-[300px] text-[12.5px] leading-[1.7] text-body">
-					Share your monthly electricity bill and location to start a solar assessment with NIRT.
-				</p>
-			</div>
-
-			<div class="mt-6 lg:mt-1">
-				<p class="meta hidden text-yellow-deep lg:block">Start an assessment</p>
-				<h3 class="display mt-3 hidden text-[1.9rem] leading-[1.02] text-ink lg:block">
-					Tell us about your home.
-				</h3>
-				<p class="mt-1 hidden text-[12.5px] text-body lg:block">
-					No obligation. Just a clearer starting point.
-				</p>
-
-				<div class="mt-5 lg:mt-6">
-					<LeadForm idPrefix="dialog" source="eligibility-dialog" buttonLabel="Explore my solar potential" />
-				</div>
-			</div>
-
-			<div class="mt-auto hidden items-center justify-between gap-4 border-t border-ink/12 pt-5 lg:flex">
-				<div class="flex items-center gap-2.5">
-					<span class="grid h-9 w-9 place-items-center bg-yellow text-ink">
-						<HugeIcon name="phone" class="h-4 w-4" />
-					</span>
-					<div>
-						<p class="text-[10.5px] text-ink/55">Prefer to talk?</p>
-						<a href="tel:+919655046464" class="text-[13px] font-medium text-ink transition-colors hover:text-yellow-deep">
-							+91 96550 46464
-						</a>
+				<div
+					class="relative z-[2] mt-10 border border-white/15 bg-white/[0.05] p-4"
+				>
+					<div class="flex gap-3">
+						<img
+							src="/images/project-rooftop.webp"
+							alt="NIRT rooftop solar installation"
+							width="1400"
+							height="875"
+							loading="lazy"
+							class="h-[62px] w-[78px] shrink-0 object-cover opacity-80"
+						/>
+						<p class="text-[11.5px] leading-[1.7] text-white/55">
+							We look at roof suitability, shading, consumption
+							and subsidy eligibility — not just panel count.
+						</p>
 					</div>
 				</div>
-				<p class="text-[10.5px] text-ink/55">Mon–Sat · 9am–6pm</p>
+			</div>
+
+			<div
+				class="relative flex flex-col bg-paper p-5 sm:p-7 lg:p-8 xl:p-10"
+			>
+				<button
+					type="button"
+					class="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white"
+					aria-label="Close enquiry form"
+					data-close-lead-dialog
+				>
+					<HugeIcon name="close" class="h-4 w-4" />
+				</button>
+
+				<div class="pr-10 lg:hidden">
+					<p class="meta text-yellow-deep">Your solar potential</p>
+					<h2
+						class="display mt-3 text-[1.8rem] leading-[1.02] text-ink"
+					>
+						What could solar mean for your home?
+					</h2>
+					<p
+						class="mt-2 max-w-[300px] text-[12.5px] leading-[1.7] text-body"
+					>
+						Share your monthly electricity bill and location to
+						start a solar assessment with NIRT.
+					</p>
+				</div>
+
+				<div class="mt-6 lg:mt-1">
+					<p class="meta hidden text-yellow-deep lg:block">
+						Start an assessment
+					</p>
+					<h3
+						class="display mt-3 hidden text-[1.9rem] leading-[1.02] text-ink lg:block"
+					>
+						Tell us about your home.
+					</h3>
+					<p class="mt-1 hidden text-[12.5px] text-body lg:block">
+						No obligation. Just a clearer starting point.
+					</p>
+
+					<div class="mt-5 lg:mt-6">
+						<LeadForm
+							idPrefix="dialog"
+							source="eligibility-dialog"
+							buttonLabel="Explore my solar potential"
+						/>
+					</div>
+				</div>
+
+				<div
+					class="mt-auto hidden items-center justify-between gap-4 border-t border-ink/12 pt-5 lg:flex"
+				>
+					<div class="flex items-center gap-2.5">
+						<span
+							class="grid h-9 w-9 place-items-center bg-yellow text-ink"
+						>
+							<HugeIcon name="phone" class="h-4 w-4" />
+						</span>
+						<div>
+							<p class="text-[10.5px] text-ink/55">
+								Prefer to talk?
+							</p>
+							<a
+								href="tel:+919655046464"
+								class="text-[13px] font-medium text-ink transition-colors hover:text-yellow-deep"
+							>
+								+91 96550 46464
+							</a>
+						</div>
+					</div>
+					<p class="text-[10.5px] text-ink/55">Mon–Sat · 9am–6pm</p>
+				</div>
 			</div>
 		</div>
 	</div>
+
+	<script>
+		const dialog =
+			document.querySelector<HTMLDialogElement>("#lead-dialog");
+		const openButtons = document.querySelectorAll<HTMLElement>(
+			"[data-open-lead-dialog]",
+		);
+		const closeButtons = document.querySelectorAll<HTMLElement>(
+			"[data-close-lead-dialog]",
+		);
+
+		const openDialog = () => {
+			if (!dialog || dialog.open) return;
+
+			const success = dialog.querySelector<HTMLElement>(
+				"[data-lead-success]:not(.hidden)",
+			);
+			success
+				?.querySelector<HTMLButtonElement>("[data-lead-reset]")
+				?.click();
+
+			dialog.showModal();
+			document.documentElement.classList.add("overflow-hidden");
+			window.setTimeout(() => {
+				dialog
+					.querySelector<HTMLInputElement>('input[name="name"]')
+					?.focus();
+			}, 80);
+		};
+
+		const closeDialog = () => {
+			if (dialog?.open) dialog.close();
+		};
+
+		openButtons.forEach((button) =>
+			button.addEventListener("click", openDialog),
+		);
+		closeButtons.forEach((button) =>
+			button.addEventListener("click", closeDialog),
+		);
+
+		dialog?.addEventListener("click", (event) => {
+			if (event.target === dialog) closeDialog();
+		});
+
+		dialog?.addEventListener("close", () => {
+			document.documentElement.classList.remove("overflow-hidden");
+		});
+	</script>
 </dialog>
-
-<script>
-	const dialog = document.querySelector<HTMLDialogElement>("#lead-dialog");
-	const openButtons = document.querySelectorAll<HTMLElement>("[data-open-lead-dialog]");
-	const closeButtons = document.querySelectorAll<HTMLElement>("[data-close-lead-dialog]");
-
-	const openDialog = () => {
-		if (!dialog || dialog.open) return;
-
-		const success = dialog.querySelector<HTMLElement>("[data-lead-success]:not(.hidden)");
-		success?.querySelector<HTMLButtonElement>("[data-lead-reset]")?.click();
-
-		dialog.showModal();
-		document.documentElement.classList.add("overflow-hidden");
-		window.setTimeout(() => {
-			dialog.querySelector<HTMLInputElement>('input[name="name"]')?.focus();
-		}, 80);
-	};
-
-	const closeDialog = () => {
-		if (dialog?.open) dialog.close();
-	};
-
-	openButtons.forEach((button) => button.addEventListener("click", openDialog));
-	closeButtons.forEach((button) => button.addEventListener("click", closeDialog));
-
-	dialog?.addEventListener("click", (event) => {
-		if (event.target === dialog) closeDialog();
-	});
-
-	dialog?.addEventListener("close", () => {
-		document.documentElement.classList.remove("overflow-hidden");
-	});
-</script>

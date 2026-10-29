@@ -10,6 +10,7 @@
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
 		U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
 	font-family: "Poppins";
 	font-style: normal;
@@ -19,6 +20,7 @@
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
 		U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
 	font-family: "Poppins";
 	font-style: normal;
@@ -28,6 +30,7 @@
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
 		U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
 	font-family: "Poppins";
 	font-style: normal;
@@ -37,6 +40,7 @@
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
 		U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
 	font-family: "Poppins";
 	font-style: normal;
@@ -46,6 +50,7 @@
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
 		U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
 	font-family: "Poppins";
 	font-style: normal;
@@ -65,6 +70,7 @@
 	src: url("/fonts/poppins-400-devanagari.woff2") format("woff2");
 	unicode-range: U+20B9;
 }
+
 @font-face {
 	font-family: "Poppins";
 	font-style: normal;
@@ -73,6 +79,7 @@
 	src: url("/fonts/poppins-500-devanagari.woff2") format("woff2");
 	unicode-range: U+20B9;
 }
+
 @font-face {
 	font-family: "Poppins";
 	font-style: normal;
@@ -81,6 +88,7 @@
 	src: url("/fonts/poppins-600-devanagari.woff2") format("woff2");
 	unicode-range: U+20B9;
 }
+
 @font-face {
 	font-family: "Poppins";
 	font-style: normal;
@@ -105,65 +113,66 @@
 	--font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 	--font-display: "Sora", "Poppins", ui-sans-serif, system-ui, sans-serif;
 
-	/* Core palette */
-	--color-ink: #081820;
-	--color-navy: #0a1d2b;
-	--color-navy-deep: #06131c;
-	--color-navy-soft: #2b5d6e;
-	--color-navy-tint: #e7eef0;
-	--color-teal: #0b3d49;
-	--color-teal-deep: #082f38;
-	--color-blue: #0e5a78;
-	--color-blue-deep: #0a3f55;
-	--color-paper: #f5f2e9;
-	--color-cream: #ece6d6;
-	--color-shell: #e3dcc9;
-	--color-line: #d9d2c0;
-	--color-body: #4e5d61;
-	--color-muted: #5c6b70;
-	--color-yellow: #f2c230;
-	--color-yellow-light: #ffe08a;
-	--color-yellow-deep: #c99a16;
-	--color-yellow-soft: #fbf1cd;
-	--color-green: #0e7c6b;
-	--color-green-deep: #0a5c50;
-	--color-green-soft: #e3efea;
-	--color-green-mid: #a7d2c7;
+	/* Core palette — derived directly from official NIRT logo colors */
+	/* NIRT Corporate Blue (#154783), NIRT Vibrant Green (#0E8743), NIRT Solar Orange (#F05F23) */
+	--color-ink: #07182e;
+	--color-navy: #0c2340;
+	--color-navy-deep: #061528;
+	--color-navy-soft: #1e4a7a;
+	--color-navy-tint: #ebf2f9;
+	--color-teal: #154783;
+	--color-teal-deep: #0d3463;
+	--color-blue: #154783;
+	--color-blue-deep: #0f3563;
+	--color-paper: #f8f6f0;
+	--color-cream: #eee9dc;
+	--color-shell: #e5dfd0;
+	--color-line: #dad3c2;
+	--color-body: #485769;
+	--color-muted: #5c6c7e;
+	--color-yellow: #f05f23;
+	--color-yellow-light: #ff8552;
+	--color-yellow-deep: #d4470f;
+	--color-yellow-soft: #ffece3;
+	--color-green: #0e8743;
+	--color-green-deep: #0a6532;
+	--color-green-soft: #e7f7ed;
+	--color-green-mid: #38b26d;
 
 	/* Backwards-compatible aliases used by the retained form/dialog */
-	--color-orange: #f2c230;
-	--color-orange-light: #ffe08a;
-	--color-orange-deep: #c99a16;
-	--color-orange-soft: #fbf1cd;
-	--color-cloud: #ece6d6;
-	--color-sky: #e6efef;
-	--color-moss: #66757a;
-	--color-forest-deep: #0b3d49;
-	--color-forest: #0e7c6b;
-	--color-solar: #f2c230;
-	--color-solar-soft: #fbf1cd;
-	--color-solar-deep: #c99a16;
+	--color-orange: #f05f23;
+	--color-orange-light: #ff8552;
+	--color-orange-deep: #d4470f;
+	--color-orange-soft: #ffece3;
+	--color-cloud: #eee9dc;
+	--color-sky: #eaf1f8;
+	--color-moss: #5c6c7e;
+	--color-forest-deep: #0a6532;
+	--color-forest: #0e8743;
+	--color-solar: #f05f23;
+	--color-solar-soft: #ffece3;
+	--color-solar-deep: #d4470f;
 
 	/* shadcn semantic tokens */
-	--color-background: #f5f2e9;
-	--color-foreground: #081820;
-	--color-card: #fcfaf4;
-	--color-card-foreground: #081820;
-	--color-popover: #fcfaf4;
-	--color-popover-foreground: #081820;
-	--color-primary: #f2c230;
-	--color-primary-foreground: #081820;
-	--color-secondary: #ece6d6;
-	--color-secondary-foreground: #081820;
-	--color-muted: #ece6d6;
-	--color-muted-foreground: #5f6e72;
-	--color-accent: #fbf1cd;
-	--color-accent-foreground: #7a5a00;
+	--color-background: #f8f6f0;
+	--color-foreground: #07182e;
+	--color-card: #fdfcf9;
+	--color-card-foreground: #07182e;
+	--color-popover: #fdfcf9;
+	--color-popover-foreground: #07182e;
+	--color-primary: #f05f23;
+	--color-primary-foreground: #ffffff;
+	--color-secondary: #eee9dc;
+	--color-secondary-foreground: #07182e;
+	--color-muted: #eee9dc;
+	--color-muted-foreground: #5c6c7e;
+	--color-accent: #ffece3;
+	--color-accent-foreground: #a63306;
 	--color-destructive: #b3421f;
 	--color-destructive-foreground: #ffffff;
-	--color-border: #d9d2c0;
-	--color-input: #d9d2c0;
-	--color-ring: #f2c230;
+	--color-border: #dad3c2;
+	--color-input: #dad3c2;
+	--color-ring: #f05f23;
 }
 
 @layer base {
@@ -203,7 +212,7 @@
 
 	::selection {
 		background: var(--color-yellow);
-		color: var(--color-ink);
+		color: #ffffff;
 	}
 
 	summary::-webkit-details-marker {
@@ -395,13 +404,14 @@
 	.btn-primary {
 		border: 1px solid var(--color-yellow);
 		background: var(--color-yellow);
-		color: var(--color-ink);
+		color: #ffffff;
+		font-weight: 600;
 	}
 
 	.btn-primary:hover {
 		transform: translateY(-1px);
-		background: #e6b722;
-		border-color: #e6b722;
+		background: #d4470f;
+		border-color: #d4470f;
 	}
 
 	.btn-dark {
@@ -412,7 +422,7 @@
 
 	.btn-dark:hover {
 		transform: translateY(-1px);
-		background: #122f3a;
+		background: #0f3563;
 	}
 
 	.btn-outline {
@@ -546,13 +556,11 @@
 		width: 100%;
 		height: 3px;
 		border-radius: 0;
-		background: linear-gradient(
-			90deg,
-			var(--color-yellow) 0%,
-			var(--color-yellow) var(--range-progress, 20%),
-			rgba(8, 24, 32, 0.16) var(--range-progress, 20%),
-			rgba(8, 24, 32, 0.16) 100%
-		);
+		background: linear-gradient(90deg,
+				var(--color-yellow) 0%,
+				var(--color-yellow) var(--range-progress, 20%),
+				rgba(8, 24, 32, 0.16) var(--range-progress, 20%),
+				rgba(8, 24, 32, 0.16) 100%);
 		cursor: pointer;
 	}
 
@@ -613,6 +621,7 @@ dialog.lead-dialog[open]::backdrop {
 		opacity: 0;
 		transform: translateY(16px);
 	}
+
 	to {
 		opacity: 1;
 		transform: none;
@@ -623,6 +632,7 @@ dialog.lead-dialog[open]::backdrop {
 	from {
 		opacity: 0;
 	}
+
 	to {
 		opacity: 1;
 	}
@@ -635,10 +645,12 @@ dialog.lead-dialog[open]::backdrop {
 }
 
 @keyframes float-soft {
+
 	0%,
 	100% {
 		transform: translateY(0);
 	}
+
 	50% {
 		transform: translateY(-7px);
 	}

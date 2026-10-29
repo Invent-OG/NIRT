@@ -2,7 +2,10 @@
 import HugeIcon from "./HugeIcon.astro";
 ---
 
-<section class="relative isolate overflow-hidden bg-teal text-white" aria-labelledby="final-cta-heading">
+<section
+	class="relative isolate overflow-hidden bg-teal text-white"
+	aria-labelledby="final-cta-heading"
+>
 	<img
 		src="/images/cta-consultation.webp"
 		alt="An engineer and a homeowner reviewing a solar plan beside a solar array"
@@ -12,23 +15,37 @@ import HugeIcon from "./HugeIcon.astro";
 		decoding="async"
 		class="absolute inset-0 -z-20 h-full w-full object-cover object-[58%_30%]"
 	/>
-	<div class="absolute inset-0 -z-10 bg-[#08323c]/80"></div>
-	<div class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(6,28,36,0.94)_0%,rgba(6,28,36,0.7)_48%,rgba(6,28,36,0.2)_100%)]"></div>
-	<div class="solar-grid-light pointer-events-none absolute inset-0 -z-10 opacity-[0.12]"></div>
+	<div class="absolute inset-0 -z-10 bg-[#0c2e59]/85"></div>
+	<div
+		class="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(6,21,40,0.95)_0%,rgba(6,21,40,0.72)_48%,rgba(6,21,40,0.25)_100%)]"
+	>
+	</div>
+	<div
+		class="solar-grid-light pointer-events-none absolute inset-0 -z-10 opacity-[0.12]"
+	>
+	</div>
 
 	<div class="container-page relative py-20 sm:py-24 lg:py-28">
-		<div class="flex items-center justify-between gap-4 border-b border-white/20 pb-4">
+		<div
+			class="flex items-center justify-between gap-4 border-b border-white/20 pb-4"
+		>
 			<p class="meta text-white/55">Your roof next</p>
 			<p class="meta text-white/30">10 / Get started</p>
 		</div>
 
 		<div class="mt-14 max-w-[780px]">
-			<h2 id="final-cta-heading" class="display text-[2.9rem] leading-[0.96] text-white sm:text-[4rem] lg:text-[5.2rem]">
+			<h2
+				id="final-cta-heading"
+				class="display text-[2.9rem] leading-[0.96] text-white sm:text-[4rem] lg:text-[5.2rem]"
+			>
 				Ready to make your roof work harder?
 			</h2>
-			<p class="mt-6 max-w-[450px] text-[13.5px] leading-[1.8] text-white/60">
-				Tell us where you are and how you use power. We'll help you understand the right
-				system, the subsidy and the investment — before you decide.
+			<p
+				class="mt-6 max-w-[450px] text-[13.5px] leading-[1.8] text-white/60"
+			>
+				Tell us where you are and how you use power. We'll help you
+				understand the right system, the subsidy and the investment —
+				before you decide.
 			</p>
 
 			<div class="mt-8 flex flex-wrap items-center gap-3">
@@ -42,7 +59,9 @@ import HugeIcon from "./HugeIcon.astro";
 				</a>
 			</div>
 
-			<div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/15 pt-5 text-[10.5px] uppercase tracking-[0.12em] text-white/40">
+			<div
+				class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/15 pt-5 text-[10.5px] uppercase tracking-[0.12em] text-white/40"
+			>
 				<span class="flex items-center gap-1.5">
 					<HugeIcon name="mapPin" class="h-3.5 w-3.5 text-yellow" />
 					Salem, Tamil Nadu
@@ -52,7 +71,10 @@ import HugeIcon from "./HugeIcon.astro";
 					Mon–Sat · 9am–6pm
 				</span>
 				<span class="flex items-center gap-1.5">
-					<HugeIcon name="shieldCheck" class="h-3.5 w-3.5 text-white/40" />
+					<HugeIcon
+						name="shieldCheck"
+						class="h-3.5 w-3.5 text-white/40"
+					/>
 					No obligation
 				</span>
 			</div>

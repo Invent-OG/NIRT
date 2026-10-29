@@ -7,17 +7,24 @@ const facts: { label: string; value: string; icon: IconName }[] = [
 	{ label: "Solar portfolio", value: "35+ MW", icon: "solarPanel" },
 	{ label: "Head office", value: "Salem, Tamil Nadu", icon: "mapPin" },
 	{ label: "Coverage", value: "Across Tamil Nadu", icon: "route" },
-	{ label: "Work", value: "Residential · Commercial · Utility", icon: "building" },
+	{
+		label: "Work",
+		value: "Residential · Commercial · Utility",
+		icon: "building",
+	},
 	{ label: "Guidance", value: "PM Surya Ghar", icon: "sun" },
 	{ label: "Experience", value: "MNRE / TEDA", icon: "badgeCheck" },
 ];
 ---
 
 <section
-	class="relative overflow-hidden border-y border-white/10 bg-[linear-gradient(90deg,#071b3c_0%,#0b2a5e_50%,#071b3c_100%)] text-white"
+	class="relative overflow-hidden border-y border-white/10 bg-[linear-gradient(90deg,#091f3b_0%,#154783_50%,#091f3b_100%)] text-white"
 	aria-label="NIRT at a glance"
 >
-	<div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green/50 to-transparent"></div>
+	<div
+		class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green/50 to-transparent"
+	>
+	</div>
 	<div class="marquee-wrap relative py-3.5">
 		<div class="marquee">
 			<div class="marquee-track">
@@ -30,7 +37,9 @@ const facts: { label: string; value: string; icon: IconName }[] = [
 							<span class="text-[7.5px] font-semibold uppercase tracking-[0.18em] text-white/35">
 								{fact.label}
 							</span>
-							<span class="text-[10.5px] font-medium text-white/80">{fact.value}</span>
+							<span class="text-[10.5px] font-medium text-white/80">
+								{fact.value}
+							</span>
 						</div>
 					))
 				}
@@ -45,7 +54,9 @@ const facts: { label: string; value: string; icon: IconName }[] = [
 							<span class="text-[7.5px] font-semibold uppercase tracking-[0.18em] text-white/35">
 								{fact.label}
 							</span>
-							<span class="text-[10.5px] font-medium text-white/80">{fact.value}</span>
+							<span class="text-[10.5px] font-medium text-white/80">
+								{fact.value}
+							</span>
 						</div>
 					))
 				}
