@@ -52,12 +52,11 @@ const districts = [
 ];
 
 const billOptions = [
-	"Less than ₹1,000",
-	"₹1,000 – ₹2,000",
-	"₹2,000 – ₹4,000",
-	"₹4,000 – ₹6,000",
-	"₹6,000 – ₹10,000",
-	"Above ₹10,000",
+	"Less than ₹1500",
+	"₹1500 – ₹2500",
+	"₹2500 – ₹4000",
+	"₹4000 – ₹8000",
+	"More than ₹8000",
 ];
 ---
 
@@ -99,7 +98,7 @@ const billOptions = [
 				/>
 			</div>
 
-			<div>
+			<div class="sm:col-span-2">
 				<label for={`${idPrefix}-district`} class="field-label">
 					District <span class="text-orange-deep">*</span>
 				</label>
@@ -121,24 +120,42 @@ const billOptions = [
 				</div>
 			</div>
 
-			<div>
-				<label for={`${idPrefix}-bill`} class="field-label">
-					Bi-monthly bill <span class="text-orange-deep">*</span>
-				</label>
-				<div class="relative">
-					<select
-						id={`${idPrefix}-bill`}
-						name="bill"
-						required
-						class="field-control cursor-pointer appearance-none pr-9"
+			<div class="sm:col-span-2">
+				<div class="flex items-center gap-1.5 mb-2.5">
+					<span class="text-[13px] sm:text-[14px] font-semibold text-ink">
+						Monthly Electricity Bill
+					</span>
+					<button
+						type="button"
+						class="inline-flex text-ink/40 hover:text-ink transition-colors cursor-help"
+						title="Select your average monthly electricity bill to calculate required solar plant size"
+						aria-label="Electricity bill info"
 					>
-						<option value="" selected disabled>Select bill range</option>
-						{billOptions.map((option) => <option value={option}>{option}</option>)}
-					</select>
-					<HugeIcon
-						name="arrowDown"
-						class="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-moss"
-					/>
+						<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="12" cy="12" r="10"></circle>
+							<line x1="12" y1="16" x2="12" y2="12"></line>
+							<line x1="12" y1="8" x2="12.01" y2="8"></line>
+						</svg>
+					</button>
+				</div>
+
+				<div class="flex flex-wrap gap-2.5">
+					{billOptions.map((option, idx) => (
+						<label class="group relative cursor-pointer select-none">
+							<input
+								type="radio"
+								name="bill"
+								value={option}
+								required
+								class="peer sr-only"
+							/>
+							<span
+								class="inline-flex items-center justify-center rounded-2xl border border-line bg-white px-4 py-2.5 sm:px-5 sm:py-3 text-[13px] sm:text-[14px] font-bold text-ink shadow-sm transition-all duration-150 hover:border-ink/30 peer-checked:border-orange-deep peer-checked:bg-orange/10 peer-checked:text-orange-deep peer-focus-visible:ring-2 peer-focus-visible:ring-orange-deep/30"
+							>
+								{option}
+							</span>
+						</label>
+					))}
 				</div>
 			</div>
 
