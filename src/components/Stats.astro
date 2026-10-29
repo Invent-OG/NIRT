@@ -1,0 +1,62 @@
+---
+const stats = [
+	{ value: "35", suffix: "+", unit: "MW", label: "Installed portfolio" },
+	{ value: "15", suffix: "", unit: "MW", label: "Solar park, Harur" },
+	{ value: "25", suffix: "", unit: "yrs", label: "Designed system life" },
+	{ value: "4–5", suffix: "", unit: "units", label: "Per kW per day*" },
+];
+---
+
+<section id="stats" class="relative overflow-hidden bg-navy py-20 text-white sm:py-24 lg:py-28">
+	<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-[0.12] [mask-image:radial-gradient(65%_60%_at_50%_40%,black,transparent)]"></div>
+	<div class="container-page relative">
+		<div class="flex items-center justify-between gap-6 border-b border-white/12 pb-4">
+			<p class="meta text-white/40">The NIRT effect</p>
+			<p class="meta text-white/25">01 / Impact</p>
+		</div>
+
+		<div class="mx-auto mt-14 max-w-[1000px] text-center sm:mt-20">
+			<h2 class="display text-[1.9rem] leading-[1.18] text-white sm:text-[2.6rem] lg:text-[3.1rem]">
+				Join homeowners across Tamil Nadu who are cutting their bills and powering their homes
+				with&#32;
+				<span class="text-white/45">clean solar energy.</span>
+			</h2>
+			<a href="#estimate" class="link-arrow mt-8 text-yellow hover:text-yellow-light">
+				Start with your roof
+				<span class="grid h-7 w-7 place-items-center border border-yellow/50">
+					<svg class="h-3 w-3" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+						<path d="M3 13 13 3M5 3h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+				</span>
+			</a>
+		</div>
+
+		<dl class="mt-16 grid grid-cols-2 gap-y-10 border-t border-white/15 pt-8 sm:mt-20 lg:grid-cols-4 lg:gap-0">
+			{
+				stats.map((stat, index) => (
+					<div
+						class:list={[
+							"relative flex flex-col-reverse px-1 sm:px-4",
+							index !== 0 && "lg:border-l lg:border-white/12 lg:pl-8",
+							index % 2 === 1 && "border-l border-white/12 pl-5 sm:pl-6 lg:border-l lg:pl-8",
+						]}
+					>
+						<dt class="meta mt-3 text-white/40">{stat.label}</dt>
+						<dd class="stat-number flex items-baseline gap-1 text-[3rem] leading-none text-white sm:text-[3.8rem] lg:text-[4.1rem]">
+							{stat.value}
+							{stat.suffix && <span class="text-[1.3rem] text-yellow">{stat.suffix}</span>}
+							<span class="ml-1 font-sans text-[0.8rem] font-normal tracking-[0.02em] text-white/45">
+								{stat.unit}
+							</span>
+						</dd>
+					</div>
+				))
+			}
+		</dl>
+
+		<p class="mt-8 text-[10.5px] leading-5 text-white/30">
+			*Indicative figures. Generation and system life depend on site conditions, component warranties
+			and current scheme eligibility.
+		</p>
+	</div>
+</section>

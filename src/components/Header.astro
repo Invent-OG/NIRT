@@ -1,186 +1,219 @@
 ---
-import Logo from "./Logo.astro";
 import HugeIcon from "./HugeIcon.astro";
 
 const navItems = [
-	{ label: "Why Solar", href: "#why-solar", number: "01" },
-	{ label: "Subsidy", href: "#subsidy", number: "02" },
-	{ label: "Projects", href: "#projects", number: "03" },
-	{ label: "Payment Options", href: "#payment", number: "04" },
-	{ label: "Process", href: "#process", number: "05" },
-	{ label: "Reviews", href: "#reviews", number: "06" },
+	{ label: "About", href: "#about", meta: "01" },
+	{ label: "Solutions", href: "#solutions", meta: "02" },
+	{ label: "Subsidy", href: "#subsidy", meta: "03" },
+	{ label: "Projects", href: "#projects", meta: "04" },
+	{ label: "Payment", href: "#payment", meta: "05" },
+	{ label: "Process", href: "#process", meta: "06" },
+	{ label: "Reviews", href: "#reviews", meta: "07" },
+	{ label: "FAQ", href: "#faq", meta: "08" },
 ];
 ---
 
-<div class="relative z-50 bg-navy-dark text-white">
-	<div
-		class="container-page flex h-9 items-center justify-between gap-6 text-[8.5px] font-medium tracking-[0.12em] text-white/60 sm:text-[9px]"
-	>
-		<p class="flex min-w-0 items-center gap-2.5">
-			<span class="relative flex h-1.5 w-1.5 shrink-0">
-				<span class="absolute inline-flex h-full w-full animate-ping rounded-none bg-green opacity-70"></span>
-				<span class="relative inline-flex h-1.5 w-1.5 rounded-none bg-green"></span>
-			</span>
-			<span class="truncate uppercase">Powering Tamil Nadu with sunshine · Since 2017</span>
-		</p>
-		<div class="flex shrink-0 items-center gap-5">
-			<span class="hidden items-center gap-1.5 text-white/45 md:inline-flex">
-				<HugeIcon name="shieldCheck" class="h-3 w-3 text-green" />
-				MNRE / TEDA experience
-			</span>
-			<a
-				href="tel:+919655046464"
-				class="inline-flex items-center gap-1.5 normal-case tracking-[0.04em] text-white/80 transition-colors hover:text-orange"
-			>
-				<HugeIcon name="phone" class="h-3 w-3 text-orange" />
-				+91 96550 46464
-			</a>
-		</div>
-	</div>
-</div>
-
 <header
-	class="sticky top-0 z-50 border-b border-line/80 bg-white/90 backdrop-blur-xl transition-shadow duration-300"
+	class="site-header fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300"
 	data-site-header
 >
-	<div class="container-page flex h-[78px] items-center justify-between gap-4">
-		<Logo class="shrink-0" />
+	<div class="container-page flex h-[84px] items-center justify-between gap-4">
+		<button
+			type="button"
+			class="group inline-flex items-center gap-2.5 text-white"
+			aria-expanded="false"
+			aria-controls="site-menu"
+			data-menu-open
+		>
+			<span class="flex w-5 flex-col gap-[5px]" aria-hidden="true">
+				<span class="h-px w-full bg-current transition-transform duration-300 group-hover:translate-x-1"></span>
+				<span class="h-px w-full bg-current transition-transform duration-300 group-hover:-translate-x-1"></span>
+				<span class="h-px w-3/4 bg-current transition-transform duration-300 group-hover:w-full"></span>
+			</span>
+			<span class="text-[11px] font-medium uppercase tracking-[0.16em]">Menu</span>
+		</button>
 
-		<nav class="hidden items-center gap-6 xl:flex 2xl:gap-7" aria-label="Main navigation">
-			{
-				navItems.map((item) => (
-					<a
-						href={item.href}
-						class="group relative py-2 text-[11px] font-medium text-body transition-colors hover:text-navy"
-					>
-						{item.label}
-						<span
-							class="absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-none bg-orange opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-							aria-hidden="true"
-						></span>
-					</a>
-				))
-			}
-		</nav>
+		<a
+			href="#home"
+			class="absolute left-1/2 flex -translate-x-1/2 items-center gap-2.5"
+			aria-label="NIRT Renewable Energy — home"
+		>
+			<span class="grid h-7 w-7 place-items-center rounded-full bg-yellow text-ink">
+				<HugeIcon name="sun" class="h-4 w-4" />
+			</span>
+			<span class="leading-none">
+				<span class="block font-display text-[20px] font-semibold tracking-[-0.045em] text-white">NIRT</span>
+				<span class="mt-1 block text-[6.5px] font-medium uppercase tracking-[0.24em] text-white/60">
+					Renewable Energy
+				</span>
+			</span>
+		</a>
 
 		<div class="flex items-center gap-2.5">
 			<a
 				href="tel:+919655046464"
-				class="hidden items-center gap-2.5 pr-1 2xl:inline-flex"
+				class="hidden text-[12px] font-medium text-white/70 transition-colors hover:text-white md:inline-flex"
 			>
-				<span class="icon-tile icon-tile-green h-8 w-8 rounded-none">
-					<HugeIcon name="phone" class="h-3.5 w-3.5" />
-				</span>
-				<span class="leading-tight">
-					<span class="block text-[7px] font-semibold uppercase tracking-[0.16em] text-moss">Talk to us</span>
-					<span class="block text-[10.5px] font-semibold text-navy">+91 96550 46464</span>
-				</span>
+				+91 96550 46464
 			</a>
-			<a href="#estimate" class="btn-primary hidden !min-h-[2.7rem] !px-4 !text-[10.5px] sm:inline-flex">
-				Get Free Estimate
+			<a href="#estimate" class="btn-primary hidden !min-h-[2.5rem] !px-4 !text-[11px] sm:inline-flex">
+				Contact us
 				<HugeIcon name="arrowUpRight" class="h-3.5 w-3.5" />
 			</a>
-
 			<button
 				type="button"
-				class="flex h-10 w-10 items-center justify-center rounded-none border border-navy/15 bg-cloud text-navy transition-colors hover:bg-navy-tint xl:hidden"
-				aria-label="Open menu"
-				aria-expanded="false"
-				aria-controls="mobile-menu"
-				data-menu-toggle
+				class="grid h-9 w-9 place-items-center border border-white/25 text-white sm:hidden"
+				aria-label="Open contact form"
+				data-open-lead-dialog
 			>
-				<span data-menu-icon-open>
-					<HugeIcon name="menu" class="h-5 w-5" />
-				</span>
-				<span class="hidden" data-menu-icon-close>
-					<HugeIcon name="close" class="h-5 w-5" />
-				</span>
+				<HugeIcon name="phone" class="h-4 w-4" />
 			</button>
 		</div>
 	</div>
-
-	<div id="mobile-menu" class="hidden border-t border-line bg-white xl:hidden" data-mobile-menu>
-		<nav class="container-page py-6 sm:py-8" aria-label="Mobile navigation">
-			<div class="flex items-center justify-between gap-4">
-				<p class="eyebrow text-green">Explore NIRT</p>
-				<a href="tel:+919655046464" class="inline-flex items-center gap-1.5 text-[9px] font-semibold text-navy">
-					<HugeIcon name="phone" class="h-3 w-3 text-green" />
-					Call our Salem team
-				</a>
-			</div>
-			<ul class="mt-4 divide-y divide-line border-y border-line">
-				{
-					navItems.map((item) => (
-						<li>
-							<a
-								href={item.href}
-								class="group flex items-center justify-between gap-4 py-4 text-[17px] font-medium text-navy transition-colors hover:text-green"
-							>
-								<span class="flex items-baseline gap-3">
-									<span class="text-[8px] font-semibold tracking-[0.16em] text-green">{item.number}</span>
-									{item.label}
-								</span>
-								<span class="flex h-8 w-8 items-center justify-center rounded-none border border-line bg-cloud text-navy transition-all duration-300 group-hover:border-green/30 group-hover:bg-green-soft group-hover:text-green">
-									<HugeIcon name="arrowUpRight" class="h-3.5 w-3.5" />
-								</span>
-							</a>
-						</li>
-					))
-				}
-			</ul>
-			<div class="mt-5 grid gap-2 sm:grid-cols-2">
-				<a href="#estimate" class="btn-primary w-full">
-					Get My Free Estimate
-					<HugeIcon name="arrowRight" class="h-4 w-4" />
-				</a>
-				<a href="https://wa.me/919655046464" class="btn-outline w-full">
-					<HugeIcon name="whatsapp" class="h-4 w-4 text-green" />
-					WhatsApp us
-				</a>
-			</div>
-			<p class="mt-4 flex items-center gap-1.5 text-[9px] text-moss">
-				<HugeIcon name="mapPin" class="h-3 w-3 text-green" />
-				Salem, Tamil Nadu · Serving homes and businesses across the state
-			</p>
-		</nav>
-	</div>
 </header>
+
+<div id="site-menu" class="site-menu fixed inset-0 z-[70] hidden overflow-y-auto bg-navy text-white" data-site-menu>
+	<div class="container-page relative flex min-h-full flex-col py-6">
+		<div class="flex items-center justify-between">
+			<p class="meta text-white/45"><span class="sm:hidden">Menu</span><span class="hidden sm:inline">Menu · NIRT Renewable Energy</span></p>
+			<a href="#home" class="absolute left-1/2 top-6 flex -translate-x-1/2 items-center gap-2" aria-label="NIRT Renewable Energy — home">
+				<span class="grid h-7 w-7 place-items-center rounded-full bg-yellow text-ink">
+					<HugeIcon name="sun" class="h-4 w-4" />
+				</span>
+				<span class="font-display text-[18px] font-semibold tracking-[-0.045em] text-white">NIRT</span>
+			</a>
+			<button
+				type="button"
+				class="grid h-10 w-10 place-items-center border border-white/25 text-white transition-colors hover:border-yellow hover:text-yellow"
+				aria-label="Close menu"
+				data-menu-close
+			>
+				<HugeIcon name="close" class="h-4 w-4" />
+			</button>
+		</div>
+
+		<div class="mt-10 grid flex-1 gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-16">
+			<nav aria-label="Main navigation">
+				<ul>
+					{
+						navItems.map((item) => (
+							<li class="border-b border-white/12">
+								<a
+									href={item.href}
+									class="group flex items-baseline justify-between gap-6 py-4 text-[2rem] font-medium leading-none tracking-[-0.04em] text-white transition-colors hover:text-yellow sm:text-[2.6rem] lg:text-[3rem]"
+								>
+									<span class="flex items-baseline gap-4">
+										<span class="meta text-white/35 transition-colors group-hover:text-yellow">
+											{item.meta}
+										</span>
+										{item.label}
+									</span>
+									<HugeIcon
+										name="arrowUpRight"
+										class="h-5 w-5 shrink-0 text-white/25 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-yellow"
+									/>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+
+			<div class="flex flex-col justify-between gap-8">
+				<div>
+					<p class="meta text-white/40">Start here</p>
+					<a href="#estimate" class="btn-primary mt-4 w-full sm:w-auto">
+						Get a free estimate
+						<HugeIcon name="arrowRight" class="h-4 w-4" />
+					</a>
+					<p class="mt-3 max-w-[300px] text-[12px] leading-5 text-white/45">
+						Four details, one call from a Salem specialist. No obligation.
+					</p>
+				</div>
+
+				<div class="grid gap-5 border-t border-white/12 pt-6 sm:grid-cols-2 lg:grid-cols-1">
+					<div>
+						<p class="meta text-white/40">Call</p>
+						<a href="tel:+919655046464" class="mt-1.5 block text-[17px] font-medium text-white hover:text-yellow">
+							+91 96550 46464
+						</a>
+						<p class="mt-1 text-[12px] text-white/40">Mon–Sat · 9am–6pm</p>
+					</div>
+					<div>
+						<p class="meta text-white/40">Email</p>
+						<a href="mailto:support@nirt.net" class="mt-1.5 block text-[15px] text-white/80 hover:text-yellow">
+							support@nirt.net
+						</a>
+					</div>
+					<div>
+						<p class="meta text-white/40">Field office</p>
+						<p class="mt-1.5 max-w-[260px] text-[13px] leading-6 text-white/60">
+							#104/7, 3rd Floor, SPC Bhawan,<br />
+							Manivannan Road, Alagapuram,<br />
+							Salem, Tamil Nadu 636004
+						</p>
+					</div>
+				</div>
+
+				<div class="relative hidden overflow-hidden lg:block">
+					<img
+						src="/images/project-solar-park.webp"
+						alt="NIRT's solar park at Harur, Tamil Nadu"
+						width="1100"
+						height="688"
+						loading="lazy"
+						class="h-[210px] w-full object-cover opacity-70"
+					/>
+					<div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent"></div>
+					<p class="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.14em] text-white/70">
+						15 MW · Harur, Tamil Nadu
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-white/12 pt-5 text-white/35">
+			<p class="meta">Salem · Tamil Nadu</p>
+			<p class="meta">Rooftop solar since 2017</p>
+			<p class="meta">35+ MW installed</p>
+		</div>
+	</div>
+</div>
 
 <script>
 	const header = document.querySelector<HTMLElement>("[data-site-header]");
-	const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
-	const menu = document.querySelector<HTMLElement>("[data-mobile-menu]");
-	const iconOpen = document.querySelector<HTMLElement>("[data-menu-icon-open]");
-	const iconClose = document.querySelector<HTMLElement>("[data-menu-icon-close]");
+	const menu = document.querySelector<HTMLElement>("[data-site-menu]");
+	const openBtn = document.querySelector<HTMLButtonElement>("[data-menu-open]");
+	const closeBtn = document.querySelector<HTMLButtonElement>("[data-menu-close]");
 
 	if (header) {
-		const updateHeader = () => {
-			header.classList.toggle("shadow-[0_18px_50px_-34px_rgba(11,31,58,0.32)]", window.scrollY > 10);
-		};
-		updateHeader();
-		window.addEventListener("scroll", updateHeader, { passive: true });
+		const update = () => header.classList.toggle("is-scrolled", window.scrollY > 40);
+		update();
+		window.addEventListener("scroll", update, { passive: true });
 	}
 
-	if (toggle && menu) {
+	if (menu && openBtn && closeBtn) {
 		const setOpen = (open: boolean) => {
 			menu.classList.toggle("hidden", !open);
-			toggle.setAttribute("aria-expanded", String(open));
-			toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-			iconOpen?.classList.toggle("hidden", open);
-			iconClose?.classList.toggle("hidden", !open);
+			openBtn.setAttribute("aria-expanded", String(open));
+			document.documentElement.classList.toggle("overflow-hidden", open);
+			if (open) closeBtn.focus();
+			else openBtn.focus();
 		};
 
-		toggle.addEventListener("click", () => setOpen(menu.classList.contains("hidden")));
-		menu.querySelectorAll("a").forEach((link) => {
-			link.addEventListener("click", () => setOpen(false));
-		});
-
+		openBtn.addEventListener("click", () => setOpen(true));
+		closeBtn.addEventListener("click", () => setOpen(false));
+		menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setOpen(false)));
 		document.addEventListener("keydown", (event) => {
-			if (event.key === "Escape") setOpen(false);
-		});
-
-		window.addEventListener("resize", () => {
-			if (window.innerWidth >= 1280) setOpen(false);
+			if (event.key === "Escape" && !menu.classList.contains("hidden")) setOpen(false);
 		});
 	}
 </script>
+
+<style>
+	.site-header.is-scrolled {
+		background: rgba(6, 19, 28, 0.94);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(18px);
+	}
+</style>

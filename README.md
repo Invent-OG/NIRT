@@ -1,158 +1,132 @@
 # NIRT Renewable Energy — Landing Page
 
-A responsive one-page lead-generation site for **NIRT Renewable Energy Pvt Ltd**, Salem, built
-with [Astro](https://astro.build), React, Tailwind CSS, shadcn/ui patterns and
-[Hugeicons](https://hugeicons.com/).
+A responsive one-page lead-generation site for **NIRT Renewable Energy Pvt Ltd**, Salem, built with
+[Astro](https://astro.build), Tailwind CSS v4 and [Hugeicons](https://hugeicons.com/).
 
-The page follows the client's landing-page brief: hero + lead form, investment numbers, PM Surya
-Ghar subsidy tiers, project grid, payment/EMI options, the six-step NIRT process and client
-reviews.
+The visual direction is an editorial solar brand: a deep teal photographic hero with a giant NIRT
+wordmark, a navy impact band, a cream commitment section with a ghost wordmark, and light,
+slightly-tilted solution cards over a solar array. The page keeps NIRT's full lead-gen story —
+solutions, subsidy, projects, finance, process, reviews and FAQ — inside that visual language.
 
 ## Design direction
 
-The visual system is built around the client's logo, using its three brand colours throughout —
-navy for structure and type, green for the ecological/subsidy story, and orange for action.
+The palette pairs deep teal and navy with warm cream and a single solar yellow. NIRT's navy is
+kept in the dark surfaces and green appears only as a small secondary accent; yellow is the action
+colour.
 
 | Token        | Hex       | Primary use                                      |
 | :----------- | :-------- | :----------------------------------------------- |
-| NIRT navy    | `#154783` | Logo wordmark, headings, dark panels, trust bar  |
-| NIRT green   | `#0E8743` | Accents, subsidy, checks, secondary emphasis     |
-| NIRT orange  | `#F05F23` | Primary CTAs, badges, highlights, slider         |
-| Navy deep    | `#0B2A5E` | Dark gradients and the top utility bar           |
-| Navy dark    | `#071B3C` | Payment, final CTA and deep backgrounds          |
-| Paper        | `#FAFCFE` | Page background                                  |
-| Cloud        | `#F1F6FC` | Alternating sections and soft cards              |
-| Sky          | `#E7F1FB` | Reviews section                                  |
-| Body         | `#4B5F78` | Supporting copy                                  |
+| Ink          | `#081820` | Primary type, dark buttons, footer detail        |
+| Navy         | `#0A1D2B` | Stats band, footer, photography overlays         |
+| Teal         | `#0B3D49` | Hero, payment section, CTA overlays              |
+| Blue         | `#0E5A78` | "Solar revolution" solutions section             |
+| Paper        | `#F5F2E9` | Page background                                  |
+| Cream        | `#ECE6D6` | Subsidy and reviews bands                        |
+| Yellow       | `#F2C230` | CTAs, accents, stat suffixes, scribbles          |
+| Green        | `#0E7C6B` | Small secondary accents, checks                  |
+| Muted        | `#5C6B70` | Secondary labels and notes                       |
 
-**Type:** Sora (variable, self-hosted) for display headings; Poppins for body and UI. The pair
-keeps the technical, engineered feel of the logo while remaining highly legible at small sizes.
+**Type:** self-hosted **Sora** for display and the giant wordmark, **Poppins** for body and UI.
+Headings run from 40–70px, with a 250–290px hero wordmark on desktop; body copy is 12.5–15px with
+10px tracked meta labels. Poppins is also used for the rupee glyph fallback.
 
-**Composition:** The layout borrows common patterns from current solar and clean-energy site
-design — a light, airy hero with a conversion card, a photo-led bento project grid, a dark
-finance/EMI section and a soft green subsidy block. Every UI surface — buttons, inputs, cards,
-tags, dialog and preloader — uses a **0px radius** for a sharper, more engineered look; only the
-logo and icon strokes keep their natural curves. References that informed the direction
-include:
+**Composition:** 0px radii throughout. The layout borrows from the supplied "RadiantRenew"
+reference: full-bleed photo hero, giant brand wordmark at the bottom, a centered impact statement
+that fades into the background, a three-column meta rule, a dark quote card that floats in the
+commitment section, a yellow hand-drawn scribble, and a trio of light, tilted solution cards over a
+solar-panel photograph.
 
-- Dribbble, [Solar Energy Website – Modern Landing Page Design](https://dribbble.com/shots/27133908-Solar-Energy-Website-Modern-Landing-Page-Design)
-- Dribbble, [Mardysev Solar – Clean Energy Landing Page](https://dribbble.com/shots/26202264-Mardysev-Solar-Clean-Energy-Landing-Page)
-- Behance, [Suntrix – Solar Energy Website Design UI/UX](https://www.behance.net/gallery/240613859/Suntrix-Solar-Energy-Website-Design-UIUX)
-- Behance, [Modern SaaS UI/UX Design for Solar Installation Website](https://www.behance.net/gallery/241709785/Modern-SaaS-UIUX-Design-for-Solar-Installation-Website)
+## Sections
 
-**Icons:** The Astro page uses `@hugeicons/core-free-icons`. `src/icons.ts` is the single icon map,
-and `src/components/HugeIcon.astro` renders the icon data as inline SVG with a consistent stroke.
-The React timeline uses `lucide-react` for its CTA arrow. Only the Google review mark and the
-favicon/NIRT emblem are custom vectors.
+| Section           | Anchor       | Purpose                                                          |
+| :---------------- | :----------- | :--------------------------------------------------------------- |
+| Header            | —            | Fixed transparent header, full-screen menu, estimate CTA         |
+| Hero              | `#home`      | Proposition, CTAs, photo and giant NIRT wordmark                  |
+| Impact band       | `#stats`     | Navy statement, 35+ MW / 15 MW / 25 yrs / 4–5 unit stats          |
+| Commitment        | `#about`     | About, quote card, service points and project image               |
+| Solutions         | `#solutions` | Tilted Home rooftop / Commercial / Solar parks cards              |
+| Estimate          | `#estimate`  | Four-field free assessment form and what's included               |
+| Subsidy           | `#subsidy`   | PM Surya Ghar 1 kW / 2 kW / 3 kW+ tiers and eligibility CTA       |
+| Projects          | `#projects`  | Industrial rooftop, 15 MW Harur park and residential rooftop      |
+| Payment           | `#payment`   | Upfront/finance options and the interactive illustrative EMI      |
+| Process           | `#process`   | Six steps from requirements to handover                          |
+| Reviews           | `#reviews`   | Feature quote, two supporting reviews and the Google link         |
+| FAQ               | `#faq`       | Homeowner questions in an accessible `<details>` accordion        |
+| Final CTA         | —            | Full-bleed "Ready to make your roof work harder?" section          |
+| Footer            | `#contact`   | Navigation, services, contact details and giant NIRT wordmark     |
 
 ## Commands
 
-| Command           | Action                                   |
-| :---------------- | :--------------------------------------- |
-| `npm install`     | Install dependencies                     |
-| `npm run dev`     | Start the dev server at `localhost:4321` |
-| `npm run build`   | Build the production site to `./dist/`   |
-| `npm run preview` | Preview the production build locally     |
-| `npm run typecheck` | Run TypeScript without emitting files |
+| Command             | Action                                   |
+| :------------------ | :--------------------------------------- |
+| `npm install`       | Install dependencies                     |
+| `npm run dev`       | Start the dev server at `localhost:4321` |
+| `npm run build`     | Build the production site to `./dist/`   |
+| `npm run preview`   | Preview the production build locally     |
+| `npm run typecheck` | Run TypeScript without emitting files    |
+
+The Astro dev server can also run in the background with `npx astro dev --background`; manage it
+with `npx astro dev status`, `npx astro dev logs` and `npx astro dev stop`.
 
 ## Structure
 
 - `src/pages/index.astro` — page assembly
-- `src/components/` — preloader, header, hero, lead form, numbers, subsidy, projects, payment,
-  process, reviews, final CTA, footer and popup dialog
+- `src/layouts/Layout.astro` — document head, fonts, OG tags, scroll-reveal observer
+- `src/components/Header.astro` — fixed header, wordmark, full-screen menu
+- `src/components/Hero.astro` — photographic hero and giant NIRT wordmark
+- `src/components/Stats.astro` — navy impact statement and stat row
+- `src/components/Commitment.astro` — about section, quote card and service points
+- `src/components/Revolution.astro` — tilted solution cards over the solar-park photo
+- `src/components/Estimate.astro` — estimate section wrapping the lead form
+- `src/components/Subsidy.astro` — PM Surya Ghar tiers
+- `src/components/Projects.astro` — project photo grid
+- `src/components/Payment.astro` — payment routes and EMI calculator
+- `src/components/Process.astro` — six-step editorial list
+- `src/components/Reviews.astro` — feature and supporting client quotes
+- `src/components/Faq.astro` — accessible question accordion
+- `src/components/FinalCta.astro` — closing image CTA
+- `src/components/Footer.astro` — footer and giant wordmark
+- `src/components/LeadForm.astro` — four-field lead form
+- `src/components/LeadDialog.astro` — eligibility/assessment dialog
+- `src/components/MobileCta.astro` — sticky mobile call/estimate bar
 - `src/components/Preloader.astro` — branded first-paint loading screen
-- `src/components/HugeIcon.astro` — Hugeicons renderer
-- `src/components/ui/` — shadcn/React primitives and the process timeline block
-- `src/components/ui/timeline-01.tsx` — the framed “Six steps. No surprises.” section
-- `src/components/ui/timeline-01-utils/timeline.tsx` — motion timeline, scroll line and items
-- `src/components/ui/badge.tsx` — sharp-edged shadcn badge
-- `src/components/ui/demo.tsx` — standalone timeline demo
-- `src/lib/utils.ts` — `cn()` helper
-- `components.json` — shadcn aliases and Tailwind v4 CSS entry
-- `src/icons.ts` — the Hugeicons map used across the Astro page
-- `src/styles/global.css` — Tailwind theme, shadcn tokens, Sora/Poppins faces and shared styles
-- `public/images/nirt-logo.webp` — transparent, cropped logo lockup prepared from the supplied
-  NIRT artwork
-- `public/images/` — project photography and supporting stock imagery
-- `public/fonts/` — self-hosted Sora and Poppins files
-- `public/og.jpg` — 1200 × 630 social share image built from the new palette
-- `screenshots/` — desktop, mobile and viewport captures from the QA pass
+- `src/components/HugeIcon.astro` + `src/icons.ts` — icon renderer and icon map
+- `src/styles/global.css` — Tailwind theme, type, buttons, fields, dark surfaces and motion
+- `public/images/` — hero, project and CTA photography
+- `public/fonts/` — self-hosted Sora and Poppins, plus the rupee fallback
+- `public/og.jpg` — 1200 × 630 social share card in the new palette
+- `screenshots/` — desktop and mobile captures from the QA pass
 
-## React + shadcn/ui structure
+### Legacy files
 
-The site remains a static Astro build; React is used only for the process timeline island.
+`src/components/Numbers.astro`, `src/components/TrustBar.astro` and the `src/components/ui/`
+React/shadcn files (`timeline-01.tsx`, `timeline-01-utils/`, `badge.tsx`, `demo.tsx`) are from the
+previous iteration and are not imported by the current page. React and the shadcn primitives remain
+configured, but the live page ships no React islands.
 
-- React is enabled with `@astrojs/react`.
-- `@/` resolves to `src/` in both `tsconfig.json` and the Vite alias in `astro.config.mjs`.
-- shadcn primitives live in **`src/components/ui`**, with the `cn()` helper in **`src/lib/utils.ts`**.
-- **The style entry is `src/styles/global.css`** (Tailwind v4, no `tailwind.config` file).
-- `components.json` points the shadcn aliases at those paths and maps the semantic colours
-  (`background`, `foreground`, `border`, `primary`, `muted-foreground`, etc.) onto the NIRT palette.
-- The badge, timeline images, timeline marker and frame remain **0px radius** to match the rest of
-  the site.
+## Forms and dialog
 
-**Why `src/components/ui`?** Astro's default component folder is `src/components`, but shadcn
-components are generated with imports such as `@/components/ui/badge` and `@/lib/utils`. Keeping the
-`ui` subfolder plus the `@/` alias is what makes those imports resolve, and it keeps generated
-primitives separate from the hand-built Astro sections. A flat `src/components` setup would break
-the generated imports and make future shadcn additions harder to maintain.
-
-**Fresh-project setup summary**
-
-```bash
-npx astro add react
-npm install tailwindcss @tailwindcss/vite class-variance-authority clsx tailwind-merge motion lucide-react
-npm install -D typescript @types/react @types/react-dom @types/node
-```
-
-Then add the `@/` alias, `src/lib/utils.ts` and `components.json`, and copy/add the `badge` and
-timeline files. `npx shadcn@latest add badge` can be used once that config is present; for Astro,
-manual placement is the reliable path if the CLI does not detect the framework.
-
-## Preloader
-
-`src/components/Preloader.astro` renders a logo-led loading screen in the brand navy before the
-page paints. It hides after `DOMContentLoaded` with a short 1.3-second minimum, fades for 520ms,
-and then removes itself from the DOM. With `prefers-reduced-motion: reduce` it hides almost
-immediately, and with JavaScript disabled a `<noscript>` rule removes it entirely. A CSS and a
-JavaScript fail-safe hide/remove it even if the page never finishes loading.
-
-## Forms and popup
-
-Both lead forms validate on the client (required fields, 10-digit mobile number, district and
-bi-monthly bill). The mid-page form opens once per session after the visitor reaches the end of
-the numbers section, and can also be opened from the "Explore My Solar Potential" and "Check My
-Eligibility" buttons.
+The estimate form and the dialog form validate on the client (required fields, 10-digit Indian
+mobile number, district and bi-monthly bill). Both show an inline success state with the visitor's
+name.
 
 The forms are **front-end only** and do not send data anywhere. Before launch, connect the submit
-handler in `src/components/LeadForm.astro` to the client's CRM, email service or form endpoint,
-and add server-side validation and spam protection.
+handler in `src/components/LeadForm.astro` to the client's CRM, email service or form endpoint, and
+add server-side validation and spam protection.
 
-## Process timeline
-
-`src/components/Process.astro` is now a thin Astro wrapper around the React island:
-
-```astro
-<TimelineBlock01 client:visible />
-```
-
-The section keeps the `#process` anchor and replaces the previous six cards with a vertical,
-image-led timeline. The line and square marker animate with scroll progress via `motion`; the six
-steps use NIRT's local project photography so the timeline has no external image dependency. The
-React content is server-rendered and always visible, so it does not depend on hydration to appear.
-The island hydrates only when it enters the viewport.
+The assessment dialog opens from the explicit "Check my eligibility" and header phone CTAs. There
+is no automatic mid-page pop-up. The dialog marks nothing in storage and always requires a click.
 
 ## Content and assets
 
-- **Logo** — supplied NIRT artwork, cropped and background-removed to a transparent WebP. The
-  favicon and social image follow the same navy/green/orange palette.
+- **Logo** — the supplied NIRT lockup is used by the preloader; the header, footer and social card
+  use a typographic NIRT wordmark with the yellow sun mark.
 - **Project images and client quotes** — NIRT's public website, [nirt.net](https://www.nirt.net/).
-  The rooftop and solar-park project photos are from NIRT's published project material and are also
-  used in the process timeline.
-- **Hero and final CTA photography** — Pexels: [houses with solar panels](https://www.pexels.com/photo/houses-with-solar-panels-on-roofs-6233727/)
-  and [solar consultation](https://www.pexels.com/photo/4254166/). Free to use under the Pexels licence.
+- **Hero, installer and CTA photography** — Pexels: [houses with solar panels](https://www.pexels.com/photo/houses-with-solar-panels-on-roofs-6233727/),
+  and the engineer/consultation photograph used in the closing CTA. Free to use under the Pexels
+  licence.
 - **Residential project image** — Pexels: [solar panels on a house roof](https://www.pexels.com/photo/solar-panels-on-house-roof-17762230/).
-  This card is labelled "Representative image" and should be replaced with a verified NIRT
+  The card is labelled "Representative image" and should be replaced with a verified NIRT
   residential project photo.
 - **Fonts** — Sora and Poppins, self-hosted from Google Fonts.
 - **Contact details, social links and company facts** — NIRT's public website and social profiles.
@@ -162,19 +136,20 @@ The island hydrates only when it enters the viewport.
 
 1. Connect the lead forms to a real endpoint and test delivery.
 2. Replace the representative residential image with a verified NIRT project photo.
-3. Connect the Google review card to the client's actual Google Business Profile (or Places API /
-   review widget). It currently links to a Google Maps search.
-4. Confirm subsidy, generation, EMI and legal copy with the client; all figures are marked
-   indicative in the page.
+3. Connect the Google card to the client's actual Google Business Profile (or Places API / review
+   widget). It currently links to a Google Maps search.
+4. Confirm subsidy, generation, EMI, timeline and service claims with the client; all figures are
+   marked indicative in the page.
 5. Add a privacy policy and any consent wording required for lead capture.
 6. Set the production domain and absolute Open Graph image URL in `src/layouts/Layout.astro`.
 
 ## Checks
 
-`npm run build` and `npm run typecheck` pass. The page was checked at 320, 360, 390, 768, 1024,
-1280, 1440 and 1920px for horizontal overflow. The lead form (validation + success state),
-auto-popup, mobile menu, mobile sticky CTA, EMI calculator and dialog were exercised in headless
-Chromium. The preloader was checked for normal, reduced-motion and JavaScript-disabled fallbacks.
-The React timeline is server-rendered, hydrates on visibility, and was checked at desktop, tablet
-and mobile widths. A computed-style audit confirms **0px border radius** on every UI surface.
-Current captures are in `screenshots/`.
+- `npm run build` and `npm run typecheck` pass.
+- Checked at 320, 360, 390, 768, 1024, 1280, 1440 and 1920px with no horizontal overflow.
+- The full-screen menu, estimate form, dialog form, EMI calculator (amount + tenure), FAQ accordion
+  and sticky mobile CTA were exercised in headless Chromium.
+- The mobile CTA hides over the hero and the estimate section, and reappears further down the page.
+- Reveal animations respect `prefers-reduced-motion`; the FAQ works without JavaScript; the forms
+  use native validation and a visible focus ring.
+- Fresh desktop and mobile captures are in `screenshots/`.

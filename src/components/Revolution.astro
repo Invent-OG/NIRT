@@ -1,0 +1,103 @@
+---
+import HugeIcon from "./HugeIcon.astro";
+
+const cards = [
+	{
+		meta: "01 / Residential",
+		title: "Home rooftop",
+		capacity: "1–10 kW",
+		copy: "Subsidy-ready rooftop systems for Tamil Nadu homes, sized to your bill and your roof.",
+	},
+	{
+		meta: "02 / Commercial",
+		title: "Commercial solar",
+		capacity: "10 kW – 1 MW",
+		copy: "Rooftop and ground-mount systems for factories, warehouses, schools and institutions.",
+	},
+	{
+		meta: "03 / Utility",
+		title: "Solar parks",
+		capacity: "MW-scale",
+		copy: "Ground-mounted generation and EPC — including NIRT's 15 MW solar park at Harur.",
+	},
+];
+---
+
+<section id="solutions" class="relative overflow-hidden bg-blue py-20 text-white sm:py-24 lg:py-28">
+	<img
+		src="/images/project-solar-park.webp"
+		alt=""
+		width="1100"
+		height="688"
+		loading="lazy"
+		decoding="async"
+		class="absolute inset-x-0 bottom-0 h-[62%] w-full object-cover opacity-35"
+	/>
+	<div class="absolute inset-0 bg-[linear-gradient(180deg,#0e5a78_0%,rgba(14,90,120,0.88)_44%,rgba(10,63,85,0.82)_100%)]"></div>
+	<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-[0.14]"></div>
+
+	<svg class="pointer-events-none absolute left-[8%] top-[42%] hidden h-[300px] w-[520px] lg:block" viewBox="0 0 520 300" fill="none" aria-hidden="true">
+		<path
+			class="scribble"
+			d="M8 220c60 20 104-42 62-78-38-33-84 18-46 54 48 46 126 8 156-42 26-44-14-80-50-50-34 28-4 84 50 92 64 10 118-42 120-96 2-46-52-56-66-18-14 40 34 78 82 82 58 5 100-34 104-78"
+		></path>
+	</svg>
+
+	<div class="container-page relative">
+		<div class="flex items-center justify-between gap-4 border-b border-white/20 pb-4">
+			<p class="meta text-white/60">Solutions</p>
+			<p class="meta text-white/35">02 / What we build</p>
+		</div>
+
+		<div class="mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+			<h2 class="display max-w-[600px] text-[2.6rem] leading-[0.98] text-white sm:text-[3.4rem] lg:text-[4.3rem]">
+				Join the solar energy revolution.
+			</h2>
+			<p class="max-w-[300px] text-[13.5px] leading-[1.8] text-white/65">
+				Three ways NIRT puts the sun to work — for a home, a business or the grid.
+			</p>
+		</div>
+
+		<div class="relative mt-12 flex flex-col gap-5 lg:mt-16 lg:flex-row lg:items-start lg:justify-center lg:gap-0">
+			{
+				cards.map((card, index) => (
+					<article
+						class:list={[
+							"group relative z-[2] flex min-h-[320px] w-full flex-col justify-between border border-white/40 bg-[#f7f4ea]/95 p-6 text-ink shadow-[0_30px_60px_-34px_rgba(0,0,0,0.55)] transition-all duration-500 hover:z-10 hover:-translate-y-2 hover:rotate-0 hover:bg-[#fbf8ef] lg:w-[290px] lg:min-h-[350px] xl:w-[335px] xl:min-h-[365px] lg:shrink-0",
+							index === 0 && "lg:-ml-4 lg:-rotate-[5deg] lg:translate-y-10",
+							index === 1 && "lg:-ml-4 lg:rotate-[1deg]",
+							index === 2 && "lg:-ml-4 lg:rotate-[5deg] lg:translate-y-5",
+						]}
+					>
+						<div>
+							<div class="flex items-center justify-between gap-3">
+								<p class="meta text-ink/45">{card.meta}</p>
+								<span class="h-1.5 w-1.5 rounded-full bg-yellow" aria-hidden="true"></span>
+							</div>
+							<h3 class="display mt-7 text-[1.9rem] leading-none text-ink">{card.title}</h3>
+							<p class="mt-2 text-[11px] uppercase tracking-[0.14em] text-yellow-deep">{card.capacity}</p>
+							<p class="mt-5 max-w-[260px] text-[12.5px] leading-[1.7] text-ink/60">{card.copy}</p>
+						</div>
+						<div class="mt-8 flex items-center justify-between gap-4 border-t border-ink/15 pt-4">
+							<a href="#estimate" class="text-[11px] uppercase tracking-[0.14em] text-ink/60 transition-colors hover:text-yellow-deep">
+								Explore
+							</a>
+							<HugeIcon
+								name="arrowUpRight"
+								class="h-4 w-4 text-ink/40 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-yellow-deep"
+							/>
+						</div>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="relative z-[2] mt-12 flex flex-col gap-4 border-t border-white/20 pt-5 sm:flex-row sm:items-center sm:justify-between">
+			<p class="meta text-white/40">Also: energy audits · biogas · O&M</p>
+			<a href="#estimate" class="link-arrow text-yellow hover:text-yellow-light">
+				Find the right system
+				<HugeIcon name="arrowRight" class="h-4 w-4" />
+			</a>
+		</div>
+	</div>
+</section>

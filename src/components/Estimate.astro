@@ -1,0 +1,91 @@
+---
+import LeadForm from "./LeadForm.astro";
+import HugeIcon from "./HugeIcon.astro";
+
+const includes = [
+	"Roof, shading and consumption review",
+	"Subsidy eligibility check",
+	"A clear written proposal",
+];
+---
+
+<section id="estimate" class="relative overflow-hidden bg-paper py-20 sm:py-24 lg:py-28">
+	<div class="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px bg-line lg:block"></div>
+
+	<div class="container-page relative">
+		<div class="flex items-center justify-between gap-4 border-t border-ink/15 pt-4">
+			<p class="meta text-ink/50">Get started</p>
+			<p class="meta text-ink/30">03 / Free assessment</p>
+		</div>
+
+		<div class="mt-12 grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+			<div class="reveal">
+				<h2 class="display text-[2.6rem] leading-[0.99] text-ink sm:text-[3.4rem] lg:text-[4rem]">
+					Let's size your roof.
+				</h2>
+				<p class="mt-5 max-w-[400px] text-[14px] leading-[1.85] text-body">
+					Four details and a Salem specialist will call you with a clear, roof-specific plan.
+					No obligation, no pressure.
+				</p>
+
+				<ul class="mt-8 max-w-[380px] border-t border-ink/15">
+					{
+						includes.map((item) => (
+							<li class="flex items-center gap-2.5 border-b border-ink/15 py-3 text-[12.5px] text-ink">
+								<span class="grid h-5 w-5 place-items-center bg-yellow text-ink">
+									<HugeIcon name="tick" class="h-3 w-3" />
+								</span>
+								{item}
+							</li>
+						))
+					}
+				</ul>
+
+				<div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+					<a href="tel:+919655046464" class="inline-flex items-center gap-2 text-[13px] font-medium text-ink">
+						<HugeIcon name="phone" class="h-4 w-4 text-yellow-deep" />
+						+91 96550 46464
+					</a>
+					<a href="https://wa.me/919655046464" class="inline-flex items-center gap-2 text-[13px] text-body hover:text-ink">
+						<HugeIcon name="whatsapp" class="h-4 w-4 text-green" />
+						WhatsApp
+					</a>
+				</div>
+
+				<p class="mt-8 max-w-[360px] text-[11px] leading-5 text-body/70">
+					Subsidy and generation figures are indicative and subject to eligibility, site
+					conditions and current scheme guidelines.
+				</p>
+			</div>
+
+			<div class="reveal relative" style="transition-delay:100ms">
+				<div class="border border-ink/20 bg-[#fcfaf4] p-5 shadow-[0_30px_80px_-60px_rgba(8,24,32,0.6)] sm:p-7">
+					<div class="flex items-start justify-between gap-4 border-b border-ink/12 pb-4">
+						<div>
+							<p class="meta text-ink/40">No obligation</p>
+							<p class="display mt-1.5 text-[1.5rem] leading-tight text-ink">
+								Get your rooftop plan.
+							</p>
+						</div>
+						<span class="meta flex items-center gap-1.5 border border-ink/15 px-2 py-1 text-ink/55">
+							<HugeIcon name="clock" class="h-3 w-3" />
+							1 min
+						</span>
+					</div>
+
+					<div class="mt-5">
+						<LeadForm idPrefix="hero" source="hero" buttonLabel="Get my free estimate" />
+					</div>
+				</div>
+
+				<div class="mt-3 flex items-center justify-between gap-3 text-[10.5px] text-muted">
+					<span class="flex items-center gap-1.5">
+						<HugeIcon name="shieldCheck" class="h-3.5 w-3.5 text-green" />
+						MNRE / TEDA experienced
+					</span>
+					<span>Salem, Tamil Nadu</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

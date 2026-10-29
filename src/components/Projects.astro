@@ -7,11 +7,10 @@ const projects = [
 		title: "Industrial Rooftop Solar",
 		tag: "Rooftop",
 		location: "Tamil Nadu",
-		capacityLabel: "System",
 		capacity: "On-grid rooftop",
 		copy: "An operating rooftop installation from NIRT's commercial portfolio, engineered around the building's existing load and roof structure.",
 		image: "/images/project-rooftop.webp",
-		alt: "Solar panel array installed across a large industrial rooftop with trees and a blue building behind it",
+		alt: "Solar panel array installed across a large industrial rooftop",
 		width: 1400,
 		height: 875,
 	},
@@ -20,11 +19,10 @@ const projects = [
 		title: "Solar Park, Harur",
 		tag: "Utility-scale",
 		location: "Harur, Tamil Nadu",
-		capacityLabel: "Installed capacity",
 		capacity: "15 MW",
-		copy: "Ground-mounted solar generation developed as part of NIRT's utility-scale renewable energy portfolio.",
+		copy: "Ground-mounted generation developed as part of NIRT's utility-scale portfolio.",
 		image: "/images/project-solar-park.webp",
-		alt: "Aerial view of a large ground-mounted solar park with rows of panels",
+		alt: "Aerial view of a large ground-mounted solar park",
 		width: 1100,
 		height: 688,
 	},
@@ -33,11 +31,10 @@ const projects = [
 		title: "Domestic Rooftop Solar",
 		tag: "Residential",
 		location: "Tamil Nadu",
-		capacityLabel: "Typical capacity",
 		capacity: "3–10 kW",
-		copy: "Subsidy-ready residential systems with net-metering guidance and support through installation and handover.",
+		copy: "Subsidy-ready residential systems with net-metering guidance.",
 		image: "/images/project-residential.webp",
-		alt: "Solar panels installed on the tiled roof of a home under a clear sky",
+		alt: "Solar panels installed on the tiled roof of a home",
 		width: 1400,
 		height: 875,
 		representative: true,
@@ -45,90 +42,78 @@ const projects = [
 ];
 ---
 
-<section id="projects" class="relative overflow-hidden bg-paper py-18 sm:py-22 lg:py-28">
-	<div class="pointer-events-none absolute -left-40 top-24 h-[420px] w-[420px] rounded-none border border-navy/[0.05]"></div>
-	<div class="pointer-events-none absolute -right-32 bottom-0 h-[360px] w-[360px] rounded-none bg-green/[0.06] blur-3xl"></div>
+<section id="projects" class="relative overflow-hidden bg-navy py-20 text-white sm:py-24 lg:py-28">
+	<div class="pointer-events-none absolute -left-40 top-24 h-[420px] w-[420px] rounded-full border border-white/[0.05]"></div>
 
 	<div class="container-page relative">
-		<div class="flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
-			<div class="reveal max-w-[680px]">
-				<p class="eyebrow text-green">Selected work</p>
-				<h2 class="display mt-5 text-[2.5rem] text-navy sm:text-[3.1rem] lg:text-[3.5rem]">
-					Real projects. Measurable capacity. <span class="text-green">Local experience.</span>
-				</h2>
-			</div>
-			<div class="reveal flex max-w-[320px] flex-col gap-4 lg:items-end lg:text-right" style="transition-delay:80ms">
-				<p class="text-[12px] leading-[1.85] text-body">
+		<div class="flex items-center justify-between gap-4 border-b border-white/15 pb-4">
+			<p class="meta text-white/50">Selected work</p>
+			<p class="meta text-white/30">05 / Projects</p>
+		</div>
+
+		<div class="mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+			<h2 class="display max-w-[700px] text-[2.6rem] leading-[0.98] text-white sm:text-[3.4rem] lg:text-[4.2rem]">
+				Real projects. Measurable capacity.
+			</h2>
+			<div class="max-w-[310px]">
+				<p class="text-[13.5px] leading-[1.8] text-white/55">
 					From industrial rooftops to a 15 MW solar park — a look at how NIRT builds across
 					Tamil Nadu.
 				</p>
-				<a href="#estimate" class="link-arrow group text-green">
+				<a href="#estimate" class="link-arrow mt-4 text-yellow hover:text-yellow-light">
 					Start with your property
-					<HugeIcon name="arrowUpRight" class="h-3.5 w-3.5" />
+					<HugeIcon name="arrowUpRight" class="h-4 w-4" />
 				</a>
 			</div>
 		</div>
 
-		<div class="mt-10 grid gap-4 lg:mt-12 lg:grid-cols-12">
-			<div class="lg:col-span-7">
-				{
-					projects.slice(0, 1).map((project) => (
-						<article class="grain grain-dark group relative isolate flex min-h-[440px] flex-col justify-end overflow-hidden rounded-none bg-navy p-6 text-white sm:min-h-[520px] sm:p-8 lg:min-h-[580px]">
-							<img
-								src={project.image}
-								alt={project.alt}
-								width={project.width}
-								height={project.height}
-								loading="lazy"
-								decoding="async"
-								class="absolute inset-0 z-0 h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
-							/>
-							<div class="absolute inset-0 z-[1] bg-[linear-gradient(0deg,rgba(7,27,60,0.96)_0%,rgba(7,27,60,0.46)_42%,rgba(7,27,60,0.05)_74%,rgba(7,27,60,0.3)_100%)]"></div>
+		<div class="mt-11 grid gap-4 lg:grid-cols-12">
+			<article class="group relative isolate flex min-h-[420px] flex-col justify-end overflow-hidden bg-teal p-6 sm:min-h-[520px] sm:p-8 lg:col-span-7 lg:min-h-[590px]">
+				<img
+					src={projects[0].image}
+					alt={projects[0].alt}
+					width={projects[0].width}
+					height={projects[0].height}
+					loading="lazy"
+					decoding="async"
+					class="absolute inset-0 z-0 h-full w-full object-cover transition duration-[1200ms] ease-out group-hover:scale-[1.04]"
+				/>
+				<div class="absolute inset-0 z-[1] bg-[linear-gradient(0deg,rgba(6,19,28,0.94)_0%,rgba(6,19,28,0.35)_44%,rgba(6,19,28,0.05)_78%,rgba(6,19,28,0.3)_100%)]"></div>
 
-							<div class="absolute left-5 top-5 z-[2] flex flex-wrap items-center gap-2 sm:left-7 sm:top-7">
-								<span class="rounded-none border border-white/20 bg-white/10 px-2.5 py-1.5 text-[7.5px] font-semibold uppercase tracking-[0.13em] text-white/80 backdrop-blur-md">
-									Project {project.number}
-								</span>
-								<span class="rounded-none border border-green/30 bg-green/20 px-2.5 py-1.5 text-[7.5px] font-semibold uppercase tracking-[0.13em] text-white backdrop-blur-md">
-									{project.tag}
-								</span>
-							</div>
+				<div class="absolute left-5 top-5 z-[2] flex flex-wrap gap-2 sm:left-7 sm:top-7">
+					<span class="chip chip-dark">Project {projects[0].number}</span>
+					<span class="chip chip-dark !border-yellow/40 !text-yellow">{projects[0].tag}</span>
+				</div>
 
-							<div class="relative z-[2] max-w-[520px]">
-								<p class="text-[8px] font-semibold uppercase tracking-[0.18em] text-green-mid">
-									Flagship installation
-								</p>
-								<h3 class="display mt-3 text-[2.3rem] leading-[0.98] text-white sm:text-[2.9rem]">
-									{project.title}
-								</h3>
-								<p class="mt-3 max-w-[430px] text-[10.5px] leading-[1.8] text-white/65">
-									{project.copy}
-								</p>
+				<div class="relative z-[2] max-w-[480px]">
+					<p class="meta text-white/45">Flagship installation</p>
+					<h3 class="display mt-3 text-[2.2rem] leading-[0.98] text-white sm:text-[2.8rem]">
+						{projects[0].title}
+					</h3>
+					<p class="mt-3 max-w-[420px] text-[12.5px] leading-[1.75] text-white/60">
+						{projects[0].copy}
+					</p>
+					<div class="mt-6 flex flex-wrap gap-x-10 gap-y-3 border-t border-white/15 pt-4">
+						<div>
+							<p class="meta text-white/35">Location</p>
+							<p class="mt-1 text-[12px] text-white/80">{projects[0].location}</p>
+						</div>
+						<div>
+							<p class="meta text-white/35">System</p>
+							<p class="mt-1 text-[12px] text-white/80">{projects[0].capacity}</p>
+						</div>
+					</div>
+				</div>
 
-								<dl class="mt-6 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/15 pt-4">
-									<div>
-										<dt class="text-[7px] font-semibold uppercase tracking-[0.16em] text-white/40">Location</dt>
-										<dd class="mt-1 text-[10px] font-medium text-white/80">{project.location}</dd>
-									</div>
-									<div>
-										<dt class="text-[7px] font-semibold uppercase tracking-[0.16em] text-white/40">{project.capacityLabel}</dt>
-										<dd class="mt-1 text-[10px] font-medium text-white/80">{project.capacity}</dd>
-									</div>
-								</dl>
-							</div>
-
-							<span class="pointer-events-none absolute bottom-8 right-8 z-[2] hidden h-12 w-12 items-center justify-center rounded-none border border-white/20 bg-white/10 text-orange backdrop-blur-md transition-transform duration-300 group-hover:rotate-45 sm:flex">
-								<HugeIcon name="arrowUpRight" class="h-5 w-5" />
-							</span>
-						</article>
-					))
-				}
-			</div>
+				<span class="absolute bottom-7 right-7 z-[2] hidden h-10 w-10 items-center justify-center border border-white/25 text-yellow transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 sm:flex">
+					<HugeIcon name="arrowUpRight" class="h-4 w-4" />
+				</span>
+			</article>
 
 			<div class="grid gap-4 lg:col-span-5">
 				{
 					projects.slice(1).map((project) => (
-						<article class="grain grain-dark group relative isolate flex min-h-[270px] flex-col justify-end overflow-hidden rounded-none bg-navy p-5 text-white sm:min-h-[290px] sm:p-6 lg:min-h-0">
+						<article class="group relative isolate flex min-h-[270px] flex-col justify-end overflow-hidden bg-teal p-5 text-white sm:min-h-[286px] sm:p-6">
 							<img
 								src={project.image}
 								alt={project.alt}
@@ -138,72 +123,29 @@ const projects = [
 								decoding="async"
 								class="absolute inset-0 z-0 h-full w-full object-cover transition duration-[1100ms] ease-out group-hover:scale-[1.05]"
 							/>
-							<div class="absolute inset-0 z-[1] bg-[linear-gradient(0deg,rgba(7,27,60,0.96)_0%,rgba(7,27,60,0.5)_40%,rgba(7,27,60,0.05)_80%)]"></div>
+							<div class="absolute inset-0 z-[1] bg-[linear-gradient(0deg,rgba(6,19,28,0.94)_0%,rgba(6,19,28,0.4)_46%,rgba(6,19,28,0.05)_86%)]"></div>
 
-							<div class="absolute left-4 top-4 z-[2] flex flex-wrap items-center gap-2 sm:left-5 sm:top-5">
-								<span class="rounded-none border border-white/20 bg-white/10 px-2 py-1 text-[7px] font-semibold uppercase tracking-[0.12em] text-white/80 backdrop-blur-md">
-									{project.tag}
-								</span>
-								{project.representative && (
-									<span class="rounded-none border border-white/15 bg-white/10 px-2 py-1 text-[6.5px] font-medium uppercase tracking-[0.1em] text-white/55 backdrop-blur-md">
-										Representative image
-									</span>
-								)}
+							<div class="absolute left-4 top-4 z-[2] flex flex-wrap gap-2 sm:left-5 sm:top-5">
+								<span class="chip chip-dark">{project.tag}</span>
+								{project.representative && <span class="meta text-white/40">Representative image</span>}
 							</div>
 
 							<div class="relative z-[2]">
-								<div class="flex items-end justify-between gap-4">
-									<h3 class="display text-[1.6rem] leading-[1.02] text-white sm:text-[1.8rem]">
-										{project.title}
-									</h3>
-									<span class="mb-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-none border border-white/20 bg-white/10 text-[7.5px] font-semibold text-white/70 backdrop-blur-md">
-										{project.number}
-									</span>
-								</div>
-								<div class="mt-3 flex items-center justify-between gap-4 border-t border-white/15 pt-3">
-									<p class="text-[8.5px] font-medium text-white/60">{project.location}</p>
-									<p class="text-[8.5px] font-semibold text-white/85">{project.capacity}</p>
+								<h3 class="display text-[1.65rem] leading-[1.02] text-white">{project.title}</h3>
+								<div class="mt-3 flex items-center justify-between gap-3 border-t border-white/15 pt-3">
+									<p class="text-[11px] text-white/55">{project.location}</p>
+									<p class="text-[12px] font-medium text-white/90">{project.capacity}</p>
 								</div>
 							</div>
 						</article>
 					))
 				}
 			</div>
-
-			<div class="edge-brand-dark grain grain-dark relative overflow-hidden rounded-none bg-navy p-6 text-white sm:p-8 lg:col-span-12 lg:px-10 lg:py-8">
-				<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-20"></div>
-				<div class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-none bg-orange/[0.16] blur-3xl"></div>
-
-				<div class="relative z-[2] flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
-					<div class="flex items-start gap-4">
-						<span class="icon-tile icon-tile-navy hidden h-12 w-12 shrink-0 rounded-none text-orange sm:flex">
-							<HugeIcon name="homeSolar" class="h-6 w-6" />
-						</span>
-						<div class="max-w-[540px]">
-							<p class="eyebrow text-orange-light">Your project next</p>
-							<h3 class="display mt-3 text-[1.8rem] leading-[1.02] text-white sm:text-[2.15rem]">
-								Every roof has a different energy story.
-							</h3>
-							<p class="mt-3 max-w-[440px] text-[10.5px] leading-[1.8] text-white/55 md:hidden">
-								Share your location and consumption. We'll assess the site, size the system
-								and explain the numbers before you commit.
-							</p>
-						</div>
-					</div>
-					<p class="hidden max-w-[300px] text-[10.5px] leading-[1.8] text-white/50 md:block">
-						Share your location and consumption. We'll assess the site, size the system and
-						explain the numbers before you commit.
-					</p>
-					<a href="#estimate" class="btn-primary shrink-0 self-start lg:self-auto">
-						Discuss your project
-						<HugeIcon name="arrowRight" class="h-4 w-4" />
-					</a>
-				</div>
-			</div>
 		</div>
 
-		<p class="mt-4 text-[9px] leading-4 text-moss">
-			Project photography from NIRT installations. The residential image is representative.
-		</p>
+		<div class="mt-4 flex flex-col gap-2 text-[10.5px] leading-5 text-white/30 sm:flex-row sm:items-center sm:justify-between">
+			<p>Project photography from NIRT installations. The residential image is representative.</p>
+			<p class="meta">Residential · Commercial · Utility</p>
+		</div>
 	</div>
 </section>

@@ -1,25 +1,26 @@
 ---
-import Logo from "./Logo.astro";
 import HugeIcon from "./HugeIcon.astro";
 import type { IconName } from "../icons";
 
 const year = new Date().getFullYear();
 
 const exploreLinks = [
-	{ label: "Why Solar", href: "#why-solar" },
+	{ label: "About", href: "#about" },
+	{ label: "Solutions", href: "#solutions" },
 	{ label: "Subsidy", href: "#subsidy" },
 	{ label: "Projects", href: "#projects" },
-	{ label: "Payment Options", href: "#payment" },
-	{ label: "Our Process", href: "#process" },
+	{ label: "Payment", href: "#payment" },
+	{ label: "Process", href: "#process" },
 	{ label: "Reviews", href: "#reviews" },
+	{ label: "FAQ", href: "#faq" },
 ];
 
 const serviceLinks = [
-	{ label: "Rooftop Solar", href: "#estimate" },
-	{ label: "Commercial Solar", href: "#estimate" },
-	{ label: "Solar Parks", href: "#projects" },
-	{ label: "Energy Auditing", href: "https://www.nirt.net/" },
-	{ label: "Biogas Solutions", href: "https://www.nirt.net/" },
+	{ label: "Home rooftop", href: "#solutions" },
+	{ label: "Commercial solar", href: "#solutions" },
+	{ label: "Solar parks", href: "#projects" },
+	{ label: "Energy auditing", href: "https://www.nirt.net/" },
+	{ label: "Biogas solutions", href: "https://www.nirt.net/" },
 ];
 
 const socials: { label: string; href: string; icon: IconName }[] = [
@@ -30,30 +31,37 @@ const socials: { label: string; href: string; icon: IconName }[] = [
 ];
 ---
 
-<footer id="contact" class="relative overflow-hidden border-t border-navy/10 bg-cloud text-navy">
-	<div class="pointer-events-none absolute -right-32 -top-40 h-[480px] w-[480px] rounded-none border border-navy/[0.05]"></div>
-	<div class="pointer-events-none absolute -left-40 bottom-0 h-[420px] w-[420px] rounded-none bg-green/[0.07] blur-3xl"></div>
-	<div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green/40 to-transparent"></div>
+<footer id="contact" class="relative overflow-hidden bg-navy text-white">
+	<div class="container-page relative pt-16 lg:pt-20">
+		<div class="flex items-center justify-between gap-4 border-b border-white/15 pb-4">
+			<p class="meta text-white/40">Contact</p>
+			<p class="meta text-white/20">NIRT · Renewable Energy</p>
+		</div>
 
-	<div class="container-page relative pb-8 pt-14 lg:pt-16">
-		<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.65fr_0.72fr_1fr] lg:gap-12">
+		<div class="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.25fr_0.6fr_0.7fr_1fr] lg:gap-12">
 			<div class="sm:col-span-2 lg:col-span-1">
-				<Logo size="lg" />
-				<p class="mt-5 max-w-[330px] text-[10.5px] leading-[1.9] text-body">
+				<a href="#home" class="flex items-center gap-2.5" aria-label="NIRT Renewable Energy — home">
+					<span class="grid h-9 w-9 place-items-center rounded-full bg-yellow text-ink">
+						<HugeIcon name="sun" class="h-5 w-5" />
+					</span>
+					<span>
+						<span class="block font-display text-[26px] font-semibold leading-none tracking-[-0.05em] text-white">
+							NIRT
+						</span>
+						<span class="mt-1 block text-[7px] font-medium uppercase tracking-[0.24em] text-white/45">
+							Renewable Energy
+						</span>
+					</span>
+				</a>
+				<p class="mt-6 max-w-[320px] text-[13px] leading-[1.8] text-white/50">
 					Rooftop solar, energy auditing and biogas solutions from Salem, Tamil Nadu. Serving
 					homes, housing societies and businesses across the state since 2017.
 				</p>
-
-				<div class="mt-5 flex flex-wrap items-center gap-2">
-					<span class="rounded-none border border-green/15 bg-green-soft px-2.5 py-1 text-[7.5px] font-semibold uppercase tracking-[0.11em] text-green-deep">
-						35+ MW solar portfolio
-					</span>
-					<span class="rounded-none border border-navy/10 bg-white px-2.5 py-1 text-[7.5px] font-semibold uppercase tracking-[0.11em] text-navy/65">
-						MNRE / TEDA experience
-					</span>
+				<div class="mt-6 flex flex-wrap gap-2">
+					<span class="meta border border-white/15 px-2.5 py-1.5 text-white/55">35+ MW</span>
+					<span class="meta border border-white/15 px-2.5 py-1.5 text-white/55">MNRE / TEDA</span>
 				</div>
-
-				<div class="mt-6 flex items-center gap-2.5">
+				<div class="mt-6 flex items-center gap-2">
 					{
 						socials.map((social) => (
 							<a
@@ -61,9 +69,9 @@ const socials: { label: string; href: string; icon: IconName }[] = [
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label={social.label}
-								class="flex h-8 w-8 items-center justify-center rounded-none border border-navy/10 bg-white text-navy/60 transition-all hover:-translate-y-0.5 hover:border-green/30 hover:bg-green-soft hover:text-green"
+								class="grid h-9 w-9 place-items-center border border-white/15 text-white/55 transition-colors hover:border-yellow hover:text-yellow"
 							>
-								<HugeIcon name={social.icon} class="h-3.5 w-3.5" />
+								<HugeIcon name={social.icon} class="h-4 w-4" />
 							</a>
 						))
 					}
@@ -71,12 +79,12 @@ const socials: { label: string; href: string; icon: IconName }[] = [
 			</div>
 
 			<div>
-				<h2 class="text-[8.5px] font-semibold uppercase tracking-[0.18em] text-green">Explore</h2>
-				<ul class="mt-5 grid grid-cols-2 gap-x-5 gap-y-3 sm:grid-cols-1">
+				<h2 class="meta text-white/35">Explore</h2>
+				<ul class="mt-5 grid grid-cols-2 gap-x-5 gap-y-2.5 sm:grid-cols-1">
 					{
 						exploreLinks.map((link) => (
 							<li>
-								<a href={link.href} class="text-[10.5px] text-body transition-colors hover:text-green">
+								<a href={link.href} class="text-[12.5px] text-white/65 transition-colors hover:text-yellow">
 									{link.label}
 								</a>
 							</li>
@@ -86,14 +94,14 @@ const socials: { label: string; href: string; icon: IconName }[] = [
 			</div>
 
 			<div>
-				<h2 class="text-[8.5px] font-semibold uppercase tracking-[0.18em] text-green">Services</h2>
-				<ul class="mt-5 grid grid-cols-2 gap-x-5 gap-y-3 sm:grid-cols-1">
+				<h2 class="meta text-white/35">Services</h2>
+				<ul class="mt-5 grid grid-cols-2 gap-x-5 gap-y-2.5 sm:grid-cols-1">
 					{
 						serviceLinks.map((link) => (
 							<li>
 								<a
 									href={link.href}
-									class="text-[10.5px] text-body transition-colors hover:text-green"
+									class="text-[12.5px] text-white/65 transition-colors hover:text-yellow"
 									{...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
 								>
 									{link.label}
@@ -105,38 +113,38 @@ const socials: { label: string; href: string; icon: IconName }[] = [
 			</div>
 
 			<div>
-				<h2 class="text-[8.5px] font-semibold uppercase tracking-[0.18em] text-green">Contact</h2>
-				<ul class="mt-5 space-y-3.5">
+				<h2 class="meta text-white/35">Contact</h2>
+				<ul class="mt-5 space-y-4">
 					<li>
-						<a href="tel:+919655046464" class="group flex items-start gap-3 text-[10.5px] text-body transition-colors hover:text-navy">
-							<span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-none bg-green-soft text-green">
-								<HugeIcon name="phone" class="h-2.5 w-2.5" />
+						<a href="tel:+919655046464" class="group flex items-start gap-3">
+							<span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow">
+								<HugeIcon name="phone" class="h-3 w-3" />
 							</span>
-							<span>
+							<span class="text-[12.5px] text-white/70 transition-colors group-hover:text-yellow">
 								+91 96550 46464
-								<span class="mt-0.5 block text-[8.5px] text-moss">Mobile · Mon–Sat</span>
+								<span class="mt-0.5 block text-[10.5px] text-white/35">Mobile · Mon–Sat</span>
 							</span>
 						</a>
 					</li>
 					<li>
-						<a href="tel:+914277961461" class="flex items-center gap-3 text-[10.5px] text-body transition-colors hover:text-navy">
-							<span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-none bg-green-soft text-green">
-								<HugeIcon name="phone" class="h-2.5 w-2.5" />
+						<a href="tel:+914277961461" class="flex items-center gap-3 text-[12.5px] text-white/70 transition-colors hover:text-yellow">
+							<span class="grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow">
+								<HugeIcon name="phone" class="h-3 w-3" />
 							</span>
 							0427 796 1461
 						</a>
 					</li>
 					<li>
-						<a href="mailto:support@nirt.net" class="flex items-center gap-3 text-[10.5px] text-body transition-colors hover:text-navy">
-							<span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-none bg-green-soft text-green">
-								<HugeIcon name="mail" class="h-2.5 w-2.5" />
+						<a href="mailto:support@nirt.net" class="flex items-center gap-3 text-[12.5px] text-white/70 transition-colors hover:text-yellow">
+							<span class="grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow">
+								<HugeIcon name="mail" class="h-3 w-3" />
 							</span>
 							support@nirt.net
 						</a>
 					</li>
-					<li class="flex items-start gap-3 text-[10px] leading-[1.8] text-body">
-						<span class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-none bg-orange-soft text-orange-deep">
-							<HugeIcon name="mapPin" class="h-2.5 w-2.5" />
+					<li class="flex items-start gap-3 text-[12px] leading-[1.7] text-white/55">
+						<span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow">
+							<HugeIcon name="mapPin" class="h-3 w-3" />
 						</span>
 						<span>
 							#104/7, 3rd Floor, SPC Bhawan,<br />
@@ -144,50 +152,32 @@ const socials: { label: string; href: string; icon: IconName }[] = [
 							Salem, Tamil Nadu 636004
 						</span>
 					</li>
-					<li>
-						<a
-							href="https://www.nirt.net/"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="flex items-center gap-3 text-[10.5px] text-body transition-colors hover:text-navy"
-						>
-							<span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-none bg-navy-tint text-navy">
-								<HugeIcon name="globe" class="h-2.5 w-2.5" />
-							</span>
-							nirt.net
-						</a>
-					</li>
 				</ul>
 			</div>
 		</div>
 
-		<div class="relative mt-12 border-t border-navy/10 pt-6">
-			<div class="flex flex-col gap-4 text-[8.5px] leading-[1.8] text-moss lg:flex-row lg:items-start lg:justify-between lg:gap-10">
-				<p class="max-w-[640px]">
-					Subsidy, generation and EMI figures are indicative and subject to eligibility, site
-					conditions, component warranties, scheme guidelines and lender terms. PM Surya Ghar is
-					a Government of India scheme; NIRT is not a government agency.
-				</p>
-				<p class="shrink-0 text-navy/50">© {year} NIRT Renewable Energy Pvt Ltd.</p>
-			</div>
-			<p class="mt-3 text-[8px] text-moss/70">All rights reserved. Registered office: Salem, Tamil Nadu.</p>
+		<div class="flex flex-col gap-4 border-t border-white/15 py-6 text-[10.5px] leading-[1.7] text-white/35 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+			<p class="max-w-[680px]">
+				Subsidy, generation and EMI figures are indicative and subject to eligibility, site conditions,
+				component warranties, scheme guidelines and lender terms. PM Surya Ghar is a Government of
+				India scheme; NIRT is not a government agency.
+			</p>
+			<p class="shrink-0">© {year} NIRT Renewable Energy Pvt Ltd.</p>
 		</div>
 	</div>
 
-	<div class="relative border-t border-navy/10">
-		<div class="container-page flex flex-col items-center justify-between gap-2 py-4 text-[8.5px] text-moss sm:flex-row">
+	<div class="relative border-t border-white/10">
+		<div class="container-page flex flex-col items-start justify-between gap-2 py-4 text-[10.5px] text-white/35 sm:flex-row sm:items-center">
 			<p>Rooftop solar · Energy auditing · Biogas · Since 2017</p>
-			<a href="#home" class="inline-flex items-center gap-1.5 transition-colors hover:text-navy">
+			<a href="#home" class="inline-flex items-center gap-1.5 transition-colors hover:text-yellow">
 				Back to top
 				<HugeIcon name="arrowUpRight" class="h-3 w-3" />
 			</a>
 		</div>
 	</div>
 
-	<div class="pointer-events-none relative h-[12vw] max-h-[150px] overflow-hidden" aria-hidden="true">
-		<p
-			class="display absolute -bottom-[0.18em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[24vw] leading-[0.7] text-navy/[0.035]"
-		>
+	<div class="pointer-events-none relative h-[13vw] max-h-[190px] overflow-hidden" aria-hidden="true">
+		<p class="absolute -bottom-[0.16em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap font-display text-[25vw] font-semibold leading-[0.7] tracking-[-0.07em] text-white/[0.06]">
 			NIRT
 		</p>
 	</div>

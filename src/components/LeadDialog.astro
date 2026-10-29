@@ -1,30 +1,30 @@
 ---
 import LeadForm from "./LeadForm.astro";
 import HugeIcon from "./HugeIcon.astro";
-import Logo from "./Logo.astro";
 ---
 
-<dialog
-	id="lead-dialog"
-	class="lead-dialog"
-	aria-label="Want to know what solar could mean for your home?"
->
-	<div class="grid lg:grid-cols-[0.92fr_1.08fr]">
+<dialog id="lead-dialog" class="lead-dialog" aria-label="Want to know what solar could mean for your home?">
+	<div class="grid lg:grid-cols-[0.9fr_1.1fr]">
 		<div class="grain grain-dark relative hidden flex-col justify-between overflow-hidden bg-navy p-8 text-white lg:flex xl:p-10">
-			<div class="aurora opacity-45"></div>
-			<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-25"></div>
-			<div class="pointer-events-none absolute -bottom-20 -right-16 h-64 w-64 rounded-none border border-orange/25"></div>
-			<div class="pointer-events-none absolute -bottom-10 -right-8 h-44 w-44 rounded-none bg-orange/15 blur-2xl"></div>
+			<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-20"></div>
+			<div class="pointer-events-none absolute -bottom-20 -right-16 h-64 w-64 rounded-full border border-yellow/25"></div>
 
 			<div class="relative z-[2]">
-				<div class="inline-flex rounded-none bg-white px-3 py-2 shadow-lg">
-					<Logo size="sm" />
+				<div class="flex items-center gap-2.5">
+					<span class="grid h-8 w-8 place-items-center rounded-full bg-yellow text-ink">
+						<HugeIcon name="sun" class="h-4 w-4" />
+					</span>
+					<span>
+						<span class="block font-display text-[18px] font-semibold leading-none tracking-[-0.04em]">NIRT</span>
+						<span class="mt-1 block text-[6px] uppercase tracking-[0.22em] text-white/45">Renewable Energy</span>
+					</span>
 				</div>
-				<p class="eyebrow mt-8 text-orange-light">Your solar potential</p>
-				<h2 class="display mt-5 text-[2.2rem] leading-[1] text-white xl:text-[2.45rem]">
-					What could solar mean for your <span class="text-green-mid">home?</span>
+
+				<p class="meta mt-8 text-yellow">Your solar potential</p>
+				<h2 class="display mt-4 max-w-[320px] text-[2.2rem] leading-[1.02] text-white xl:text-[2.5rem]">
+					What could solar mean for your home?
 				</h2>
-				<p class="mt-4 max-w-[310px] text-[11.5px] leading-[1.8] text-white/60">
+				<p class="mt-4 max-w-[310px] text-[12.5px] leading-[1.8] text-white/55">
 					Share your monthly electricity bill and location to start a solar assessment with
 					NIRT.
 				</p>
@@ -33,8 +33,8 @@ import Logo from "./Logo.astro";
 					{
 						["Roof suitability & shading review", "Subsidy eligibility guidance", "A clear, no-obligation proposal"].map(
 							(item) => (
-								<li class="flex items-center gap-2.5 text-[10px] text-white/70">
-									<span class="flex h-4 w-4 items-center justify-center rounded-none bg-green/20 text-green-mid">
+								<li class="flex items-center gap-2.5 text-[12px] text-white/65">
+									<span class="grid h-4 w-4 place-items-center bg-yellow text-ink">
 										<HugeIcon name="tick" class="h-2.5 w-2.5" />
 									</span>
 									{item}
@@ -45,12 +45,17 @@ import Logo from "./Logo.astro";
 				</ul>
 			</div>
 
-			<div class="relative z-[2] mt-12 rounded-none border border-white/12 bg-white/[0.06] p-4 backdrop-blur-md">
+			<div class="relative z-[2] mt-10 border border-white/15 bg-white/[0.05] p-4">
 				<div class="flex gap-3">
-					<span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-none border border-orange/25 bg-orange/15 text-orange">
-						<HugeIcon name="solarPanel" class="h-4 w-4" />
-					</span>
-					<p class="text-[10px] leading-[1.75] text-white/60">
+					<img
+						src="/images/project-rooftop.webp"
+						alt="NIRT rooftop solar installation"
+						width="1400"
+						height="875"
+						loading="lazy"
+						class="h-[62px] w-[78px] shrink-0 object-cover opacity-80"
+					/>
+					<p class="text-[11.5px] leading-[1.7] text-white/55">
 						We look at roof suitability, shading, consumption and subsidy eligibility — not
 						just panel count.
 					</p>
@@ -58,10 +63,10 @@ import Logo from "./Logo.astro";
 			</div>
 		</div>
 
-		<div class="relative bg-white p-5 sm:p-7 lg:p-8 xl:p-10">
+		<div class="relative flex flex-col bg-paper p-5 sm:p-7 lg:p-8 xl:p-10">
 			<button
 				type="button"
-				class="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-none border border-navy/15 bg-cloud text-navy transition-colors hover:bg-navy-tint"
+				class="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center border border-ink/15 text-ink transition-colors hover:border-ink hover:bg-ink hover:text-white"
 				aria-label="Close enquiry form"
 				data-close-lead-dialog
 			>
@@ -69,34 +74,42 @@ import Logo from "./Logo.astro";
 			</button>
 
 			<div class="pr-10 lg:hidden">
-				<p class="eyebrow text-green">Your solar potential</p>
-				<h2 class="display mt-3 text-[1.7rem] leading-[1.02] text-navy">
-					What could solar mean for your <span class="text-green">home?</span>
+				<p class="meta text-yellow-deep">Your solar potential</p>
+				<h2 class="display mt-3 text-[1.8rem] leading-[1.02] text-ink">
+					What could solar mean for your home?
 				</h2>
-				<p class="mt-2 max-w-[300px] text-[10.5px] leading-[1.7] text-body">
-					Share your monthly electricity bill and location to start a solar assessment with
-					NIRT.
+				<p class="mt-2 max-w-[300px] text-[12.5px] leading-[1.7] text-body">
+					Share your monthly electricity bill and location to start a solar assessment with NIRT.
 				</p>
 			</div>
 
 			<div class="mt-6 lg:mt-1">
-				<p class="hidden text-[8px] font-semibold uppercase tracking-[0.18em] text-green lg:block">
-					Start an assessment
-				</p>
-				<h3 class="display hidden text-[2rem] leading-[1.02] text-navy lg:block">
-					Tell us about your <span class="text-green">home.</span>
+				<p class="meta hidden text-yellow-deep lg:block">Start an assessment</p>
+				<h3 class="display mt-3 hidden text-[1.9rem] leading-[1.02] text-ink lg:block">
+					Tell us about your home.
 				</h3>
-				<p class="mt-1 hidden text-[10.5px] text-body lg:block">
+				<p class="mt-1 hidden text-[12.5px] text-body lg:block">
 					No obligation. Just a clearer starting point.
 				</p>
 
 				<div class="mt-5 lg:mt-6">
-					<LeadForm
-						idPrefix="dialog"
-						source="mid-page-popup"
-						buttonLabel="Explore My Solar Potential"
-					/>
+					<LeadForm idPrefix="dialog" source="eligibility-dialog" buttonLabel="Explore my solar potential" />
 				</div>
+			</div>
+
+			<div class="mt-auto hidden items-center justify-between gap-4 border-t border-ink/12 pt-5 lg:flex">
+				<div class="flex items-center gap-2.5">
+					<span class="grid h-9 w-9 place-items-center bg-yellow text-ink">
+						<HugeIcon name="phone" class="h-4 w-4" />
+					</span>
+					<div>
+						<p class="text-[10.5px] text-ink/55">Prefer to talk?</p>
+						<a href="tel:+919655046464" class="text-[13px] font-medium text-ink transition-colors hover:text-yellow-deep">
+							+91 96550 46464
+						</a>
+					</div>
+				</div>
+				<p class="text-[10.5px] text-ink/55">Mon–Sat · 9am–6pm</p>
 			</div>
 		</div>
 	</div>
@@ -106,24 +119,6 @@ import Logo from "./Logo.astro";
 	const dialog = document.querySelector<HTMLDialogElement>("#lead-dialog");
 	const openButtons = document.querySelectorAll<HTMLElement>("[data-open-lead-dialog]");
 	const closeButtons = document.querySelectorAll<HTMLElement>("[data-close-lead-dialog]");
-	const trigger = document.querySelector<HTMLElement>("[data-popup-trigger]");
-	const storageKey = "nirt-solar-popup-seen";
-
-	const hasSeen = () => {
-		try {
-			return sessionStorage.getItem(storageKey) === "1";
-		} catch {
-			return false;
-		}
-	};
-
-	const markSeen = () => {
-		try {
-			sessionStorage.setItem(storageKey, "1");
-		} catch {
-			/* Storage can be unavailable in private contexts. */
-		}
-	};
 
 	const openDialog = () => {
 		if (!dialog || dialog.open) return;
@@ -133,7 +128,6 @@ import Logo from "./Logo.astro";
 
 		dialog.showModal();
 		document.documentElement.classList.add("overflow-hidden");
-		markSeen();
 		window.setTimeout(() => {
 			dialog.querySelector<HTMLInputElement>('input[name="name"]')?.focus();
 		}, 80);
@@ -153,23 +147,4 @@ import Logo from "./Logo.astro";
 	dialog?.addEventListener("close", () => {
 		document.documentElement.classList.remove("overflow-hidden");
 	});
-
-	if (dialog && trigger && !hasSeen()) {
-		let timer: number | undefined;
-		const observer = new IntersectionObserver(
-			(entries) => {
-				if (!entries.some((entry) => entry.isIntersecting)) return;
-				observer.disconnect();
-				timer = window.setTimeout(() => {
-					if (!dialog.open && !hasSeen()) openDialog();
-				}, 2200);
-			},
-			{ threshold: 0.6 },
-		);
-		observer.observe(trigger);
-
-		window.addEventListener("pagehide", () => {
-			if (timer) window.clearTimeout(timer);
-		});
-	}
 </script>

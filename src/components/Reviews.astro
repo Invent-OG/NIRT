@@ -3,118 +3,104 @@ import HugeIcon from "./HugeIcon.astro";
 
 const reviews = [
 	{
+		quote:
+			"Working with NIRT Renewable Energy Private Limited has been a great experience. Their commitment to providing efficient and economical renewable energy solutions is unparalleled.",
+		name: "Nirmal",
+		role: "Business client",
+		initials: "N",
+	},
+	{
 		quote: "Their services are beyond words! Never seen someone so quick, efficient and perfect.",
 		name: "Ashok Verma",
 		role: "Homeowner",
-		tone: "green",
+		initials: "AV",
 	},
 	{
 		quote: "Excellent organization. Have been trusting them for a while now. Very impressed.",
 		name: "Neha Mishra",
 		role: "Homeowner",
-		tone: "orange",
-	},
-	{
-		quote:
-			"Working with NIRT Renewable Energy Private Limited has been a great experience. Their commitment to providing efficient and economical renewable energy solutions is unparalleled.",
-		name: "Nirmal",
-		role: "Business client",
-		tone: "navy",
+		initials: "NM",
 	},
 ];
-
-const avatarTone = {
-	green: "bg-green-soft text-green-deep border-green/20",
-	orange: "bg-orange-soft text-orange-deep border-orange/20",
-	navy: "bg-navy-tint text-navy border-navy/15",
-};
 ---
 
-<section
-	id="reviews"
-	class="relative overflow-hidden bg-[linear-gradient(180deg,#f5f9ff_0%,#eef5fd_100%)] py-18 sm:py-22 lg:py-28"
->
-	<div class="pointer-events-none absolute -right-32 top-0 h-[420px] w-[420px] rounded-none bg-orange/[0.08] blur-3xl"></div>
-	<div class="pointer-events-none absolute -left-40 bottom-0 h-[360px] w-[360px] rounded-none border border-navy/[0.05]"></div>
+<section id="reviews" class="relative overflow-hidden bg-cream py-20 sm:py-24 lg:py-28">
+	<div class="pointer-events-none absolute -right-24 top-0 h-[420px] w-[420px] rounded-full border border-ink/[0.06]"></div>
 
 	<div class="container-page relative">
-		<div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
-			<div class="reveal max-w-[650px]">
-				<p class="eyebrow text-green">Client stories</p>
-				<h2 class="display mt-5 text-[2.6rem] text-navy sm:text-[3.2rem] lg:text-[3.5rem]">
-					Trusted by the people <span class="text-green">we build for.</span>
-				</h2>
-				<p class="mt-4 max-w-[470px] text-[12.5px] leading-[1.9] text-body">
-					From the first site visit to the final handover, here is what working with NIRT feels
-					like.
-				</p>
-			</div>
+		<div class="flex items-center justify-between gap-4 border-t border-ink/20 pt-4">
+			<p class="meta text-ink/50">Clients</p>
+			<p class="meta text-ink/30">08 / Reviews</p>
+		</div>
 
+		<div class="mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+			<h2 class="display max-w-[700px] text-[2.6rem] leading-[0.98] text-ink sm:text-[3.4rem] lg:text-[4.2rem]">
+				Trusted by the people we build for.
+			</h2>
 			<a
 				href="https://www.google.com/maps/search/?api=1&query=NIRT+Renewable+Energy+Private+Limited+Salem+Tamil+Nadu"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="premium-card group flex items-center gap-3.5 p-3.5 pr-4 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_50px_-32px_rgba(11,31,58,0.4)] lg:mb-1"
+				class="group flex items-center gap-3 border border-ink/15 px-4 py-3 transition-colors hover:border-ink/40"
 			>
-				<svg class="h-7 w-7 shrink-0" viewBox="0 0 48 48" aria-hidden="true">
+				<svg class="h-5 w-5 shrink-0" viewBox="0 0 48 48" aria-hidden="true">
 					<path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.2-.1-2.3-.4-3.5Z"></path>
 					<path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 18.9 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7Z"></path>
 					<path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.6 39.6 16.2 44 24 44Z"></path>
 					<path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.2-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.2-.1-2.3-.4-3.5Z"></path>
 				</svg>
-				<div>
-					<p class="text-[10.5px] font-semibold text-navy">Find us on Google</p>
-					<p class="mt-0.5 text-[8.5px] text-moss">Reviews & directions</p>
-				</div>
-				<HugeIcon name="arrowUpRight" class="ml-2 h-3.5 w-3.5 text-moss transition-colors duration-300 group-hover:text-green" />
+				<span>
+					<span class="block text-[12.5px] font-medium text-ink">Find us on Google</span>
+					<span class="mt-0.5 block text-[10.5px] text-muted">Reviews & directions</span>
+				</span>
+				<HugeIcon name="arrowUpRight" class="ml-3 h-4 w-4 text-ink/40 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
 			</a>
 		</div>
 
-		<div class="mt-10 grid gap-4 md:grid-cols-3 lg:mt-12">
-			{
-				reviews.map((review, index) => (
-					<figure
-						class="premium-card reveal group relative flex h-full flex-col overflow-hidden p-6 transition duration-300 hover:-translate-y-1 hover:border-green/20 sm:p-7"
-						style={`transition-delay:${index * 70}ms`}
-					>
-						<div class="pointer-events-none absolute -right-4 -top-8 text-[8rem] leading-none text-navy/[0.035] select-none" aria-hidden="true">
-							”
-						</div>
-						<div class="relative z-[2] flex items-start justify-between gap-4">
-							<span class="flex h-9 w-9 items-center justify-center rounded-none bg-orange-soft text-orange">
-								<HugeIcon name="message" class="h-4 w-4" />
-							</span>
-							<span class="rounded-none border border-navy/10 bg-white px-2 py-1 text-[7px] font-semibold uppercase tracking-[0.13em] text-moss">
-								Client feedback
-							</span>
-						</div>
-						<blockquote class="relative z-[2] mt-5 flex-1 text-[1.12rem] leading-[1.52] text-navy sm:text-[1.2rem]">
-							{review.quote}
-						</blockquote>
-						<figcaption class="relative z-[2] mt-6 flex items-center justify-between gap-4 border-t border-line pt-4">
-							<div class="flex items-center gap-2.5">
-								<span class:list={["flex h-8 w-8 items-center justify-center rounded-none border text-[9px] font-semibold", avatarTone[review.tone as keyof typeof avatarTone]]}>
-									{review.name
-										.split(" ")
-										.map((part) => part[0])
-										.join("")
-										.slice(0, 2)}
+		<div class="mt-11 grid gap-5 lg:grid-cols-12">
+			<figure class="relative flex flex-col justify-between bg-navy p-7 text-white sm:p-9 lg:col-span-6">
+				<div>
+					<span class="font-display text-[4rem] leading-[0.5] text-yellow" aria-hidden="true">“</span>
+					<blockquote class="mt-5 max-w-[560px] text-[1.45rem] leading-[1.4] tracking-[-0.02em] text-white sm:text-[1.7rem]">
+						{reviews[0].quote}
+					</blockquote>
+				</div>
+				<figcaption class="mt-10 flex items-center gap-3 border-t border-white/15 pt-5">
+					<span class="grid h-10 w-10 place-items-center bg-yellow text-[12px] font-medium text-ink">
+						{reviews[0].initials}
+					</span>
+					<div>
+						<p class="text-[13.5px] font-medium text-white">{reviews[0].name}</p>
+						<p class="text-[11px] text-white/45">{reviews[0].role} · NIRT client</p>
+					</div>
+					<HugeIcon name="badgeCheck" class="ml-auto h-4 w-4 text-yellow" />
+				</figcaption>
+			</figure>
+
+			<div class="grid gap-5 lg:col-span-6">
+				{
+					reviews.slice(1).map((review) => (
+						<figure class="reveal flex flex-col border border-ink/15 bg-paper p-6">
+							<span class="meta text-ink/35">Client feedback</span>
+							<blockquote class="mt-4 text-[15.5px] leading-[1.6] text-ink">{review.quote}</blockquote>
+							<figcaption class="mt-6 flex items-center gap-3 border-t border-ink/15 pt-4">
+								<span class="grid h-8 w-8 place-items-center bg-ink text-[11px] font-medium text-white">
+									{review.initials}
 								</span>
 								<div>
-									<p class="text-[10.5px] font-semibold text-navy">{review.name}</p>
-									<p class="mt-0.5 text-[8.5px] text-moss">{review.role} · NIRT client</p>
+									<p class="text-[12.5px] font-medium text-ink">{review.name}</p>
+									<p class="text-[10.5px] text-body">{review.role}</p>
 								</div>
-							</div>
-							<HugeIcon name="badgeCheck" class="h-4 w-4 text-green/70" />
-						</figcaption>
-					</figure>
-				))
-			}
+							</figcaption>
+						</figure>
+					))
+				}
+			</div>
 		</div>
 
-		<div class="mt-5 flex flex-col gap-2 border-t border-navy/10 pt-3 text-[8.5px] leading-4 text-moss sm:flex-row sm:items-center sm:justify-between">
+		<div class="mt-4 flex flex-col gap-2 text-[10.5px] leading-5 text-muted sm:flex-row sm:items-center sm:justify-between">
 			<p>Selected client feedback, as published by NIRT.</p>
-			<p class="uppercase tracking-[0.14em]">Residential · Commercial · Utility</p>
+			<p class="meta">Residential · Commercial · Utility</p>
 		</div>
 	</div>
 </section>
