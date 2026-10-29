@@ -56,210 +56,209 @@ const socials: { label: string; href: string; icon: IconName }[] = [
 			class="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.25fr_0.6fr_0.7fr_1fr] lg:gap-12"
 		>
 			<div class="sm:col-span-2 lg:col-span-1">
-					<a
-						href="#home"
-						class="inline-flex items-center transition-transform duration-200 hover:scale-105"
-						aria-label="NIRT Renewable Energy — home"
-					>
-						<img
-							src="/images/nirt-logo.webp"
-							alt="NIRT Renewable Energy"
-							width="240"
-							height="72"
-							class="h-16 sm:h-20 w-auto object-contain"
-						/>
-					</a>
-					<p
-						class="mt-6 max-w-[320px] text-[13px] leading-[1.8] text-white/50"
-					>
-						Rooftop solar, energy auditing and biogas solutions from
-						Salem, Tamil Nadu. Serving homes, housing societies and
-						businesses across the state since 2017.
-					</p>
-					<div class="mt-6 flex flex-wrap gap-2">
-						<span
-							class="meta border border-white/15 px-2.5 py-1.5 text-white/55"
-							>35+ MW</span
-						>
-						<span
-							class="meta border border-white/15 px-2.5 py-1.5 text-white/55"
-							>MNRE / TEDA</span
-						>
-					</div>
-					<div class="mt-6 flex items-center gap-2">
-						{
-							socials.map((social) => (
-								<a
-									href={social.href}
-									target="_blank"
-									rel="noopener noreferrer"
-									aria-label={social.label}
-									class="grid h-9 w-9 place-items-center border border-white/15 text-white/55 transition-colors hover:border-yellow hover:text-yellow"
-								>
-									<HugeIcon
-										name={social.icon}
-										class="h-4 w-4"
-									/>
-								</a>
-							))
-						}
-					</div>
+				<a
+					href="#home"
+					class="inline-flex items-center transition-transform duration-200 hover:scale-105"
+					aria-label="NIRT Renewable Energy — home"
+				>
+					<img
+						src="/images/nirt-logo.webp"
+						alt="NIRT Renewable Energy"
+						width="240"
+						height="72"
+						class="h-16 sm:h-20 w-auto object-contain"
+					/>
 				</a>
-
-				<div>
-					<h2 class="meta text-white/35">Explore</h2>
-					<ul
-						class="mt-5 grid grid-cols-2 gap-x-5 gap-y-2.5 sm:grid-cols-1"
+				<p
+					class="mt-6 max-w-[320px] text-[13px] leading-[1.8] text-white/50"
+				>
+					Rooftop solar, energy auditing and biogas solutions from
+					Salem, Tamil Nadu. Serving homes, housing societies and
+					businesses across the state since 2017.
+				</p>
+				<div class="mt-6 flex flex-wrap gap-2">
+					<span
+						class="meta border border-white/15 px-2.5 py-1.5 text-white/55"
+						>35+ MW</span
 					>
-						{
-							exploreLinks.map((link) => (
-								<li>
-									<a
-										href={link.href}
-										class="text-[12.5px] text-white/65 transition-colors hover:text-yellow"
-									>
-										{link.label}
-									</a>
-								</li>
-							))
-						}
-					</ul>
-				</div>
-
-				<div>
-					<h2 class="meta text-white/35">Services</h2>
-					<ul
-						class="mt-5 grid grid-cols-2 gap-x-5 gap-y-2.5 sm:grid-cols-1"
+					<span
+						class="meta border border-white/15 px-2.5 py-1.5 text-white/55"
+						>MNRE / TEDA</span
 					>
-						{
-							serviceLinks.map((link) => (
-								<li>
-									<a
-										href={link.href}
-										class="text-[12.5px] text-white/65 transition-colors hover:text-yellow"
-										{...(link.href.startsWith("http")
-											? {
-													target: "_blank",
-													rel: "noopener noreferrer",
-												}
-											: {})}
-									>
-										{link.label}
-									</a>
-								</li>
-							))
-						}
-					</ul>
 				</div>
+				<div class="mt-6 flex items-center gap-2">
+					{
+						socials.map((social) => (
+							<a
+								href={social.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={social.label}
+								class="grid h-9 w-9 place-items-center border border-white/15 text-white/55 transition-colors hover:border-yellow hover:text-yellow"
+							>
+								<HugeIcon
+									name={social.icon}
+									class="h-4 w-4"
+								/>
+							</a>
+						))
+					}
+				</div>
+			</div>
 
-				<div>
-					<h2 class="meta text-white/35">Contact</h2>
-					<ul class="mt-5 space-y-4">
-						<li>
-							<a
-								href="tel:+919655046464"
-								class="group flex items-start gap-3"
-							>
-								<span
-									class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow"
+			<div>
+				<h2 class="meta text-white/35">Explore</h2>
+				<ul
+					class="mt-5 grid grid-cols-2 gap-x-5 gap-y-2.5 sm:grid-cols-1"
+				>
+					{
+						exploreLinks.map((link) => (
+							<li>
+								<a
+									href={link.href}
+									class="text-[12.5px] text-white/65 transition-colors hover:text-yellow"
 								>
-									<HugeIcon name="phone" class="h-3 w-3" />
-								</span>
-								<span
-									class="text-[12.5px] text-white/70 transition-colors group-hover:text-yellow"
+									{link.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div>
+				<h2 class="meta text-white/35">Services</h2>
+				<ul
+					class="mt-5 grid grid-cols-2 gap-x-5 gap-y-2.5 sm:grid-cols-1"
+				>
+					{
+						serviceLinks.map((link) => (
+							<li>
+								<a
+									href={link.href}
+									class="text-[12.5px] text-white/65 transition-colors hover:text-yellow"
+									{...(link.href.startsWith("http")
+										? {
+												target: "_blank",
+												rel: "noopener noreferrer",
+											}
+										: {})}
 								>
-									+91 96550 46464
-									<span
-										class="mt-0.5 block text-[10.5px] text-white/35"
-										>Mobile · Mon–Sat</span
-									>
-								</span>
-							</a>
-						</li>
-						<li>
-							<a
-								href="tel:+914277961461"
-								class="flex items-center gap-3 text-[12.5px] text-white/70 transition-colors hover:text-yellow"
-							>
-								<span
-									class="grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow"
-								>
-									<HugeIcon name="phone" class="h-3 w-3" />
-								</span>
-								0427 796 1461
-							</a>
-						</li>
-						<li>
-							<a
-								href="mailto:support@nirt.net"
-								class="flex items-center gap-3 text-[12.5px] text-white/70 transition-colors hover:text-yellow"
-							>
-								<span
-									class="grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow"
-								>
-									<HugeIcon name="mail" class="h-3 w-3" />
-								</span>
-								support@nirt.net
-							</a>
-						</li>
-						<li
-							class="flex items-start gap-3 text-[12px] leading-[1.7] text-white/55"
+									{link.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+
+			<div>
+				<h2 class="meta text-white/35">Contact</h2>
+				<ul class="mt-5 space-y-4">
+					<li>
+						<a
+							href="tel:+919655046464"
+							class="group flex items-start gap-3"
 						>
 							<span
 								class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow"
 							>
-								<HugeIcon name="mapPin" class="h-3 w-3" />
+								<HugeIcon name="phone" class="h-3 w-3" />
 							</span>
-							<span>
-								#104/7, 3rd Floor, SPC Bhawan,<br />
-								Manivannan Road, Alagapuram,<br />
-								Salem, Tamil Nadu 636004
+							<span
+								class="text-[12.5px] text-white/70 transition-colors group-hover:text-yellow"
+							>
+								+91 96550 46464
+								<span
+									class="mt-0.5 block text-[10.5px] text-white/35"
+									>Mobile · Mon–Sat</span
+								>
 							</span>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<div
-				class="flex flex-col gap-4 border-t border-white/15 py-6 text-[10.5px] leading-[1.7] text-white/35 lg:flex-row lg:items-start lg:justify-between lg:gap-10"
-			>
-				<p class="max-w-[680px]">
-					Subsidy, generation and EMI figures are indicative and
-					subject to eligibility, site conditions, component
-					warranties, scheme guidelines and lender terms. PM Surya
-					Ghar is a Government of India scheme; NIRT is not a
-					government agency.
-				</p>
-				<p class="shrink-0">© {year} NIRT Renewable Energy Pvt Ltd.</p>
-			</div>
-		</div>
-
-		<div class="relative border-t border-white/10">
-			<div
-				class="container-page flex flex-col items-start justify-between gap-2 py-4 text-[10.5px] text-white/35 sm:flex-row sm:items-center"
-			>
-				<p>Rooftop solar · Energy auditing · Biogas · Since 2017</p>
-				<a
-					href="#home"
-					class="inline-flex items-center gap-1.5 transition-colors hover:text-yellow"
-				>
-					Back to top
-					<HugeIcon name="arrowUpRight" class="h-3 w-3" />
-				</a>
+						</a>
+					</li>
+					<li>
+						<a
+							href="tel:+914277961461"
+							class="flex items-center gap-3 text-[12.5px] text-white/70 transition-colors hover:text-yellow"
+						>
+							<span
+								class="grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow"
+							>
+								<HugeIcon name="phone" class="h-3 w-3" />
+							</span>
+							0427 796 1461
+						</a>
+					</li>
+					<li>
+						<a
+							href="mailto:support@nirt.net"
+							class="flex items-center gap-3 text-[12.5px] text-white/70 transition-colors hover:text-yellow"
+						>
+							<span
+								class="grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow"
+							>
+								<HugeIcon name="mail" class="h-3 w-3" />
+							</span>
+							support@nirt.net
+						</a>
+					</li>
+					<li
+						class="flex items-start gap-3 text-[12px] leading-[1.7] text-white/55"
+					>
+						<span
+							class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center border border-white/15 text-yellow"
+						>
+							<HugeIcon name="mapPin" class="h-3 w-3" />
+						</span>
+						<span>
+							#104/7, 3rd Floor, SPC Bhawan,<br />
+							Manivannan Road, Alagapuram,<br />
+							Salem, Tamil Nadu 636004
+						</span>
+					</li>
+				</ul>
 			</div>
 		</div>
 
 		<div
-			class="pointer-events-none relative h-[13vw] max-h-[190px] overflow-hidden"
-			aria-hidden="true"
+			class="flex flex-col gap-4 border-t border-white/15 py-6 text-[10.5px] leading-[1.7] text-white/35 lg:flex-row lg:items-start lg:justify-between lg:gap-10"
 		>
-			<p
-				class="absolute -bottom-[0.16em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap font-display text-[25vw] font-semibold leading-[0.7] tracking-[-0.07em] text-white/[0.06]"
-			>
-				NIRT
+			<p class="max-w-[680px]">
+				Subsidy, generation and EMI figures are indicative and
+				subject to eligibility, site conditions, component
+				warranties, scheme guidelines and lender terms. PM Surya
+				Ghar is a Government of India scheme; NIRT is not a
+				government agency.
 			</p>
+			<p class="shrink-0">© {year} NIRT Renewable Energy Pvt Ltd.</p>
 		</div>
-
-		<div class="h-20 sm:hidden"></div>
 	</div>
+
+	<div class="relative border-t border-white/10">
+		<div
+			class="container-page flex flex-col items-start justify-between gap-2 py-4 text-[10.5px] text-white/35 sm:flex-row sm:items-center"
+		>
+			<p>Rooftop solar · Energy auditing · Biogas · Since 2017</p>
+			<a
+				href="#home"
+				class="inline-flex items-center gap-1.5 transition-colors hover:text-yellow"
+			>
+				Back to top
+				<HugeIcon name="arrowUpRight" class="h-3 w-3" />
+			</a>
+		</div>
+	</div>
+
+	<div
+		class="pointer-events-none relative h-[13vw] max-h-[190px] overflow-hidden"
+		aria-hidden="true"
+	>
+		<p
+			class="absolute -bottom-[0.16em] left-1/2 -translate-x-1/2 select-none whitespace-nowrap font-display text-[25vw] font-semibold leading-[0.7] tracking-[-0.07em] text-white/[0.06]"
+		>
+			NIRT
+		</p>
+	</div>
+
+	<div class="h-20 sm:hidden"></div>
 </footer>
