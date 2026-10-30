@@ -1,6 +1,7 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
 import LeadForm from "./LeadForm.astro";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 ---
 
 <section
@@ -51,7 +52,9 @@ import LeadForm from "./LeadForm.astro";
 					id="hero-heading"
 					class="display text-[2.2rem] leading-[1.02] text-white sm:text-[2.85rem] lg:text-[3.3rem]"
 				>
-					Power your home with clean, renewable energy.
+					<TextAnimate client:load animation="blurInUp" by="character" once>
+						Power your home with clean, renewable energy.
+					</TextAnimate>
 				</h1>
 				<p
 					class="mt-5 max-w-[460px] text-[14px] leading-[1.8] text-white/70 sm:text-[15.5px]"
