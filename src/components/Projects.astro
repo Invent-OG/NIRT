@@ -1,5 +1,6 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const projects = [
 	{
@@ -53,7 +54,15 @@ const projects = [
 
 		<div class="reveal mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
 			<h2 class="display max-w-[700px] text-[2.6rem] leading-[0.98] text-white sm:text-[3.4rem] lg:text-[4.2rem]">
-				Real projects. Measurable capacity.
+				<TextAnimate
+					client:visible
+					text="Real projects. Measurable capacity."
+					animation="blurInUp"
+					by="character"
+					once
+				>
+					Real projects. Measurable capacity.
+				</TextAnimate>
 			</h2>
 			<div class="max-w-[310px]">
 				<p class="text-[13.5px] leading-[1.8] text-white/55">

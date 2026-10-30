@@ -1,5 +1,6 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 // Solutions data for NIRT
 const cards = [
@@ -84,7 +85,15 @@ const cards = [
 			<h2
 				class="display max-w-[600px] text-[2.6rem] leading-[0.98] text-white sm:text-[3.4rem] lg:text-[4.3rem]"
 			>
-				Join the solar energy revolution.
+				<TextAnimate
+					client:visible
+					text="Join the solar energy revolution."
+					animation="blurInUp"
+					by="character"
+					once
+				>
+					Join the solar energy revolution.
+				</TextAnimate>
 			</h2>
 			<p class="max-w-[300px] text-[13.5px] leading-[1.8] text-white/65">
 				Three ways NIRT puts the sun to work — for a home, a business or the grid.

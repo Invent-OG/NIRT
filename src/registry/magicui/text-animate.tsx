@@ -349,6 +349,7 @@ export const TextAnimate: FC<TextAnimateProps> = ({
 
 	return (
 		<MotionComponent
+			data-slot="text-animate"
 			initial="hidden"
 			animate={startOnView ? undefined : "show"}
 			whileInView={startOnView ? "show" : undefined}

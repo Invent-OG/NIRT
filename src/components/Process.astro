@@ -1,5 +1,6 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const steps = [
 	{
@@ -50,7 +51,15 @@ const steps = [
 		<div class="reveal mt-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
 			<div class="max-w-[650px]">
 				<h2 class="display text-[2.4rem] leading-[1.04] text-ink sm:text-[3.2rem] lg:text-[4rem] tracking-tight">
-					Six steps. No surprises.
+					<TextAnimate
+						client:visible
+						text="Six steps. No surprises."
+						animation="blurInUp"
+						by="character"
+						once
+					>
+						Six steps. No surprises.
+					</TextAnimate>
 				</h2>
 			</div>
 			<div class="max-w-[340px]">

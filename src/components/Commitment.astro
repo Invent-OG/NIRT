@@ -1,6 +1,7 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
 import type { IconName } from "../icons";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const points: { icon: IconName; title: string; copy: string }[] = [
 	{ icon: "file", title: "Subsidy & approvals", copy: "Applications, documents and DISCOM follow-up." },
@@ -38,7 +39,15 @@ const points: { icon: IconName; title: string; copy: string }[] = [
 		<div class="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-12 lg:items-start lg:gap-8">
 			<div class="reveal lg:col-span-8">
 				<h2 class="display max-w-[760px] text-[2.5rem] leading-[1.02] text-ink sm:text-[3.4rem] lg:text-[4.2rem]">
-					Our commitment to renewable energy excellence.
+					<TextAnimate
+						client:visible
+						text="Our commitment to renewable energy excellence."
+						animation="blurInUp"
+						by="character"
+						once
+					>
+						Our commitment to renewable energy excellence.
+					</TextAnimate>
 				</h2>
 				<p class="mt-6 flex max-w-[430px] items-start gap-2.5 text-[13.5px] leading-[1.8] text-body">
 					<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-yellow" aria-hidden="true"></span>

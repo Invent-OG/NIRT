@@ -1,5 +1,6 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 ---
 
 <section
@@ -38,7 +39,15 @@ import HugeIcon from "./HugeIcon.astro";
 				id="final-cta-heading"
 				class="display text-[2.9rem] leading-[0.96] text-white sm:text-[4rem] lg:text-[5.2rem]"
 			>
-				Ready to make your roof work harder?
+				<TextAnimate
+					client:visible
+					text="Ready to make your roof work harder?"
+					animation="blurInUp"
+					by="character"
+					once
+				>
+					Ready to make your roof work harder?
+				</TextAnimate>
 			</h2>
 			<p
 				class="mt-6 max-w-[450px] text-[13.5px] leading-[1.8] text-white/60"

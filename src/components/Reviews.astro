@@ -1,5 +1,6 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const reviews = [
 	{
@@ -35,7 +36,15 @@ const reviews = [
 
 		<div class="reveal mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
 			<h2 class="display max-w-[700px] text-[2.6rem] leading-[0.98] text-ink sm:text-[3.4rem] lg:text-[4.2rem]">
-				Trusted by the people we build for.
+				<TextAnimate
+					client:visible
+					text="Trusted by the people we build for."
+					animation="blurInUp"
+					by="character"
+					once
+				>
+					Trusted by the people we build for.
+				</TextAnimate>
 			</h2>
 			<a
 				href="https://www.google.com/maps/search/?api=1&query=NIRT+Renewable+Energy+Private+Limited+Salem+Tamil+Nadu"

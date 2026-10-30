@@ -1,5 +1,6 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 ---
 
 <section id="subsidy" class="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28 text-ink">
@@ -12,7 +13,35 @@ import HugeIcon from "./HugeIcon.astro";
 
 		<div class="reveal mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
 			<h2 class="display max-w-[760px] text-[2.7rem] leading-[0.98] text-ink sm:text-[3.5rem] lg:text-[4.3rem]">
-				Get Up to <span class="text-yellow-deep">₹1,00,000</span> in Combined Solar Subsidies*
+				<TextAnimate
+					client:visible
+					text="Get Up to "
+					animation="blurInUp"
+					by="character"
+					once
+				>
+					Get Up to&#32;
+				</TextAnimate>
+				<span class="text-yellow-deep">
+					<TextAnimate
+						client:visible
+						text="₹1,00,000"
+						animation="blurInUp"
+						by="character"
+						once
+					>
+						₹1,00,000
+					</TextAnimate>
+				</span>
+				<TextAnimate
+					client:visible
+					text=" in Combined Solar Subsidies*"
+					animation="blurInUp"
+					by="character"
+					once
+				>
+					&#32;in Combined Solar Subsidies*
+				</TextAnimate>
 			</h2>
 
 			<div class="max-w-[370px]">

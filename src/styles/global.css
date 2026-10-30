@@ -692,13 +692,13 @@ dialog.lead-dialog[open]::backdrop {
 		}
 	}
 
-	.js h1.reveal.is-visible:not(#hero-heading),
-	.js h2.reveal.is-visible,
-	.js h3.reveal.is-visible,
-	.js .reveal.is-visible .display:not(#hero-heading),
-	.js .reveal.is-visible h1:not(#hero-heading),
-	.js .reveal.is-visible h2,
-	.js .reveal.is-visible h3 {
+	.js h1.reveal.is-visible:not(:has([data-slot="text-animate"])):not(#hero-heading),
+	.js h2.reveal.is-visible:not(:has([data-slot="text-animate"])),
+	.js h3.reveal.is-visible:not(:has([data-slot="text-animate"])),
+	.js .reveal.is-visible .display:not(:has([data-slot="text-animate"])):not(#hero-heading),
+	.js .reveal.is-visible h1:not(:has([data-slot="text-animate"])):not(#hero-heading),
+	.js .reveal.is-visible h2:not(:has([data-slot="text-animate"])),
+	.js .reveal.is-visible h3:not(:has([data-slot="text-animate"])) {
 		animation: blurInUp 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
 	}
 

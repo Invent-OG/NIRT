@@ -1,4 +1,6 @@
 ---
+import { TextAnimate } from "@/registry/magicui/text-animate";
+
 const stats = [
 	{ value: "35", suffix: "+", unit: "MW", label: "Installed portfolio" },
 	{ value: "15", suffix: "", unit: "MW", label: "Solar park, Harur" },
@@ -17,9 +19,26 @@ const stats = [
 
 		<div class="reveal mx-auto mt-14 max-w-[1000px] text-center sm:mt-20">
 			<h2 class="display text-[1.9rem] leading-[1.18] text-white sm:text-[2.6rem] lg:text-[3.1rem]">
-				Join homeowners across Tamil Nadu who are cutting their bills and powering their homes
-				with&#32;
-				<span class="text-white/45">clean solar energy.</span>
+				<TextAnimate
+					client:visible
+					text="Join homeowners across Tamil Nadu who are cutting their bills and powering their homes with "
+					animation="blurInUp"
+					by="character"
+					once
+				>
+					Join homeowners across Tamil Nadu who are cutting their bills and powering their homes with&#32;
+				</TextAnimate>
+				<span class="text-white/45">
+					<TextAnimate
+						client:visible
+						text="clean solar energy."
+						animation="blurInUp"
+						by="character"
+						once
+					>
+						clean solar energy.
+					</TextAnimate>
+				</span>
 			</h2>
 			<a href="#estimate" class="link-arrow mt-8 text-yellow hover:text-yellow-light">
 				Start with your roof

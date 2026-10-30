@@ -1,6 +1,7 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
 import type { IconName } from "../icons";
+import { TextAnimate } from "@/registry/magicui/text-animate";
 
 const options: { number: string; title: string; icon: IconName; copy: string }[] = [
 	{
@@ -58,7 +59,15 @@ const options: { number: string; title: string; icon: IconName; copy: string }[]
 		<div class="mt-12 grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
 			<div class="reveal">
 				<h2 class="display max-w-[520px] text-[2.6rem] leading-[0.98] text-white sm:text-[3.3rem] lg:text-[3.9rem]">
-					A solar system, on your terms.
+					<TextAnimate
+						client:visible
+						text="A solar system, on your terms."
+						animation="blurInUp"
+						by="character"
+						once
+					>
+						A solar system, on your terms.
+					</TextAnimate>
 				</h2>
 				<p class="mt-5 max-w-[430px] text-[13.5px] leading-[1.8] text-white/60">
 					Three clear routes — pay upfront, explore finance, or understand the monthly number
