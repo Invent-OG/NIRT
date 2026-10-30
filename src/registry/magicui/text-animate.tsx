@@ -18,7 +18,8 @@ type AnimationVariant =
 	| "scaleDown";
 
 interface TextAnimateProps {
-	children: React.ReactNode;
+	text?: string;
+	children?: React.ReactNode;
 	className?: string;
 	segmentClassName?: string;
 	delay?: number;
@@ -219,7 +220,40 @@ const defaultItemAnimationVariants: Record<
 	},
 };
 
+function extractText(node: React.ReactNode): string {
+	if (node === null || node === undefined || typeof node === "boolean") {
+		return "";
+	}
+	if (typeof node === "string") {
+		return node;
+	}
+	if (typeof node === "number") {
+		return String(node);
+	}
+	if (Array.isArray(node)) {
+		return node.map(extractText).join("");
+	}
+	if (React.isValidElement(node)) {
+		return extractText((node.props as any)?.children);
+	}
+	if (typeof node === "object") {
+		const obj = node as any;
+		if (typeof obj.default === "function") {
+			try {
+				return extractText(obj.default());
+			} catch {
+				return "";
+			}
+		}
+		if (obj.props?.children) {
+			return extractText(obj.props.children);
+		}
+	}
+	return "";
+}
+
 export const TextAnimate: FC<TextAnimateProps> = ({
+	text,
 	children,
 	className,
 	segmentClassName,
@@ -236,13 +270,17 @@ export const TextAnimate: FC<TextAnimateProps> = ({
 	const MotionComponent = motion.create(Component);
 
 	const textContent = React.useMemo(() => {
-		if (typeof children === "string") return children.trim();
-		if (Array.isArray(children)) {
-			return children.map((c) => (typeof c === "string" ? c : typeof c === "number" ? String(c) : "")).join("").trim();
+		if (text && typeof text === "string") return text.trim();
+		const extracted = extractText(children).trim();
+		if (extracted && extracted !== "[object Object]") {
+			return extracted;
 		}
-		if (typeof children === "number") return String(children);
-		return String(children ?? "").trim();
-	}, [children]);
+		return "";
+	}, [text, children]);
+
+	if (!textContent) {
+		return <>{children}</>;
+	}
 
 	const stagger = by === "character" ? 0.025 : by === "word" ? 0.08 : 0.15;
 	const currentVariants = defaultItemAnimationVariants[animation] || defaultItemAnimationVariants.blurInUp;
