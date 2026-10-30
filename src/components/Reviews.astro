@@ -41,7 +41,7 @@ const reviews = [
 				href="https://www.google.com/maps/search/?api=1&query=NIRT+Renewable+Energy+Private+Limited+Salem+Tamil+Nadu"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="group flex items-center gap-3 border border-ink/15 px-4 py-3 transition-colors hover:border-ink/40"
+				class="group flex items-center gap-3 rounded-full border border-ink/15 px-5 py-2.5 transition-colors hover:border-ink/40"
 			>
 				<svg class="h-5 w-5 shrink-0" viewBox="0 0 48 48" aria-hidden="true">
 					<path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.2-.1-2.3-.4-3.5Z"></path>
@@ -58,7 +58,7 @@ const reviews = [
 		</div>
 
 		<div class="mt-11 grid gap-5 lg:grid-cols-12">
-			<figure class="relative flex flex-col justify-between bg-navy p-7 text-white sm:p-9 lg:col-span-6">
+			<figure class="relative flex flex-col justify-between rounded-2xl sm:rounded-3xl overflow-hidden bg-navy p-7 text-white sm:p-9 lg:col-span-6">
 				<div>
 					<span class="font-display text-[4rem] leading-[0.5] text-yellow" aria-hidden="true">“</span>
 					<blockquote class="mt-5 max-w-[560px] text-[1.45rem] leading-[1.4] tracking-[-0.02em] text-white sm:text-[1.7rem]">
@@ -66,7 +66,7 @@ const reviews = [
 					</blockquote>
 				</div>
 				<figcaption class="mt-10 flex items-center gap-3 border-t border-white/15 pt-5">
-					<span class="grid h-10 w-10 place-items-center bg-yellow text-[12px] font-medium text-ink">
+					<span class="grid h-10 w-10 place-items-center rounded-full bg-yellow text-[12px] font-medium text-ink">
 						{reviews[0].initials}
 					</span>
 					<div>
@@ -80,11 +80,11 @@ const reviews = [
 			<div class="grid gap-5 lg:col-span-6">
 				{
 					reviews.slice(1).map((review) => (
-						<figure class="reveal flex flex-col border border-ink/15 bg-paper p-6">
+						<figure class="reveal flex flex-col rounded-2xl border border-ink/15 bg-paper p-6">
 							<span class="meta text-ink/35">Client feedback</span>
 							<blockquote class="mt-4 text-[15.5px] leading-[1.6] text-ink">{review.quote}</blockquote>
 							<figcaption class="mt-6 flex items-center gap-3 border-t border-ink/15 pt-4">
-								<span class="grid h-8 w-8 place-items-center bg-ink text-[11px] font-medium text-white">
+								<span class="grid h-8 w-8 place-items-center rounded-full bg-ink text-[11px] font-medium text-white">
 									{review.initials}
 								</span>
 								<div>

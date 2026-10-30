@@ -336,9 +336,10 @@
 
 	.premium-card {
 		position: relative;
-		border-radius: 0;
+		border-radius: 1.25rem;
 		border: 1px solid var(--color-line);
 		background: var(--color-card);
+		overflow: hidden;
 	}
 
 	.field-label {
@@ -354,10 +355,10 @@
 	.field-control {
 		width: 100%;
 		height: 3.1rem;
-		border-radius: 0;
+		border-radius: 0.75rem;
 		border: 1px solid var(--color-line);
 		background: #fffdf7;
-		padding-inline: 0.85rem;
+		padding-inline: 0.95rem;
 		font-size: 0.875rem;
 		color: var(--color-ink);
 		outline: none;
@@ -389,10 +390,10 @@
 		justify-content: center;
 		gap: 0.6rem;
 		min-height: 2.9rem;
-		border-radius: 0;
-		padding-inline: 1.4rem;
+		border-radius: 9999px;
+		padding-inline: 1.5rem;
 		font-size: 0.78rem;
-		font-weight: 500;
+		font-weight: 550;
 		letter-spacing: 0.01em;
 		transition:
 			transform 200ms ease,
@@ -467,11 +468,11 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.4rem;
-		border-radius: 0;
+		border-radius: 9999px;
 		border: 1px solid var(--color-line);
 		background: transparent;
-		padding: 0.35rem 0.6rem;
-		font-size: 0.6rem;
+		padding: 0.35rem 0.75rem;
+		font-size: 0.625rem;
 		font-weight: 500;
 		letter-spacing: 0.12em;
 		text-transform: uppercase;
@@ -487,7 +488,7 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 0;
+		border-radius: 0.75rem;
 		border: 1px solid var(--color-line);
 		background: transparent;
 		color: var(--color-ink);
@@ -532,6 +533,8 @@
 		background: rgba(255, 255, 255, 0.09);
 		border: 1px solid rgba(255, 255, 255, 0.2);
 		backdrop-filter: blur(18px);
+		border-radius: 1.25rem;
+		overflow: hidden;
 	}
 
 	.fade-words {
@@ -555,7 +558,7 @@
 		appearance: none;
 		width: 100%;
 		height: 3px;
-		border-radius: 0;
+		border-radius: 9999px;
 		background: linear-gradient(90deg,
 				var(--color-yellow) 0%,
 				var(--color-yellow) var(--range-progress, 20%),
@@ -570,7 +573,7 @@
 		width: 18px;
 		height: 18px;
 		border: 2px solid var(--color-ink);
-		border-radius: 0;
+		border-radius: 50%;
 		background: var(--color-yellow);
 		cursor: grab;
 	}
@@ -579,7 +582,7 @@
 		width: 18px;
 		height: 18px;
 		border: 2px solid var(--color-ink);
-		border-radius: 0;
+		border-radius: 50%;
 		background: var(--color-yellow);
 		cursor: grab;
 	}
@@ -597,8 +600,8 @@ dialog.lead-dialog {
 	margin: auto;
 	padding: 0;
 	border: 1px solid rgba(8, 24, 32, 0.16);
-	border-radius: 0;
-	overflow: auto;
+	border-radius: 1.5rem;
+	overflow: hidden;
 	background: var(--color-paper);
 	box-shadow: 0 50px 140px -40px rgba(4, 18, 24, 0.7);
 }
