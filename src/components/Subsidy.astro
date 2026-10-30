@@ -1,139 +1,320 @@
 ---
 import HugeIcon from "./HugeIcon.astro";
-
-const tiers = [
-	{
-		capacity: "1 kW",
-		amount: "₹30,000",
-		tier: "Tier 01",
-		copy: "A compact starting point for smaller homes and modest electricity use.",
-		width: "38%",
-		featured: false,
-	},
-	{
-		capacity: "2 kW",
-		amount: "₹60,000",
-		tier: "Tier 02",
-		copy: "A mid-sized system for everyday household loads and family routines.",
-		width: "76%",
-		featured: false,
-	},
-	{
-		capacity: "3 kW & above",
-		amount: "Up to ₹78,000",
-		tier: "Tier 03",
-		copy: "The maximum central support band for eligible residential installations.",
-		width: "100%",
-		featured: true,
-	},
-];
 ---
 
-<section id="subsidy" class="relative overflow-hidden bg-cream py-20 sm:py-24 lg:py-28">
-	<div class="pointer-events-none absolute -right-24 top-0 h-[420px] w-[420px] rounded-full border border-ink/[0.06]"></div>
-
+<section id="subsidy" class="relative overflow-hidden bg-white py-20 sm:py-24 lg:py-28 text-ink">
 	<div class="container-page relative">
-		<div class="flex items-center justify-between gap-4 border-t border-ink/20 pt-4">
-			<p class="meta text-ink/50">Incentives</p>
-			<p class="meta text-ink/30">04 / PM Surya Ghar</p>
+		<!-- Section Header -->
+		<div class="flex items-center justify-between gap-4 border-b border-ink/15 pb-4">
+			<p class="meta text-orange-deep">Incentives</p>
+			<p class="meta text-ink/35">04 / PM Surya Ghar</p>
 		</div>
 
 		<div class="mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
 			<h2 class="display max-w-[760px] text-[2.7rem] leading-[0.98] text-ink sm:text-[3.5rem] lg:text-[4.3rem]">
 				Get up to <span class="text-yellow-deep">₹78,000</span> back on your rooftop.
 			</h2>
+
 			<div class="max-w-[340px]">
 				<p class="text-[13.5px] leading-[1.8] text-body">
 					Rooftop solar becomes more affordable with financial assistance under PM Surya Ghar:
 					Muft Bijli Yojana. Eligible households receive support based on installed capacity.
 				</p>
 				<p class="meta mt-4 inline-flex items-center gap-2 border border-ink/20 px-2.5 py-1.5 text-ink/60">
-					<HugeIcon name="building" class="h-3.5 w-3.5" />
+					<HugeIcon name="building" class="h-3.5 w-3.5 text-yellow-deep" />
 					PM Surya Ghar
 				</p>
 			</div>
 		</div>
 
-		<div class="mt-12 grid gap-5 md:grid-cols-3 md:gap-0">
-			{
-				tiers.map((tier, index) => (
-					<article
-						class:list={[
-							"reveal relative flex min-h-[330px] flex-col border-t border-ink/25 pt-5 md:px-7",
-							index !== 0 && "md:border-l md:border-ink/15",
-							tier.featured
-								? "grain grain-dark mt-2 bg-navy p-6 text-white md:mt-0 md:border-t-0 md:pb-7 md:pt-6 rounded-2xl shadow-xl overflow-hidden"
-								: "pb-5",
-						]}
-						style={`transition-delay:${index * 70}ms`}
+		<!-- 4-Card Grid using exact website typography (display, meta, and standard leading) -->
+		<div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:mt-16">
+			<!-- CARD 1: Tier 01 (Slate-Teal Card with Full Image & White Text matching reference) -->
+			<div
+				class="reveal group relative flex min-h-[410px] sm:min-h-[430px] flex-col justify-between overflow-hidden rounded-[26px] bg-[#9bbec8] p-6 text-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+			>
+				<!-- Full-size Image filling the entire card -->
+				<img
+					src="/images/solar-panel-model.jpg"
+					alt="Tier 01 1 kW rooftop solar"
+					width="600"
+					height="700"
+					loading="lazy"
+					decoding="async"
+					class="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+				/>
+
+				<!-- Soft vignette overlay for crisp white text contrast -->
+				<div
+					class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/25 to-transparent"
+				></div>
+				<div
+					class="pointer-events-none absolute inset-x-0 bottom-0 h-[68%] bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent"
+				></div>
+
+				<!-- Top row: Icon + Tier 01 Pill floating on top -->
+				<div class="relative z-10 flex items-center justify-between gap-2">
+					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/25 text-white backdrop-blur-md border border-white/20 shadow-sm">
+						<HugeIcon name="sun" class="h-4 w-4" />
+					</div>
+					<div
+						class="flex items-center gap-1.5 rounded-full border border-white/35 bg-white/25 px-3.5 py-1 backdrop-blur-md shadow-sm"
 					>
-						<div class="flex items-start justify-between gap-4">
-							<span class:list={["meta", tier.featured ? "text-white/40" : "text-ink/45"]}>{tier.tier}</span>
-							{tier.featured && (
-								<span class="meta rounded-full bg-yellow px-2.5 py-1 text-ink font-semibold">Maximum</span>
-							)}
-						</div>
+						<span class="h-1.5 w-1.5 rounded-full bg-white"></span>
+						<span class="meta text-white">Tier 01</span>
+					</div>
+				</div>
 
-						<div class="mt-9">
-							<p class:list={["meta", tier.featured ? "text-yellow" : "text-ink/45"]}>
-								Indicative central subsidy
-							</p>
-							<p
-								class:list={[
-									"mt-2 font-display font-medium leading-none tracking-[-0.05em] tabular-nums",
-									tier.featured ? "text-[2.4rem] text-white sm:text-[2.6rem]" : "text-[2.7rem] text-ink sm:text-[2.9rem]",
-								]}
-							>
-								{tier.amount}
-							</p>
-							<p class:list={["mt-2 text-[11px]", tier.featured ? "text-white/40" : "text-muted"]}>
-								For eligible residential installations
-							</p>
-						</div>
+				<!-- Bottom: Exact Content with Site-Consistent Typography -->
+				<div class="relative z-10 mt-auto pt-6">
+					<p class="meta text-white/75">
+						Indicative central subsidy
+					</p>
+					<p class="display mt-1 text-[2.6rem] sm:text-[2.85rem] text-white">
+						₹30,000
+					</p>
+					<p class="mt-1 text-[11px] text-white/75">
+						For eligible residential installations
+					</p>
 
-						<div class:list={["mt-auto pt-6", tier.featured ? "border-t border-white/15" : "border-t border-ink/15"]}>
-							<div class="flex items-baseline justify-between gap-3">
-								<p class:list={["text-[14px] font-medium", tier.featured ? "text-white/90" : "text-ink"]}>
-									{tier.capacity}
-								</p>
-								<span class:list={["meta", tier.featured ? "text-white/35" : "text-ink/35"]}>System</span>
-							</div>
-							<p class:list={["mt-2 max-w-[260px] text-[12px] leading-[1.7]", tier.featured ? "text-white/55" : "text-body"]}>
-								{tier.copy}
+					<div class="mt-4 border-t border-white/20 pt-3">
+						<div class="flex items-baseline justify-between gap-3">
+							<p class="text-[14px] font-medium text-white">
+								1 kW
 							</p>
-							<div class:list={["mt-5 h-px w-full", tier.featured ? "bg-white/15" : "bg-ink/15"]}>
-								<div
-									class:list={["h-px", tier.featured ? "bg-yellow" : "bg-ink/50"]}
-									style={`width:${tier.width}`}
-								></div>
-							</div>
+							<span class="meta text-white/60">System</span>
 						</div>
-					</article>
-				))
-			}
-		</div>
+						<p class="mt-2 text-[12px] leading-[1.7] text-white/85">
+							A compact starting point for smaller homes and modest electricity use.
+						</p>
+					</div>
+				</div>
+			</div>
 
-		<div class="mt-6 flex flex-col gap-5 border-t border-ink/20 pt-6 sm:flex-row sm:items-center sm:justify-between">
-			<div class="flex items-start gap-3">
-				<span class="grid h-9 w-9 shrink-0 place-items-center border border-ink/15 text-ink">
-					<HugeIcon name="shield" class="h-4 w-4" />
-				</span>
-				<div>
-					<p class="text-[13px] font-medium text-ink">We handle eligibility, application and documentation.</p>
-					<p class="mt-1 max-w-[600px] text-[11.5px] leading-[1.7] text-body">
+			<!-- CARD 2: Tier 02 (Radiant Orange Card) -->
+			<div
+				class="reveal group relative flex min-h-[410px] sm:min-h-[430px] flex-col justify-between overflow-hidden rounded-[26px] bg-[#f05537] p-6 text-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-15px_rgba(240,85,55,0.4)]"
+				style="transition-delay: 70ms;"
+			>
+				<!-- Top row: System / Tier 02 + Bolt Badge -->
+				<div class="relative z-10 flex items-start justify-between gap-2">
+					<div>
+						<span class="meta rounded-full bg-white/20 px-2.5 py-1 text-white">
+							Tier 02
+						</span>
+						<p class="meta mt-2 text-white/80">
+							Indicative central subsidy
+						</p>
+					</div>
+					<div
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm"
+					>
+						<HugeIcon name="bolt" class="h-5 w-5 fill-white" />
+					</div>
+				</div>
+
+				<!-- Middle: Exact Content with Site-Consistent Typography -->
+				<div class="relative z-10 my-auto py-2">
+					<p class="display text-[2.6rem] sm:text-[2.85rem] text-white">
+						₹60,000
+					</p>
+					<p class="mt-1 text-[11px] text-white/80">
+						For eligible residential installations
+					</p>
+				</div>
+
+				<!-- Bottom: Capacity & Copy -->
+				<div class="relative z-10 mt-auto border-t border-white/20 pt-3.5">
+					<div class="flex items-baseline justify-between gap-3">
+						<p class="text-[14px] font-medium text-white">
+							2 kW
+						</p>
+						<span class="meta text-white/60">System</span>
+					</div>
+					<p class="mt-2 text-[12px] leading-[1.7] text-white/90">
+						A mid-sized system for everyday household loads and family routines.
+					</p>
+
+					<div class="mt-3.5">
+						<span
+							class="meta inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-white backdrop-blur-sm"
+						>
+							<span class="h-1.5 w-1.5 rounded-full bg-white"></span>
+							Direct DBT Credit
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- CARD 3: Installation & Documentation (Photo Card) -->
+			<div
+				class="reveal group relative flex min-h-[410px] sm:min-h-[430px] flex-col justify-between overflow-hidden rounded-[26px] p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+				style="transition-delay: 140ms;"
+			>
+				<!-- Full-bleed photo of yellow-gloved hands installing solar panel -->
+				<img
+					src="/images/solar-panel-clamp.jpg"
+					alt="Precision solar panel rooftop installation"
+					width="600"
+					height="700"
+					loading="lazy"
+					decoding="async"
+					class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+				/>
+
+				<!-- Dark gradient overlay for readability -->
+				<div
+					class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15"
+				></div>
+
+				<!-- Top badge -->
+				<div class="relative z-10">
+					<span
+						class="meta inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-black/45 px-3 py-1 text-white backdrop-blur-md"
+					>
+						<span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+						Precision Mounting
+					</span>
+				</div>
+
+				<!-- Bottom: Exact Text with Site-Consistent Typography -->
+				<div class="relative z-10 mt-auto">
+					<div class="flex items-center gap-2 text-white">
+						<HugeIcon name="shieldCheck" class="h-4 w-4 text-emerald-400" />
+						<p class="display text-[1.45rem] sm:text-[1.6rem] leading-tight text-white">
+							We handle eligibility, application and documentation.
+						</p>
+					</div>
+					<p class="mt-2 text-[12px] leading-[1.7] text-white/80">
 						Subsidy is subject to approval and current scheme guidelines; amounts are indicative.
 					</p>
 				</div>
 			</div>
-			<button type="button" class="btn-primary shrink-0 self-start sm:self-auto" data-open-lead-dialog>
+
+			<!-- CARD 4: Tier 03 (Ice-Blue Card — Maximum) -->
+			<div
+				class="reveal group relative flex min-h-[410px] sm:min-h-[430px] flex-col justify-between overflow-hidden rounded-[26px] bg-[#cadbe2] p-6 text-slate-900 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+				style="transition-delay: 210ms;"
+			>
+				<!-- Top row: Star icon badge + Maximum Pill -->
+				<div class="relative z-10 flex items-start justify-between">
+					<div
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-white/50 text-slate-800 backdrop-blur-sm"
+					>
+						<HugeIcon name="star" class="h-5 w-5" />
+					</div>
+					<div class="text-right">
+						<span class="meta rounded-full bg-[#f05537] px-2.5 py-1 text-white font-semibold shadow-sm">
+							Maximum
+						</span>
+						<p class="meta mt-1 text-slate-700">
+							Tier 03
+						</p>
+					</div>
+				</div>
+
+				<!-- Middle: Exact Content with Site-Consistent Typography -->
+				<div class="relative z-10 my-auto py-2">
+					<p class="meta text-slate-800/80">
+						Indicative central subsidy
+					</p>
+					<h3 class="display mt-1 text-[2.6rem] sm:text-[2.85rem] text-slate-950">
+						Up to ₹78,000
+					</h3>
+					<p class="mt-1 text-[11px] text-slate-800">
+						For eligible residential installations
+					</p>
+				</div>
+
+				<!-- Bottom: Capacity & Copy with prominent wave background matching reference -->
+				<div class="relative z-10 mt-auto pt-2">
+					<div class="border-t border-slate-900/15 pt-3">
+						<div class="flex items-baseline justify-between gap-3">
+							<p class="text-[14px] font-medium text-slate-950">
+								3 kW & above
+							</p>
+							<span class="meta text-slate-700">System</span>
+						</div>
+						<p class="mt-2 text-[12px] leading-[1.7] text-slate-900/90">
+							The maximum central support band for eligible residential installations.
+						</p>
+					</div>
+				</div>
+
+				<!-- Large, prominent wave SVG background filling the bottom half -->
+				<div class="pointer-events-none absolute inset-x-0 bottom-0 h-44 sm:h-52 overflow-hidden">
+					<svg
+						class="absolute inset-0 h-full w-full"
+						viewBox="0 0 320 180"
+						preserveAspectRatio="none"
+						fill="none"
+						aria-hidden="true"
+					>
+						<defs>
+							<linearGradient id="wave-grad-back" x1="0%" y1="0%" x2="0%" y2="100%">
+								<stop offset="0%" stop-color="#9fc4d1" stop-opacity="0.75" />
+								<stop offset="100%" stop-color="#8bb2c1" stop-opacity="0.9" />
+							</linearGradient>
+							<linearGradient id="wave-grad-front" x1="0%" y1="0%" x2="0%" y2="100%">
+								<stop offset="0%" stop-color="#80abb9" stop-opacity="0.9" />
+								<stop offset="100%" stop-color="#6d9ba9" stop-opacity="0.95" />
+							</linearGradient>
+						</defs>
+
+						<!-- Back flowing wave -->
+						<path
+							d="M 0,65 C 60,45 130,85 190,55 C 245,30 285,45 320,25 L 320,180 L 0,180 Z"
+							fill="url(#wave-grad-back)"
+						/>
+
+						<!-- Front prominent undulating wave -->
+						<path
+							d="M 0,95 C 65,75 125,110 185,80 C 240,50 280,68 320,40 L 320,180 L 0,180 Z"
+							fill="url(#wave-grad-front)"
+						/>
+
+						<!-- Subtle crest line -->
+						<path
+							d="M 0,95 C 65,75 125,110 185,80 C 240,50 280,68 320,40"
+							stroke="#ffffff"
+							stroke-width="1.5"
+							stroke-opacity="0.35"
+						/>
+					</svg>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom Action Bar with 100% Exact User Text -->
+		<div
+			class="mt-12 flex flex-col gap-6 rounded-2xl border border-ink/15 bg-[#faf8f5] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7"
+		>
+			<div class="flex items-start gap-3.5">
+				<span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-yellow/15 text-ink">
+					<HugeIcon name="shield" class="h-5 w-5" />
+				</span>
+				<div>
+					<p class="text-[14px] font-medium text-ink">
+						We handle eligibility, application and documentation.
+					</p>
+					<p class="mt-0.5 text-[12px] leading-relaxed text-body">
+						Subsidy is subject to approval and current scheme guidelines; amounts are indicative.
+					</p>
+				</div>
+			</div>
+
+			<button
+				type="button"
+				class="btn-primary shrink-0 self-start sm:self-auto"
+				data-open-lead-dialog
+			>
 				Check my eligibility
 				<HugeIcon name="arrowRight" class="h-4 w-4" />
 			</button>
 		</div>
 
-		<p class="mt-4 text-[10.5px] leading-5 text-muted">
-			*Subsidy is subject to eligibility, approval and applicable scheme guidelines. Figures are
-			indicative and may change.
+		<p class="mt-4 text-[10.5px] leading-relaxed text-muted">
+			*Subsidy is subject to eligibility, approval and applicable scheme guidelines. Figures are indicative and may change.
 		</p>
 	</div>
 </section>
