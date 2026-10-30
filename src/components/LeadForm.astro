@@ -7,123 +7,180 @@ interface Props {
 	source?: string;
 }
 
-const { idPrefix, buttonLabel = "Get My Free Estimate", source = "hero" } = Astro.props;
+const { idPrefix, buttonLabel = "Submit Enquiry", source = "hero" } = Astro.props;
 
-const districts = [
-	"Ariyalur",
-	"Chengalpattu",
-	"Chennai",
-	"Coimbatore",
-	"Cuddalore",
-	"Dharmapuri",
-	"Dindigul",
-	"Erode",
-	"Kallakurichi",
-	"Kancheepuram",
-	"Kanyakumari",
-	"Karur",
-	"Krishnagiri",
-	"Madurai",
-	"Mayiladuthurai",
-	"Nagapattinam",
-	"Namakkal",
-	"Nilgiris",
-	"Perambalur",
-	"Pudukkottai",
-	"Ramanathapuram",
-	"Ranipet",
-	"Salem",
-	"Sivaganga",
-	"Tenkasi",
-	"Thanjavur",
-	"Theni",
-	"Thoothukudi",
-	"Tiruchirappalli",
-	"Tirunelveli",
-	"Tirupathur",
-	"Tiruppur",
-	"Tiruvallur",
-	"Tiruvannamalai",
-	"Tiruvarur",
-	"Vellore",
-	"Viluppuram",
-	"Virudhunagar",
-	"Other / outside Tamil Nadu",
+const propertyTypes = [
+	"Individual Home",
+	"Apartment / Housing Society",
+	"Commercial Space",
+	"Industry / Factory",
 ];
 
 const billOptions = [
 	"Less than ₹1500",
 	"₹1500 – ₹2500",
 	"₹2500 – ₹4000",
-	"₹4000 – ₹8000",
-	"More than ₹8000",
+	"₹4000 – ₹6000",
+	"₹6000 – ₹8000",
+	"Above ₹8000",
 ];
 ---
 
-<div data-lead-form-shell>
-	<form data-lead-form data-source={source} novalidate>
-		<div class="grid gap-3.5 sm:grid-cols-2">
+<div data-lead-form-shell class="w-full">
+	<form data-lead-form data-source={source} novalidate class="relative">
+		<div class="grid gap-3 sm:grid-cols-2">
+			<!-- Name -->
 			<div>
 				<label for={`${idPrefix}-name`} class="field-label">
-					Full name <span class="text-orange-deep">*</span>
+					Full Name <span class="text-orange-deep">*</span>
 				</label>
 				<input
 					id={`${idPrefix}-name`}
 					name="name"
 					type="text"
 					required
-					maxlength="80"
+					minlength="2"
+					maxlength="50"
 					autocomplete="name"
-					placeholder="Your name"
+					placeholder="Enter your name"
 					class="field-control"
 				/>
+				<span class="field-error-msg hidden text-[11px] font-medium text-red-600 mt-1" data-error="name"></span>
 			</div>
 
+			<!-- Mobile No -->
 			<div>
-				<label for={`${idPrefix}-contact`} class="field-label">
-					Mobile number <span class="text-orange-deep">*</span>
+				<label for={`${idPrefix}-mobile`} class="field-label">
+					Mobile No <span class="text-orange-deep">*</span>
+				</label>
+				<div class="relative flex items-center">
+					<span class="pointer-events-none absolute left-3 z-10 text-[13px] font-semibold text-body/80">
+						+91
+					</span>
+					<input
+						id={`${idPrefix}-mobile`}
+						name="mobile_number"
+						type="tel"
+						required
+						inputmode="numeric"
+						pattern="[6-9][0-9]{9}"
+						maxlength="10"
+						autocomplete="tel-national"
+						title="Enter a 10-digit Indian mobile number"
+						placeholder="10-digit number"
+						class="field-control !pl-11"
+					/>
+				</div>
+				<span class="field-error-msg hidden text-[11px] font-medium text-red-600 mt-1" data-error="mobile"></span>
+			</div>
+
+			<!-- City -->
+			<div>
+				<label for={`${idPrefix}-city`} class="field-label">
+					City <span class="text-orange-deep">*</span>
 				</label>
 				<input
-					id={`${idPrefix}-contact`}
-					name="contact"
-					type="tel"
+					id={`${idPrefix}-city`}
+					name="city"
+					type="text"
+					required
+					maxlength="50"
+					autocomplete="address-level2"
+					placeholder="e.g. Salem, Chennai"
+					class="field-control"
+				/>
+				<span class="field-error-msg hidden text-[11px] font-medium text-red-600 mt-1" data-error="city"></span>
+			</div>
+
+			<!-- Pincode -->
+			<div>
+				<label for={`${idPrefix}-pincode`} class="field-label">
+					Pincode <span class="text-orange-deep">*</span>
+				</label>
+				<input
+					id={`${idPrefix}-pincode`}
+					name="pincode"
+					type="text"
 					required
 					inputmode="numeric"
-					pattern="[6-9][0-9]{9}"
-					maxlength="10"
-					autocomplete="tel-national"
-					title="Enter a 10-digit Indian mobile number"
-					placeholder="10-digit number"
+					pattern="[1-9][0-9]{5}"
+					maxlength="6"
+					autocomplete="postal-code"
+					placeholder="6-digit pincode"
+					class="field-control"
+				/>
+				<span class="field-error-msg hidden text-[11px] font-medium text-red-600 mt-1" data-error="pincode"></span>
+			</div>
+
+			<!-- Email (Optional) -->
+			<div class="sm:col-span-2">
+				<label for={`${idPrefix}-email`} class="field-label">
+					Email <span class="text-body/50 font-normal lowercase">(optional)</span>
+				</label>
+				<input
+					id={`${idPrefix}-email`}
+					name="email"
+					type="email"
+					autocomplete="email"
+					placeholder="your.email@example.com"
 					class="field-control"
 				/>
 			</div>
 
+			<!-- Type of Property -->
 			<div class="sm:col-span-2">
-				<label for={`${idPrefix}-district`} class="field-label">
-					District <span class="text-orange-deep">*</span>
+				<label for={`${idPrefix}-property-type`} class="field-label">
+					Type of Property <span class="text-orange-deep">*</span>
 				</label>
 				<div class="relative">
 					<select
-						id={`${idPrefix}-district`}
-						name="district"
+						id={`${idPrefix}-property-type`}
+						name="property_type"
 						required
-						autocomplete="address-level1"
-						class="field-control cursor-pointer appearance-none pr-9"
+						class="field-control cursor-pointer appearance-none pr-9 text-ink font-medium"
 					>
-						<option value="" selected disabled>Select district</option>
-						{districts.map((district) => <option value={district}>{district}</option>)}
+						<option value="" selected disabled>Select property type</option>
+						{propertyTypes.map((type) => <option value={type}>{type}</option>)}
 					</select>
 					<HugeIcon
 						name="arrowDown"
-						class="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-moss"
+						class="pointer-events-none absolute right-3.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-body"
 					/>
 				</div>
+				<span class="field-error-msg hidden text-[11px] font-medium text-red-600 mt-1" data-error="property_type"></span>
 			</div>
 
+			<!-- Property Ownership -->
+			<div class="sm:col-span-2">
+				<label class="field-label cursor-default">
+					Do you own the property? <span class="text-orange-deep">*</span>
+				</label>
+				<div class="grid grid-cols-2 gap-2.5">
+					{["Yes", "No"].map((choice) => (
+						<label class="group relative cursor-pointer select-none">
+							<input
+								type="radio"
+								name="property_ownership"
+								value={choice}
+								required
+								class="peer sr-only"
+							/>
+							<span
+								class="flex h-11 w-full items-center justify-center border border-line bg-[#fffdf7] px-3 text-center text-[13px] font-semibold text-ink transition-all duration-150 hover:border-[#b9b09b] peer-focus-visible:border-ink peer-focus-visible:shadow-[inset_0_-2px_0_var(--color-yellow)] peer-checked:border-ink peer-checked:bg-white peer-checked:text-orange-deep peer-checked:shadow-[inset_0_-2px_0_var(--color-yellow)]"
+							>
+								{choice}
+							</span>
+						</label>
+					))}
+				</div>
+				<span class="field-error-msg hidden text-[11px] font-medium text-red-600 mt-1" data-error="property_ownership"></span>
+			</div>
+
+			<!-- Monthly EB Bill -->
 			<div class="sm:col-span-2">
 				<div class="flex items-center gap-1.5 mb-2">
 					<label class="field-label !mb-0 cursor-default">
-						Monthly Electricity Bill <span class="text-orange-deep">*</span>
+						Average Monthly EB Bill <span class="text-orange-deep">*</span>
 					</label>
 					<span
 						class="inline-flex text-body/50 hover:text-ink transition-colors cursor-help"
@@ -143,27 +200,60 @@ const billOptions = [
 						<label class="group relative cursor-pointer select-none">
 							<input
 								type="radio"
-								name="bill"
+								name="monthly_eb_bill"
 								value={option}
 								required
 								class="peer sr-only"
 							/>
 							<span
-								class="flex h-11 sm:h-12 w-full items-center justify-center border border-line bg-[#fffdf7] px-2 text-center text-[12.5px] sm:text-[13px] font-medium text-ink transition-all duration-150 hover:border-[#b9b09b] peer-focus-visible:border-ink peer-focus-visible:shadow-[inset_0_-2px_0_var(--color-yellow)] peer-checked:border-ink peer-checked:bg-white peer-checked:font-semibold peer-checked:shadow-[inset_0_-2px_0_var(--color-yellow)]"
+								class="flex h-11 sm:h-12 w-full items-center justify-center border border-line bg-[#fffdf7] px-2 text-center text-[12px] sm:text-[12.5px] font-medium text-ink transition-all duration-150 hover:border-[#b9b09b] peer-focus-visible:border-ink peer-focus-visible:shadow-[inset_0_-2px_0_var(--color-yellow)] peer-checked:border-ink peer-checked:bg-white peer-checked:font-semibold peer-checked:text-orange-deep peer-checked:shadow-[inset_0_-2px_0_var(--color-yellow)]"
 							>
 								{option}
 							</span>
 						</label>
 					))}
 				</div>
+				<span class="field-error-msg hidden text-[11px] font-medium text-red-600 mt-1" data-error="monthly_eb_bill"></span>
 			</div>
 
+			<!-- Message (Optional) -->
 			<div class="sm:col-span-2">
+				<label for={`${idPrefix}-message`} class="field-label">
+					Message <span class="text-body/50 font-normal lowercase">(optional)</span>
+				</label>
+				<textarea
+					id={`${idPrefix}-message`}
+					name="message"
+					rows="3"
+					maxlength="500"
+					placeholder="Any specific questions about roof size, battery backup or subsidy..."
+					class="field-control !h-auto py-2.5 resize-y text-[13px] leading-relaxed"
+					data-message-input
+				></textarea>
+				<div class="mt-1 flex items-center justify-between text-[11px] text-body/60">
+					<span>Maximum 500 characters</span>
+					<span data-char-counter>0 / 500</span>
+				</div>
+			</div>
+
+			<!-- Submit Button -->
+			<div class="sm:col-span-2 pt-1">
 				<input type="hidden" name="source" value={source} />
-				<button type="submit" class="btn-primary w-full">
-					<HugeIcon name="sun" class="h-4 w-4" />
-					{buttonLabel}
-					<HugeIcon name="arrowRight" class="h-4 w-4" />
+				<button type="submit" class="btn-primary w-full !min-h-[3.2rem]" data-submit-btn>
+					<svg
+						class="submit-spinner hidden h-4 w-4 animate-spin text-white"
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+					>
+						<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+						<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+					</svg>
+					<span data-button-text class="flex items-center gap-2">
+						<HugeIcon name="sun" class="h-4 w-4" />
+						{buttonLabel}
+						<HugeIcon name="arrowRight" class="h-4 w-4" />
+					</span>
 				</button>
 			</div>
 		</div>
@@ -177,14 +267,15 @@ const billOptions = [
 		</div>
 	</form>
 
-	<div class="hidden py-6 text-center" data-lead-success>
+	<!-- Success State -->
+	<div class="hidden py-7 text-center" data-lead-success>
 		<div class="relative mx-auto flex h-14 w-14 items-center justify-center rounded-none border border-green/25 bg-green-soft text-green">
 			<span class="absolute inset-[-6px] rounded-none border border-green/15" aria-hidden="true"></span>
 			<HugeIcon name="checkCircle" class="h-7 w-7" />
 		</div>
-		<h3 class="display mt-5 text-[1.6rem] text-navy" tabindex="-1">Request received.</h3>
-		<p class="mx-auto mt-2 max-w-[290px] text-[13px] leading-6 text-body" data-success-copy>
-			Thank you. Our team will contact you shortly about your solar assessment.
+		<h3 class="display mt-5 text-[1.6rem] text-navy" tabindex="-1">Enquiry Received!</h3>
+		<p class="mx-auto mt-2 max-w-[340px] text-[13px] leading-6 text-body" data-success-copy>
+			Thank you! Your solar enquiry has been submitted. Our specialists will call you shortly with your customized rooftop plan.
 		</p>
 		<button type="button" class="btn-outline mt-5 !min-h-10 !text-[11.5px]" data-lead-reset>
 			Submit another enquiry
@@ -194,30 +285,183 @@ const billOptions = [
 
 <script>
 	const forms = document.querySelectorAll<HTMLFormElement>("[data-lead-form]");
+	const SCRIPT_URL =
+		"https://script.google.com/macros/s/AKfycbyHIHwDEzrT8dpD6oICPPnlInno0JYHyZNDb8o_6tiN0YSGD0_Oa7rPxgw6Wzb1SiRu0A/exec";
 
 	forms.forEach((form) => {
 		const shell = form.closest<HTMLElement>("[data-lead-form-shell]");
 		const success = shell?.querySelector<HTMLElement>("[data-lead-success]");
 		const successCopy = shell?.querySelector<HTMLElement>("[data-success-copy]");
 		const reset = shell?.querySelector<HTMLButtonElement>("[data-lead-reset]");
+		const submitBtn = form.querySelector<HTMLButtonElement>("[data-submit-btn]");
+		const btnText = form.querySelector<HTMLElement>("[data-button-text]");
+		const spinner = form.querySelector<HTMLElement>(".submit-spinner");
+		const msgInput = form.querySelector<HTMLTextAreaElement>("[data-message-input]");
+		const counter = form.querySelector<HTMLElement>("[data-char-counter]");
 
-		form.addEventListener("submit", (event) => {
+		// Restrict mobile input to 10 digits
+		const mobileInput = form.querySelector<HTMLInputElement>('input[name="mobile_number"]');
+		if (mobileInput) {
+			mobileInput.addEventListener("input", () => {
+				mobileInput.value = mobileInput.value.replace(/\D/g, "").slice(0, 10);
+			});
+		}
+
+		// Restrict pincode input to 6 digits
+		const pincodeInput = form.querySelector<HTMLInputElement>('input[name="pincode"]');
+		if (pincodeInput) {
+			pincodeInput.addEventListener("input", () => {
+				pincodeInput.value = pincodeInput.value.replace(/\D/g, "").slice(0, 6);
+			});
+		}
+
+		// Message character counter
+		if (msgInput && counter) {
+			msgInput.addEventListener("input", () => {
+				counter.textContent = `${msgInput.value.length} / 500`;
+			});
+		}
+
+		const setError = (fieldName: string, message: string) => {
+			const errorEl = form.querySelector<HTMLElement>(`[data-error="${fieldName}"]`);
+			if (errorEl) {
+				if (message) {
+					errorEl.textContent = message;
+					errorEl.classList.remove("hidden");
+				} else {
+					errorEl.textContent = "";
+					errorEl.classList.add("hidden");
+				}
+			}
+		};
+
+		const validate = (): boolean => {
+			let valid = true;
+
+			const nameInput = form.querySelector<HTMLInputElement>('input[name="name"]');
+			if (!nameInput?.value.trim() || nameInput.value.trim().length < 2) {
+				setError("name", "Please enter your name (min 2 characters).");
+				valid = false;
+			} else {
+				setError("name", "");
+			}
+
+			if (!mobileInput?.value.trim() || !/^[6-9][0-9]{9}$/.test(mobileInput.value.trim())) {
+				setError("mobile", "Please enter a valid 10-digit mobile number.");
+				valid = false;
+			} else {
+				setError("mobile", "");
+			}
+
+			const cityInput = form.querySelector<HTMLInputElement>('input[name="city"]');
+			if (!cityInput?.value.trim()) {
+				setError("city", "Please enter your city.");
+				valid = false;
+			} else {
+				setError("city", "");
+			}
+
+			if (!pincodeInput?.value.trim() || !/^[1-9][0-9]{5}$/.test(pincodeInput.value.trim())) {
+				setError("pincode", "Please enter a valid 6-digit pincode.");
+				valid = false;
+			} else {
+				setError("pincode", "");
+			}
+
+			const propTypeInput = form.querySelector<HTMLSelectElement>('select[name="property_type"]');
+			if (!propTypeInput?.value) {
+				setError("property_type", "Please select a property type.");
+				valid = false;
+			} else {
+				setError("property_type", "");
+			}
+
+			const ownershipInput = form.querySelector<HTMLInputElement>('input[name="property_ownership"]:checked');
+			if (!ownershipInput) {
+				setError("property_ownership", "Please select whether you own the property.");
+				valid = false;
+			} else {
+				setError("property_ownership", "");
+			}
+
+			const billInput = form.querySelector<HTMLInputElement>('input[name="monthly_eb_bill"]:checked');
+			if (!billInput) {
+				setError("monthly_eb_bill", "Please select your average monthly bill.");
+				valid = false;
+			} else {
+				setError("monthly_eb_bill", "");
+			}
+
+			return valid;
+		};
+
+		form.addEventListener("submit", async (event) => {
 			event.preventDefault();
 
-			if (!form.checkValidity()) {
-				form.reportValidity();
+			if (!validate()) {
+				const firstError = form.querySelector<HTMLElement>(".field-error-msg:not(.hidden)");
+				firstError?.scrollIntoView({ behavior: "smooth", block: "center" });
 				return;
 			}
 
-			const name = (form.elements.namedItem("name") as HTMLInputElement | null)?.value.trim();
+			if (submitBtn) submitBtn.disabled = true;
+			if (spinner) spinner.classList.remove("hidden");
+			if (btnText) btnText.innerHTML = "Submitting...";
+
+			const name = (form.elements.namedItem("name") as HTMLInputElement | null)?.value.trim() || "";
+			const mobile = (form.elements.namedItem("mobile_number") as HTMLInputElement | null)?.value.trim() || "";
+			const city = (form.elements.namedItem("city") as HTMLInputElement | null)?.value.trim() || "";
+			const pincode = (form.elements.namedItem("pincode") as HTMLInputElement | null)?.value.trim() || "";
+			const email = (form.elements.namedItem("email") as HTMLInputElement | null)?.value.trim() || "";
+			const propertyType = (form.elements.namedItem("property_type") as HTMLSelectElement | null)?.value || "";
+			const ownership = form.querySelector<HTMLInputElement>('input[name="property_ownership"]:checked')?.value || "";
+			const bill = form.querySelector<HTMLInputElement>('input[name="monthly_eb_bill"]:checked')?.value || "";
+			const message = msgInput?.value.trim() || "";
+			const sourceVal = (form.elements.namedItem("source") as HTMLInputElement | null)?.value || "hero";
+
+			const now = new Date();
+			const formDate = now.toLocaleDateString("en-GB", { timeZone: "Asia/Kolkata" });
+			const formTime = now.toLocaleTimeString("en-GB", { timeZone: "Asia/Kolkata" });
+
+			const params = new URLSearchParams({
+				sheetName: "Landing Page",
+				Name: name,
+				"Phone No": "+91" + mobile,
+				City: city,
+				Pincode: pincode,
+				Email: email,
+				Property: propertyType,
+				"Self-Owned": ownership,
+				"Avg Bill (2 months)": bill,
+				Message: message,
+				Source: sourceVal,
+				Date: formDate,
+				Time: formTime,
+			});
+
+			try {
+				await fetch(`${SCRIPT_URL}?${params.toString()}`, {
+					method: "GET",
+					mode: "no-cors",
+					cache: "no-store",
+				});
+			} catch (err) {
+				console.error("Enquiry submission notification:", err);
+			}
+
+			if (submitBtn) submitBtn.disabled = false;
+			if (spinner) spinner.classList.add("hidden");
+			if (btnText) btnText.innerHTML = "Submit Enquiry";
+
 			if (successCopy && name) {
-				successCopy.textContent = `Thank you, ${name}. Our team will contact you shortly about your solar assessment.`;
+				successCopy.textContent = `Thank you, ${name}! Your solar enquiry has been submitted. Our specialists will call you shortly at +91 ${mobile} with your customized rooftop plan.`;
 			}
 
 			form.classList.add("hidden");
 			success?.classList.remove("hidden");
 			success?.querySelector<HTMLElement>("h3")?.focus();
 			form.reset();
+			if (counter) counter.textContent = "0 / 500";
 		});
 
 		reset?.addEventListener("click", () => {
