@@ -24,9 +24,30 @@ const options: { number: string; title: string; icon: IconName; copy: string }[]
 ];
 ---
 
-<section id="payment" class="relative overflow-hidden bg-teal py-20 text-white sm:py-24 lg:py-28">
-	<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-[0.14]"></div>
-	<div class="pointer-events-none absolute -right-40 top-0 h-[520px] w-[520px] rounded-full border border-yellow/15"></div>
+<section id="payment" class="relative overflow-hidden bg-[#0c2b52] py-20 text-white sm:py-24 lg:py-28">
+	<!-- Background Solar Panel Texture Image -->
+	<img
+		src="/images/commercial-solar-sunset.jpg"
+		alt=""
+		width="1376"
+		height="768"
+		loading="lazy"
+		decoding="async"
+		class="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-30 mix-blend-luminosity filter contrast-125"
+	/>
+
+	<!-- Multi-layer Gradient Overlay for rich contrast and depth -->
+	<div
+		class="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#071d37]/98 via-[#0c2b52]/90 to-[#071d37]/85"
+	></div>
+	<div
+		class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#071d37]/80 via-transparent to-[#071d37]/90"
+	></div>
+
+	<!-- Solar Grid Texture & Ambient Lighting -->
+	<div class="solar-grid-light pointer-events-none absolute inset-0 opacity-[0.16]"></div>
+	<div class="pointer-events-none absolute -right-40 top-0 h-[520px] w-[520px] rounded-full border border-yellow/20"></div>
+	<div class="pointer-events-none absolute -left-20 bottom-0 h-[380px] w-[380px] rounded-full bg-sky-400/10 blur-3xl"></div>
 
 	<div class="container-page relative">
 		<div class="flex items-center justify-between gap-4 border-b border-white/15 pb-4">
