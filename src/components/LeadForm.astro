@@ -160,11 +160,38 @@ const billOptions = [
 
 			<div class="sm:col-span-2">
 				<input type="hidden" name="source" value={source} />
-				<button type="submit" class="btn-primary w-full">
-					<HugeIcon name="sun" class="h-4 w-4" />
-					{buttonLabel}
-					<HugeIcon name="arrowRight" class="h-4 w-4" />
+				<!-- Honeypot for spam bots -->
+				<div class="hidden" aria-hidden="true">
+					<input type="text" name="company_hp" tabindex="-1" autocomplete="off" />
+				</div>
+
+				<button
+					type="submit"
+					class="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-75 transition-all"
+					data-submit-btn
+				>
+					<span class="inline-flex items-center gap-2" data-submit-idle>
+						<HugeIcon name="sun" class="h-4 w-4" />
+						{buttonLabel}
+						<HugeIcon name="arrowRight" class="h-4 w-4" />
+					</span>
+					<span class="hidden inline-flex items-center gap-2" data-submit-loading>
+						<svg class="h-4 w-4 animate-spin text-current" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+							<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+							<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+						</svg>
+						Submitting to advisor...
+					</span>
 				</button>
+
+				<!-- Error Banner -->
+				<div
+					class="hidden mt-3 rounded-xl border border-red-200 bg-red-50 p-3 text-[12px] text-red-700"
+					data-lead-error
+					role="alert"
+				>
+					<p data-error-text>Unable to submit your enquiry. Please try again.</p>
+				</div>
 			</div>
 		</div>
 
@@ -200,27 +227,77 @@ const billOptions = [
 		const success = shell?.querySelector<HTMLElement>("[data-lead-success]");
 		const successCopy = shell?.querySelector<HTMLElement>("[data-success-copy]");
 		const reset = shell?.querySelector<HTMLButtonElement>("[data-lead-reset]");
+		const submitBtn = form.querySelector<HTMLButtonElement>("[data-submit-btn]");
+		const submitIdle = form.querySelector<HTMLElement>("[data-submit-idle]");
+		const submitLoading = form.querySelector<HTMLElement>("[data-submit-loading]");
+		const errorEl = form.querySelector<HTMLElement>("[data-lead-error]");
+		const errorText = form.querySelector<HTMLElement>("[data-error-text]");
 
-		form.addEventListener("submit", (event) => {
+		let isSubmitting = false;
+
+		form.addEventListener("submit", async (event) => {
 			event.preventDefault();
+
+			// Hide any existing error
+			errorEl?.classList.add("hidden");
 
 			if (!form.checkValidity()) {
 				form.reportValidity();
 				return;
 			}
 
-			const name = (form.elements.namedItem("name") as HTMLInputElement | null)?.value.trim();
-			if (successCopy && name) {
-				successCopy.textContent = `Thank you, ${name}. Our team will contact you shortly about your solar assessment.`;
-			}
+			if (isSubmitting) return;
+			isSubmitting = true;
 
-			form.classList.add("hidden");
-			success?.classList.remove("hidden");
-			success?.querySelector<HTMLElement>("h3")?.focus();
-			form.reset();
+			// UI loading state
+			if (submitBtn) submitBtn.disabled = true;
+			submitIdle?.classList.add("hidden");
+			submitLoading?.classList.remove("hidden");
+
+			try {
+				const formData = new FormData(form);
+				const payload = Object.fromEntries(formData.entries());
+
+				const response = await fetch("/api/estimate", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+						"Accept": "application/json",
+					},
+					body: JSON.stringify(payload),
+				});
+
+				const data = await response.json().catch(() => ({}));
+
+				if (!response.ok || !data.success) {
+					throw new Error(data.error || "Unable to submit your enquiry. Please try again.");
+				}
+
+				// Only show success after server confirmation
+				const name = (form.elements.namedItem("name") as HTMLInputElement | null)?.value.trim();
+				if (successCopy && name) {
+					successCopy.textContent = `Thank you, ${name}. Our team will contact you shortly about your solar assessment.`;
+				}
+
+				form.reset();
+				form.classList.add("hidden");
+				success?.classList.remove("hidden");
+				success?.querySelector<HTMLElement>("h3")?.focus();
+			} catch (err: any) {
+				if (errorText) {
+					errorText.textContent = err.message || "Failed to submit enquiry. Please call +91 96550 46464 directly.";
+				}
+				errorEl?.classList.remove("hidden");
+			} finally {
+				isSubmitting = false;
+				if (submitBtn) submitBtn.disabled = false;
+				submitIdle?.classList.remove("hidden");
+				submitLoading?.classList.add("hidden");
+			}
 		});
 
 		reset?.addEventListener("click", () => {
+			errorEl?.classList.add("hidden");
 			success?.classList.add("hidden");
 			form.classList.remove("hidden");
 			form.querySelector<HTMLInputElement>('input[name="name"]')?.focus();

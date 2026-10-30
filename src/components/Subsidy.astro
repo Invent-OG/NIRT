@@ -7,28 +7,27 @@ import HugeIcon from "./HugeIcon.astro";
 		<!-- Section Header -->
 		<div class="flex items-center justify-between gap-4 border-b border-ink/15 pb-4">
 			<p class="meta text-orange-deep">Incentives</p>
-			<p class="meta text-ink/35">04 / PM Surya Ghar</p>
+			<p class="meta text-ink/35">04 / Combined Subsidies</p>
 		</div>
 
 		<div class="mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
 			<h2 class="display max-w-[760px] text-[2.7rem] leading-[0.98] text-ink sm:text-[3.5rem] lg:text-[4.3rem]">
-				Get up to <span class="text-yellow-deep">₹78,000</span> back on your rooftop.
+				Get Up to <span class="text-yellow-deep">₹1,00,000</span> in Combined Solar Subsidies*
 			</h2>
 
-			<div class="max-w-[340px]">
+			<div class="max-w-[370px]">
 				<p class="text-[13.5px] leading-[1.8] text-body">
-					Rooftop solar becomes more affordable with financial assistance under PM Surya Ghar:
-					Muft Bijli Yojana. Eligible households receive support based on installed capacity.
+					Eligible households can receive up to ₹1 lakh in combined Central and Tamil Nadu State Government solar subsidies, making rooftop solar more affordable.
 				</p>
 				<p class="meta mt-4 inline-flex items-center gap-2 border border-ink/20 px-2.5 py-1.5 text-ink/60">
 					<HugeIcon name="building" class="h-3.5 w-3.5 text-yellow-deep" />
-					PM Surya Ghar
+					Central (PM Surya Ghar) + TN State Subsidy
 				</p>
 			</div>
 		</div>
 
-		<!-- 4-Card Grid using exact website typography (display, meta, and standard leading) -->
-		<div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:mt-16">
+		<!-- 3-Card Grid for Capacity Tiers -->
+		<div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:mt-16">
 			<!-- CARD 1: Tier 01 (Slate-Teal Card with Full Image & White Text matching reference) -->
 			<div
 				class="reveal group relative flex min-h-[410px] sm:min-h-[430px] flex-col justify-between overflow-hidden rounded-[26px] bg-[#9bbec8] p-6 text-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
@@ -54,11 +53,11 @@ import HugeIcon from "./HugeIcon.astro";
 
 				<!-- Top row: Icon + Tier 01 Pill floating on top -->
 				<div class="relative z-10 flex items-center justify-between gap-2">
-					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/25 text-white backdrop-blur-md border border-white/20 shadow-sm">
+					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/25 text-white backdrop-blur-md shadow-sm">
 						<HugeIcon name="sun" class="h-4 w-4" />
 					</div>
 					<div
-						class="flex items-center gap-1.5 rounded-full border border-white/35 bg-white/25 px-3.5 py-1 backdrop-blur-md shadow-sm"
+						class="flex items-center gap-1.5 rounded-full bg-white/25 px-3.5 py-1 backdrop-blur-md shadow-sm"
 					>
 						<span class="h-1.5 w-1.5 rounded-full bg-white"></span>
 						<span class="meta text-white">Tier 01</span>
@@ -68,21 +67,22 @@ import HugeIcon from "./HugeIcon.astro";
 				<!-- Bottom: Exact Content with Site-Consistent Typography -->
 				<div class="relative z-10 mt-auto pt-6">
 					<p class="meta text-white/75">
-						Indicative central subsidy
+						Combined solar subsidy
 					</p>
 					<p class="display mt-1 text-[2.6rem] sm:text-[2.85rem] text-white">
-						₹30,000
+						₹35,000
 					</p>
-					<p class="mt-1 text-[11px] text-white/75">
-						For eligible residential installations
-					</p>
+					<div class="mt-1.5 inline-flex items-center gap-1.5 rounded-full bg-white/20 px-2.5 py-0.5 backdrop-blur-sm">
+						<span class="text-[11.5px] font-semibold text-white">₹30,000 + ₹5,000</span>
+						<span class="text-[10px] text-white/75 font-normal">(Central + TN State)</span>
+					</div>
 
-					<div class="mt-4 border-t border-white/20 pt-3">
+					<div class="mt-4 pt-2">
 						<div class="flex items-baseline justify-between gap-3">
 							<p class="text-[14px] font-medium text-white">
-								1 kW
+								1 kW Solar System
 							</p>
-							<span class="meta text-white/60">System</span>
+							<span class="meta text-white/60">Residential</span>
 						</div>
 						<p class="mt-2 text-[12px] leading-[1.7] text-white/85">
 							A compact starting point for smaller homes and modest electricity use.
@@ -91,11 +91,19 @@ import HugeIcon from "./HugeIcon.astro";
 				</div>
 			</div>
 
-			<!-- CARD 2: Tier 02 (Radiant Orange Card) -->
+			<!-- CARD 2: Tier 02 (Blue Gradient Card) -->
 			<div
-				class="reveal group relative flex min-h-[410px] sm:min-h-[430px] flex-col justify-between overflow-hidden rounded-[26px] bg-[#f05537] p-6 text-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-15px_rgba(240,85,55,0.4)]"
+				class="reveal group relative flex min-h-[410px] sm:min-h-[430px] flex-col justify-between overflow-hidden rounded-[26px] bg-gradient-to-br from-[#1e65b6] via-[#154783] to-[#09274c] p-6 text-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-15px_rgba(21,71,131,0.55)]"
 				style="transition-delay: 70ms;"
 			>
+				<!-- Subtle soft ambient light glow inside gradient -->
+				<div
+					class="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-sky-400/20 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+				></div>
+				<div
+					class="pointer-events-none absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-blue-900/40 blur-2xl"
+				></div>
+
 				<!-- Top row: System / Tier 02 + Bolt Badge -->
 				<div class="relative z-10 flex items-start justify-between gap-2">
 					<div>
@@ -103,7 +111,7 @@ import HugeIcon from "./HugeIcon.astro";
 							Tier 02
 						</span>
 						<p class="meta mt-2 text-white/80">
-							Indicative central subsidy
+							Combined solar subsidy
 						</p>
 					</div>
 					<div
@@ -116,20 +124,21 @@ import HugeIcon from "./HugeIcon.astro";
 				<!-- Middle: Exact Content with Site-Consistent Typography -->
 				<div class="relative z-10 my-auto py-2">
 					<p class="display text-[2.6rem] sm:text-[2.85rem] text-white">
-						₹60,000
+						₹70,000
 					</p>
-					<p class="mt-1 text-[11px] text-white/80">
-						For eligible residential installations
-					</p>
+					<div class="mt-1.5 inline-flex items-center gap-1.5 rounded-full bg-white/20 px-2.5 py-0.5 backdrop-blur-sm">
+						<span class="text-[11.5px] font-semibold text-white">₹60,000 + ₹10,000</span>
+						<span class="text-[10px] text-white/80 font-normal">(Central + TN State)</span>
+					</div>
 				</div>
 
 				<!-- Bottom: Capacity & Copy -->
-				<div class="relative z-10 mt-auto border-t border-white/20 pt-3.5">
+				<div class="relative z-10 mt-auto pt-2">
 					<div class="flex items-baseline justify-between gap-3">
 						<p class="text-[14px] font-medium text-white">
-							2 kW
+							2 kW Solar System
 						</p>
-						<span class="meta text-white/60">System</span>
+						<span class="meta text-white/60">Residential</span>
 					</div>
 					<p class="mt-2 text-[12px] leading-[1.7] text-white/90">
 						A mid-sized system for everyday household loads and family routines.
@@ -137,7 +146,7 @@ import HugeIcon from "./HugeIcon.astro";
 
 					<div class="mt-3.5">
 						<span
-							class="meta inline-flex items-center gap-1.5 rounded-full border border-white/30 bg-white/15 px-3 py-1 text-white backdrop-blur-sm"
+							class="meta inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-white backdrop-blur-sm"
 						>
 							<span class="h-1.5 w-1.5 rounded-full bg-white"></span>
 							Direct DBT Credit
@@ -146,55 +155,10 @@ import HugeIcon from "./HugeIcon.astro";
 				</div>
 			</div>
 
-			<!-- CARD 3: Installation & Documentation (Photo Card) -->
-			<div
-				class="reveal group relative flex min-h-[410px] sm:min-h-[430px] flex-col justify-between overflow-hidden rounded-[26px] p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
-				style="transition-delay: 140ms;"
-			>
-				<!-- Full-bleed photo of yellow-gloved hands installing solar panel -->
-				<img
-					src="/images/solar-panel-clamp.jpg"
-					alt="Precision solar panel rooftop installation"
-					width="600"
-					height="700"
-					loading="lazy"
-					decoding="async"
-					class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-				/>
-
-				<!-- Dark gradient overlay for readability -->
-				<div
-					class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/15"
-				></div>
-
-				<!-- Top badge -->
-				<div class="relative z-10">
-					<span
-						class="meta inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-black/45 px-3 py-1 text-white backdrop-blur-md"
-					>
-						<span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-						Precision Mounting
-					</span>
-				</div>
-
-				<!-- Bottom: Exact Text with Site-Consistent Typography -->
-				<div class="relative z-10 mt-auto">
-					<div class="flex items-center gap-2 text-white">
-						<HugeIcon name="shieldCheck" class="h-4 w-4 text-emerald-400" />
-						<p class="display text-[1.45rem] sm:text-[1.6rem] leading-tight text-white">
-							We handle eligibility, application and documentation.
-						</p>
-					</div>
-					<p class="mt-2 text-[12px] leading-[1.7] text-white/80">
-						Subsidy is subject to approval and current scheme guidelines; amounts are indicative.
-					</p>
-				</div>
-			</div>
-
-			<!-- CARD 4: Tier 03 (Ice-Blue Card — Maximum) -->
+			<!-- CARD 3: Tier 03 (Ice-Blue Card — Maximum) -->
 			<div
 				class="reveal group relative flex min-h-[410px] sm:min-h-[430px] flex-col justify-between overflow-hidden rounded-[26px] bg-[#cadbe2] p-6 text-slate-900 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
-				style="transition-delay: 210ms;"
+				style="transition-delay: 140ms;"
 			>
 				<!-- Top row: Star icon badge + Maximum Pill -->
 				<div class="relative z-10 flex items-start justify-between">
@@ -216,27 +180,28 @@ import HugeIcon from "./HugeIcon.astro";
 				<!-- Middle: Exact Content with Site-Consistent Typography -->
 				<div class="relative z-10 my-auto py-2">
 					<p class="meta text-slate-800/80">
-						Indicative central subsidy
+						Combined solar subsidy
 					</p>
 					<h3 class="display mt-1 text-[2.6rem] sm:text-[2.85rem] text-slate-950">
-						Up to ₹78,000
+						₹1,00,000
 					</h3>
-					<p class="mt-1 text-[11px] text-slate-800">
-						For eligible residential installations
-					</p>
+					<div class="mt-1.5 inline-flex items-center gap-1.5 rounded-full bg-white/70 px-2.5 py-0.5 shadow-sm">
+						<span class="text-[11.5px] font-semibold text-slate-950">₹78,000 + ₹22,000</span>
+						<span class="text-[10px] text-slate-700 font-normal">(Central + TN State)</span>
+					</div>
 				</div>
 
 				<!-- Bottom: Capacity & Copy with prominent wave background matching reference -->
 				<div class="relative z-10 mt-auto pt-2">
-					<div class="border-t border-slate-900/15 pt-3">
+					<div>
 						<div class="flex items-baseline justify-between gap-3">
 							<p class="text-[14px] font-medium text-slate-950">
-								3 kW & above
+								3 kW and above
 							</p>
-							<span class="meta text-slate-700">System</span>
+							<span class="meta text-slate-700">Solar System</span>
 						</div>
 						<p class="mt-2 text-[12px] leading-[1.7] text-slate-900/90">
-							The maximum central support band for eligible residential installations.
+							Maximum combined subsidy for eligible residential installations, subject to applicable government guidelines, eligibility criteria and state subsidy availability.
 						</p>
 					</div>
 				</div>
@@ -284,37 +249,5 @@ import HugeIcon from "./HugeIcon.astro";
 				</div>
 			</div>
 		</div>
-
-		<!-- Bottom Action Bar with 100% Exact User Text -->
-		<div
-			class="mt-12 flex flex-col gap-6 rounded-2xl border border-ink/15 bg-[#faf8f5] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7"
-		>
-			<div class="flex items-start gap-3.5">
-				<span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-yellow/15 text-ink">
-					<HugeIcon name="shield" class="h-5 w-5" />
-				</span>
-				<div>
-					<p class="text-[14px] font-medium text-ink">
-						We handle eligibility, application and documentation.
-					</p>
-					<p class="mt-0.5 text-[12px] leading-relaxed text-body">
-						Subsidy is subject to approval and current scheme guidelines; amounts are indicative.
-					</p>
-				</div>
-			</div>
-
-			<button
-				type="button"
-				class="btn-primary shrink-0 self-start sm:self-auto"
-				data-open-lead-dialog
-			>
-				Check my eligibility
-				<HugeIcon name="arrowRight" class="h-4 w-4" />
-			</button>
-		</div>
-
-		<p class="mt-4 text-[10.5px] leading-relaxed text-muted">
-			*Subsidy is subject to eligibility, approval and applicable scheme guidelines. Figures are indicative and may change.
-		</p>
 	</div>
 </section>
