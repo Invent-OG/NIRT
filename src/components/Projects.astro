@@ -51,7 +51,7 @@ const projects = [
 			<p class="meta text-white/30">05 / Projects</p>
 		</div>
 
-		<div class="mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+		<div class="reveal mt-12 flex flex-col gap-7 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
 			<h2 class="display max-w-[700px] text-[2.6rem] leading-[0.98] text-white sm:text-[3.4rem] lg:text-[4.2rem]">
 				Real projects. Measurable capacity.
 			</h2>
@@ -68,7 +68,7 @@ const projects = [
 		</div>
 
 		<div class="mt-11 grid gap-4 lg:grid-cols-12">
-			<article class="group relative isolate flex min-h-[420px] flex-col justify-end overflow-hidden rounded-2xl sm:rounded-3xl bg-teal p-6 sm:min-h-[520px] sm:p-8 lg:col-span-7 lg:min-h-[590px]">
+			<article class="reveal group relative isolate flex min-h-[420px] flex-col justify-end overflow-hidden rounded-2xl sm:rounded-3xl bg-teal p-6 sm:min-h-[520px] sm:p-8 lg:col-span-7 lg:min-h-[590px]">
 				<img
 					src={projects[0].image}
 					alt={projects[0].alt}
@@ -112,8 +112,11 @@ const projects = [
 
 			<div class="grid gap-4 lg:col-span-5">
 				{
-					projects.slice(1).map((project) => (
-						<article class="group relative isolate flex min-h-[270px] flex-col justify-end overflow-hidden rounded-2xl bg-teal p-5 text-white sm:min-h-[286px] sm:p-6">
+					projects.slice(1).map((project, idx) => (
+						<article
+							class="reveal group relative isolate flex min-h-[270px] flex-col justify-end overflow-hidden rounded-2xl bg-teal p-5 text-white sm:min-h-[286px] sm:p-6"
+							style={`transition-delay: ${(idx + 1) * 80}ms;`}
+						>
 							<img
 								src={project.image}
 								alt={project.alt}

@@ -659,19 +659,52 @@ dialog.lead-dialog[open]::backdrop {
 	}
 }
 
-/* Scroll reveal */
+/* Scroll reveal with Blur-In-Up text animation */
 @media (prefers-reduced-motion: no-preference) {
 	.js .reveal {
 		opacity: 0;
+		filter: blur(6px);
 		transform: translateY(22px);
 		transition:
-			opacity 760ms ease,
+			opacity 760ms cubic-bezier(0.22, 1, 0.36, 1),
+			filter 760ms cubic-bezier(0.22, 1, 0.36, 1),
 			transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+		will-change: opacity, transform, filter;
 	}
 
 	.js .reveal.is-visible {
 		opacity: 1;
+		filter: blur(0px);
 		transform: none;
+	}
+
+	/* Text blurInUp keyframes */
+	@keyframes blurInUp {
+		0% {
+			opacity: 0;
+			filter: blur(8px);
+			transform: translateY(16px);
+		}
+		100% {
+			opacity: 1;
+			filter: blur(0px);
+			transform: translateY(0);
+		}
+	}
+
+	.js h1.reveal.is-visible:not(#hero-heading),
+	.js h2.reveal.is-visible,
+	.js h3.reveal.is-visible,
+	.js .reveal.is-visible .display:not(#hero-heading),
+	.js .reveal.is-visible h1:not(#hero-heading),
+	.js .reveal.is-visible h2,
+	.js .reveal.is-visible h3 {
+		animation: blurInUp 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+	}
+
+	.js p.reveal.is-visible,
+	.js .reveal.is-visible p {
+		animation: blurInUp 720ms cubic-bezier(0.22, 1, 0.36, 1) 100ms both;
 	}
 
 	.scribble-animate {
