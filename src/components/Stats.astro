@@ -42,8 +42,8 @@ const stats = [
 						]}
 					>
 						<dt class="meta mt-3 text-white/40">{stat.label}</dt>
-						<dd class="stat-number flex items-baseline gap-1 text-[3rem] leading-none text-white sm:text-[3.8rem] lg:text-[4.1rem]">
-							{stat.value}
+						<dd class="stat-number tabular-nums flex items-baseline gap-1 text-[3rem] leading-none text-white sm:text-[3.8rem] lg:text-[4.1rem]">
+							<span data-stat-ticker={stat.value}>{stat.value}</span>
 							{stat.suffix && <span class="text-[1.3rem] text-yellow">{stat.suffix}</span>}
 							<span class="ml-1 font-sans text-[0.8rem] font-normal tracking-[0.02em] text-white/45">
 								{stat.unit}
@@ -60,3 +60,92 @@ const stats = [
 		</p>
 	</div>
 </section>
+
+<script>
+	const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (!prefersReducedMotion) {
+		const tickerElements = document.querySelectorAll<HTMLElement>("[data-stat-ticker]");
+
+		const animateTicker = (el: HTMLElement) => {
+			const rawVal = el.getAttribute("data-stat-ticker") || "";
+			const isRange = rawVal.includes("–") || rawVal.includes("-");
+
+			if (isRange) {
+				const separator = rawVal.includes("–") ? "–" : "-";
+				const parts = rawVal.split(separator);
+				const targetStart = parseFloat(parts[0]) || 0;
+				const targetEnd = parseFloat(parts[1]) || 0;
+
+				const duration = 1800; // ms
+				const startTime = performance.now();
+
+				const update = (now: number) => {
+					const elapsed = now - startTime;
+					const progress = Math.min(elapsed / duration, 1);
+					// Smooth cubic ease out
+					const ease = 1 - Math.pow(1 - progress, 3);
+
+					const currentStart = Math.round(targetStart * ease);
+					const currentEnd = Math.round(targetEnd * ease);
+
+					el.textContent = `${currentStart}${separator}${currentEnd}`;
+
+					if (progress < 1) {
+						requestAnimationFrame(update);
+					} else {
+						el.textContent = rawVal;
+					}
+				};
+
+				requestAnimationFrame(update);
+			} else {
+				const target = parseFloat(rawVal) || 0;
+				const duration = 1800; // ms
+				const startTime = performance.now();
+
+				const update = (now: number) => {
+					const elapsed = now - startTime;
+					const progress = Math.min(elapsed / duration, 1);
+					// Smooth cubic ease out
+					const ease = 1 - Math.pow(1 - progress, 3);
+
+					const current = Math.round(target * ease);
+					el.textContent = String(current);
+
+					if (progress < 1) {
+						requestAnimationFrame(update);
+					} else {
+						el.textContent = rawVal;
+					}
+				};
+
+				requestAnimationFrame(update);
+			}
+		};
+
+		const observer = new IntersectionObserver(
+			(entries, obs) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const el = entry.target as HTMLElement;
+						animateTicker(el);
+						obs.unobserve(el);
+					}
+				});
+			},
+			{ threshold: 0.25 }
+		);
+
+		tickerElements.forEach((el) => {
+			const rawVal = el.getAttribute("data-stat-ticker") || "";
+			if (rawVal.includes("–") || rawVal.includes("-")) {
+				const sep = rawVal.includes("–") ? "–" : "-";
+				el.textContent = `0${sep}0`;
+			} else {
+				el.textContent = "0";
+			}
+			observer.observe(el);
+		});
+	}
+</script>
