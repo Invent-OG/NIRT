@@ -42,7 +42,7 @@ const socials: { label: string; href: string; icon: IconName }[] = [
 ];
 ---
 
-<footer id="contact" class="relative overflow-hidden bg-navy text-white">
+<footer id="contact" class="curtain-footer relative z-0 overflow-hidden bg-navy text-white">
 	<div class="container-page relative pt-16 lg:pt-20">
 		<div
 			class="flex items-center justify-between gap-4 border-b border-white/15 pb-4"
@@ -261,3 +261,13 @@ const socials: { label: string; href: string; icon: IconName }[] = [
 
 	<div class="h-20 sm:hidden"></div>
 </footer>
+
+<style>
+	@media (min-width: 1024px) and (min-height: 560px) {
+		.curtain-footer {
+			position: sticky;
+			bottom: 0;
+			z-index: 0;
+		}
+	}
+</style>
